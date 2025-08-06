@@ -1,1 +1,15 @@
-/.quarto/
+# Quarto output folder
+_site/
+
+# Quarto metadata and cache
+.quarto/
+.Rhistory
+.RData
+.Rproj.user/
+
+# Temporary / cache files
+*.log
+*.tmp
+*.cache/
+.DS_Store
+Thumbs.db
