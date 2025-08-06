@@ -15,3 +15,5 @@ _site/
 *.cache/
 .DS_Store
 Thumbs.db
+
+/.quarto/
