@@ -1,13 +1,15 @@
-# Quarto output folder
+# Quarto build output
 _site/
 
-# Quarto metadata and cache
+# Quarto cache and metadata
 .quarto/
+
+# R session history
 .Rhistory
 .RData
 .Rproj.user/
 
-# Temporary / cache files
+# Temporary / OS files
 *.log
 *.tmp
 *.cache/
