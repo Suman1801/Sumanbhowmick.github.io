@@ -34,8 +34,6 @@ The site contains:
 
 \- \*\*GitHub Actions\*\* for automated deployment
 
-\- \*\*GitHub Pages\*\* for hosting
-
 
 
 \## 📬 Contact
