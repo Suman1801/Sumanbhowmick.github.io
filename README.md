@@ -1,4 +1,4 @@
-\# 🌍 Suman Bhowmick – Academic Portfolio
+# 🌍 Suman Bhowmick – Academic Portfolio
 
 
 
@@ -6,41 +6,41 @@ This is my personal academic portfolio built with \[Quarto](https://quarto.org/)
 
 
 
-🔗 \*\*Live site:\*\* \[https://Suman1801.github.io/suman-portfolio/](https://Suman1801.github.io/suman-portfolio/)
+🔗 **Live site:** [https://Suman1801.github.io/suman-portfolio/](https://Suman1801.github.io/suman-portfolio/)
 
 
 
-\## 📜 Overview
+## 📜 Overview
 
 The site contains:
 
-\- Research publications and projects
+- Research publications and projects
 
-\- Technical work in R, Python, GIS, and Google Earth Engine
+- Technical work in R, Python, GIS, and Google Earth Engine
 
-\- Academic blog posts
+- Academic blog posts
 
-\- About me \& CV
-
-
-
-\## 🛠️ Technology
-
-\- \*\*Quarto\*\* for site generation
-
-\- \*\*R\*\* \& \*\*Python\*\* for data analysis
-
-\- \*\*HTML/CSS\*\* for styling
-
-\- \*\*GitHub Actions\*\* for automated deployment
+- About me \& CV
 
 
 
-\## 📬 Contact
+## 🛠️ Technology
 
-\- \*\*GitHub:\*\* \[Suman1801](https://github.com/Suman1801)
+- **Quarto** for site generation
 
-\- \*\*LinkedIn:\*\* \[Suman Bhowmick](https://www.linkedin.com/in/suman-bhowmick)
+- **R** & **Python** for data analysis
+
+- **HTML/CSS** for styling
+
+- **GitHub Actions** for automated deployment
+
+
+
+## 📬 Contact
+
+- **GitHub:** [Suman1801](https://github.com/Suman1801)
+
+- **LinkedIn:** [Suman Bhowmick](https://www.linkedin.com/in/suman-bhowmick)
 
 
 
