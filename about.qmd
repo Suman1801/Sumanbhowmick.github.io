@@ -1,0 +1,38 @@
+---
+title: "About Me"
+format:
+  html:
+    toc: true
+    number-sections: false
+---
+
+# 👨‍🎓 About Me
+
+Hi, I'm **Suman Bhowmick**, a researcher in Geography with a strong interest in geospatial analysis, watershed modeling, land use change, and environmental sustainability. My work integrates GIS, remote sensing, and machine learning for landscape and hydrological assessments.
+
+---
+
+## 🎓 Academic Qualifications
+
+### M.A./M.Sc in Geography  
+**North-Eastern Hill University (NEHU), Shillong**  
+_2022–2024_  
+**CGPA:** 8.00  
+
+### B.Sc in Geography  
+**Acharya Prafulla Chandra College, New Barrackpur**  
+_2019–2022_  
+**CGPA:** 8.46  
+
+---
+
+
+## 📬 Contact
+
+📧 **Email:** [sumanbhowmick768@gmail.com](mailto:sumanbhowmick768@gmail.com)  
+📱 **Phone:** +91-8509647380  
+🔗 **LinkedIn:** [linkedin.com/in/suman-bhowmick](https://www.linkedin.com/in/suman-bhowmick)  
+🐱 **GitHub:** [github.com/Suman1801](https://github.com/Suman1801)  
+📊 **Kaggle:** [kaggle.com/suman1801](https://www.kaggle.com/suman1801)
+
+---

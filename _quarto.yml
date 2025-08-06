@@ -1,0 +1,77 @@
+project:
+  type: website
+  resources: 
+   - gis-projects/mizoram-population/style.css
+   - python-projects/road-network/**
+   
+  output-dir: docs
+
+website:
+  title: "Suman Bhowmick"
+  description: "Geographer | Researcher | Watershed Modeling | Soil Erosion | LULC Analysis"
+  site-url: "https://Suman1801.github.io/suman-portfolio"
+  repo-url: "https://github.com/Suman1801/suman-portfolio"
+
+  navbar:
+    background: primary
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Research"
+        menu:
+          - text: "Publications"
+            href: publications.qmd
+          - text: "Projects"
+            href: projects.qmd
+          - text: "Blog"
+            href: posts.qmd
+      - text: "Technical"
+        menu:
+          - text: "R Programming"
+            href: r-codes.qmd
+          - text: "GIS Projects"
+            href: gis-projects.qmd
+          - text: "Python Scripts"
+            href: python-scripts.qmd
+          - text: "Google Earth Engine"
+            href: gee.qmd 
+      - text: "About"
+        href: about.qmd
+    right:
+      - text: "CV"
+        href: files/suman-cv.pdf
+      - icon: github
+        href: https://github.com/Suman1801
+        target: _blank
+      - icon: linkedin
+        href: https://www.linkedin.com/in/suman-bhowmick
+        target: _blank
+      - icon: rss
+        href: posts.xml
+        target: _blank
+
+  page-footer: 
+    right:
+      - icon: github
+        href: https://github.com/Suman1801
+        target: _blank
+      - icon: linkedin
+        href: https://www.linkedin.com/in/suman-bhowmick
+        target: _blank
+      - icon: rss
+        href: posts.xml
+        target: _blank
+
+  search:
+    location: navbar
+    type: textbox
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true
+    page-layout: full
+    code-copy: true
+    footnotes-hover: true
+    fig-align: center

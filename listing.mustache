@@ -1,0 +1,15 @@
+<div class="custom-card">
+  <h3 class="card-title">{{ title }}</h3>
+
+  {{#image}}
+    <img src="{{ image }}" alt="{{ title }}" class="card-image">
+  {{/image}}
+
+  {{#description}}
+    <p class="card-description">{{ description }}</p>
+  {{/description}}
+
+  {{#href}}
+    <a href="{{ href }}" class="card-button">View Details</a>
+  {{/href}}
+</div>
