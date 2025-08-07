@@ -9,11 +9,15 @@ _site/
 .RData
 .Rproj.user/
 
+_extensions/
+
+
 # Temporary / OS files
 *.log
 *.tmp
 *.cache/
 .DS_Store
 Thumbs.db
+
 
 /.quarto/
