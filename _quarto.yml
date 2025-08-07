@@ -3,6 +3,7 @@ project:
   resources: 
    - gis-projects/mizoram-population/**
    - python-projects/road-network/**
+   - files/images/Suman_.jpg
    
   output-dir: _site/
 

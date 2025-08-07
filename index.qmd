@@ -1,28 +1,38 @@
 ---
-title: "Suman Bhowmick"
-image: files/images/Suman_.jpg
+#title: "Suman Bhowmick"
 format:
   html:
     page-layout: full
+    toc: false
 ---
 
-<img src="files/images/Suman_.jpg" alt="Suman Bhowmick" width="160" style="border-radius: 50%; margin-bottom: 1rem;">
+:::{.container .d-flex .flex-wrap .align-items-start .gap-4 .mt-4}
 
-# 👋 Welcome!
+::: {.flex-fill style="max-width: 320px;"}
+![](files/images/Suman_.jpg){style="width: 100%; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); object-fit: cover;"}
+:::
 
-Hi! I'm **Suman Bhowmick**, a geographer with a keen interest in:
+::: {.flex-fill}
 
-- Hydrology, groundwater  
-- Watershed and hydrological modelling  
-- River course changes, and sediment transport  
-- ML/DL (Google Earth Engine, Python, R)  
-- Agricultural geospatial modelling, climate–soil interactions  
+### 👋 Welcome!
 
-🔭 I'm currently working on:  
+Hi! I’m **Suman Bhowmick**, a geographer with a keen interest in:
+
+-  Hydrology, groundwater  
+-  Watershed and hydrological modelling  
+-  River course changes, sediment transport  
+-  ML/DL (Google Earth Engine, Python, R)  
+-  Agricultural geospatial modelling, climate–soil interactions  
+
+###  Current Research
+
 *Remote Sensing Application for Flood Hazard Assessment: A Study in the Lower Gangetic Plain of West Bengal*
 
-📍 **Barasath, West Bengal, India**
+### 📍 Location
 
-<blockquote>
-  "Geography is the stage on which the drama of humanity unfolds — I decode it with data."
-</blockquote>
+**📌 Barasat, West Bengal, India**
+
+> *“Geography is the stage on which the drama of humanity unfolds — I decode it with data.”*
+
+:::
+:::
