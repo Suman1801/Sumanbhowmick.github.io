@@ -19,6 +19,10 @@ Hi! I'm **Suman Bhowmick**, a geographer with a keen interest in:
 - Agricultural geospatial modelling, climate–soil interactions  
 
 🔭 I'm currently working on:  
-*Spatial Modelling of Soil Degradation and Its Impact on Agricultural Sustainability in the Lower Ganga Delta*
+*Remote Sensing Application for Flood Hazard Assessment: A Study in the Lower Gangetic Plain of West Bengal*
 
 📍 **Barasath, West Bengal, India**
+
+<blockquote>
+  "Geography is the stage on which the drama of humanity unfolds — I decode it with data."
+</blockquote>
