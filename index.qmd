@@ -1,12 +1,12 @@
 ---
 title: "Suman Bhowmick"
-image: files/images/suman.jpg
+image: files/images/Suman_.jpg
 format:
   html:
     page-layout: full
 ---
 
-<img src="files/images/suman.jpg" alt="Suman Bhowmick" width="160" style="border-radius: 50%; margin-bottom: 1rem;">
+<img src="files/images/Suman_.jpg" alt="Suman Bhowmick" width="160" style="border-radius: 50%; margin-bottom: 1rem;">
 
 # 👋 Welcome!
 
