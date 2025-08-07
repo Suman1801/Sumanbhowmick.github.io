@@ -1,8 +1,6 @@
-Sure! Here's the full `README.md` content with your correct website URL. You can \*\*copy and paste\*\* this directly into your `README.md` file:
+---
 
 
-
-````markdown
 
 \#  Suman Bhowmick's Portfolio
 
