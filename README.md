@@ -1,4 +1,4 @@
-\# Suman Bhowmick's Portfolio
+# Suman Bhowmick's Portfolio
 
 
 
@@ -6,7 +6,7 @@ Welcome to my personal portfolio website, built with \[Quarto](https://quarto.or
 
 
 
-🔗 \*\*Live Website\*\*: \[https://suman1801.github.io/Sumanbhowmick.github.io/](https://suman1801.github.io/Sumanbhowmick.github.io/)
+🔗 **Live Website**: [https://suman1801.github.io/Sumanbhowmick.github.io/](https://suman1801.github.io/Sumanbhowmick.github.io/)
 
 
 
@@ -14,7 +14,7 @@ Welcome to my personal portfolio website, built with \[Quarto](https://quarto.or
 
 
 
-\## 🔍 About This Site
+##  About This Site
 
 
 
@@ -22,35 +22,17 @@ This website showcases:
 
 
 
-\- My academic and research projects  
+- My academic and research projects  
 
-\- GIS and remote sensing-based works  
+- GIS and remote sensing-based works  
 
-\- Python and R-based data visualizations  
+- Python and R-based data visualizations  
 
-\- Publications and blog posts  
+- Publications and blog posts  
 
-\- Downloadable code samples  
+- Downloadable code samples  
 
-\- Interactive maps and notebooks  
-
-
-
----
-
-
-
-\## 🛠️ Built With
-
-
-
-\- \[Quarto](https://quarto.org/)
-
-\- Markdown \& Jupyter Notebooks
-
-\- HTML, CSS (minimal custom styling)
-
-\- GitHub Pages (`gh-pages` branch deployment)
+- Interactive maps and notebooks  
 
 
 
@@ -58,7 +40,25 @@ This website showcases:
 
 
 
-\## 🚀 How to Use This Portfolio Template
+## 🛠️ Built With
+
+
+
+- [Quarto](https://quarto.org/)
+
+- Markdown & Jupyter Notebooks
+
+- HTML, CSS (minimal custom styling)
+
+- GitHub Pages (`gh-pages` branch deployment)
+
+
+
+---
+
+
+
+##  How to Use This Portfolio Template
 
 
 
@@ -66,7 +66,7 @@ You can use this portfolio as a \*\*template to build your own academic or proje
 
 
 
-\### 1️⃣ Fork or Clone the Repo
+### 1️⃣ Fork or Clone the Repo
 
 
 
@@ -80,33 +80,33 @@ cd Sumanbhowmick.github.io
 
 
 
-\### 2️⃣ Install Quarto (if you don't have it)
+### 2️⃣ Install Quarto (if you don't have it)
 
 
 
-\* Download from: \[https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
+* Download from: \[https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
 
 
 
-\### 3️⃣ Customize Content
+### 3️⃣ Customize Content
 
 
 
-\* Edit the `.qmd` files in the root or `posts/`, `projects/`, etc.
+* Edit the `.qmd` files in the root or `posts/`, `projects/`, etc.
 
-\* Update your info in:
-
-
-
-&nbsp; \* `index.qmd` → homepage
-
-&nbsp; \* `about.qmd` → profile
-
-&nbsp; \* `\_quarto.yml` → site config and navigation
+* Update your info in:
 
 
 
-\### 4️⃣ Render the Site
+* `index.qmd` → homepage
+
+* `about.qmd` → profile
+
+* `\_quarto.yml` → site config and navigation
+
+
+
+### 4️⃣ Render the Site
 
 
 
@@ -118,7 +118,7 @@ quarto render
 
 
 
-\### 5️⃣ Preview Locally
+### 5️⃣ Preview Locally
 
 
 
@@ -134,11 +134,11 @@ Then open `http://localhost:4200` in your browser.
 
 
 
-\### 6️⃣ Deploy to GitHub Pages
+### 6️⃣ Deploy to GitHub Pages
 
 
 
-\#### Option A: Automatic (with GitHub Actions)
+#### Option A: Automatic (with GitHub Actions)
 
 
 
@@ -146,7 +146,7 @@ Push to your main branch — GitHub Actions will build and publish the site to t
 
 
 
-\#### Option B: Manual
+#### Option B: Manual
 
 
 
