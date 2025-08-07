@@ -1,8 +1,4 @@
----
-
-
-
-\#  Suman Bhowmick's Portfolio
+\# Suman Bhowmick's Portfolio
 
 
 
@@ -10,7 +6,7 @@ Welcome to my personal portfolio website, built with \[Quarto](https://quarto.or
 
 
 
-&nbsp;\*\*Live Website\*\*: \[https://suman1801.github.io/Sumanbhowmick.github.io/](https://suman1801.github.io/Sumanbhowmick.github.io/)
+🔗 \*\*Live Website\*\*: \[https://suman1801.github.io/Sumanbhowmick.github.io/](https://suman1801.github.io/Sumanbhowmick.github.io/)
 
 
 
@@ -18,23 +14,25 @@ Welcome to my personal portfolio website, built with \[Quarto](https://quarto.or
 
 
 
-\##  About This Site
+\## 🔍 About This Site
 
 
 
 This website showcases:
 
-\-  My academic and research projects
 
-\-  GIS and remote sensing-based works
 
-\-  Python and R-based data visualizations
+\- My academic and research projects  
 
-\-  Publications and blog posts
+\- GIS and remote sensing-based works  
 
-\-  Downloadable code samples
+\- Python and R-based data visualizations  
 
-\-  Interactive maps and notebooks
+\- Publications and blog posts  
+
+\- Downloadable code samples  
+
+\- Interactive maps and notebooks  
 
 
 
@@ -42,7 +40,7 @@ This website showcases:
 
 
 
-\##  Built With
+\## 🛠️ Built With
 
 
 
@@ -50,7 +48,7 @@ This website showcases:
 
 \- Markdown \& Jupyter Notebooks
 
-\- HTML, CSS (minimal custom)
+\- HTML, CSS (minimal custom styling)
 
 \- GitHub Pages (`gh-pages` branch deployment)
 
@@ -60,7 +58,7 @@ This website showcases:
 
 
 
-\##  How to Use This Portfolio Template
+\## 🚀 How to Use This Portfolio Template
 
 
 
