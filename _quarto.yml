@@ -39,15 +39,12 @@ website:
         href: about.qmd
     right:
       - text: "CV"
-        href: files/suman-cv.pdf
+        href: files/Cv_Suman.pdf
       - icon: github
         href: https://github.com/Suman1801
         target: _blank
       - icon: linkedin
         href: https://www.linkedin.com/in/suman-bhowmick
-        target: _blank
-      - icon: rss
-        href: posts.xml
         target: _blank
 
   page-footer: 
@@ -57,9 +54,6 @@ website:
         target: _blank
       - icon: linkedin
         href: https://www.linkedin.com/in/suman-bhowmick
-        target: _blank
-      - icon: rss
-        href: posts.xml
         target: _blank
 
   search:

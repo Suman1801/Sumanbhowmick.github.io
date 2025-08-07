@@ -1,182 +1,182 @@
-# Sure! Here's the full `README.md` content with your correct website URL. You can \*\*copy and paste\*\* this directly into your `README.md` file:
+Sure! Here's the full `README.md` content with your correct website URL. You can \*\*copy and paste\*\* this directly into your `README.md` file:
 
-# 
 
-# ````markdown
 
-# \#  Suman Bhowmick's Portfolio
+````markdown
 
-# 
+\#  Suman Bhowmick's Portfolio
 
-# Welcome to my personal portfolio website, built with \[Quarto](https://quarto.org/) — a modern, flexible scientific and academic publishing system.
 
-# 
 
-# &nbsp;\*\*Live Website\*\*: \[https://suman1801.github.io/Sumanbhowmick.github.io/](https://suman1801.github.io/Sumanbhowmick.github.io/)
+Welcome to my personal portfolio website, built with \[Quarto](https://quarto.org/) — a modern, flexible scientific and academic publishing system.
 
-# 
 
-# ---
 
-# 
+&nbsp;\*\*Live Website\*\*: \[https://suman1801.github.io/Sumanbhowmick.github.io/](https://suman1801.github.io/Sumanbhowmick.github.io/)
 
-# \##  About This Site
 
-# 
 
-# This website showcases:
+---
 
-# \-  My academic and research projects
 
-# \-  GIS and remote sensing-based works
 
-# \-  Python and R-based data visualizations
+\##  About This Site
 
-# \-  Publications and blog posts
 
-# \-  Downloadable code samples
 
-# \-  Interactive maps and notebooks
+This website showcases:
 
-# 
+\-  My academic and research projects
 
-# ---
+\-  GIS and remote sensing-based works
 
-# 
+\-  Python and R-based data visualizations
 
-# \##  Built With
+\-  Publications and blog posts
 
-# 
+\-  Downloadable code samples
 
-# \- \[Quarto](https://quarto.org/)
+\-  Interactive maps and notebooks
 
-# \- Markdown \& Jupyter Notebooks
 
-# \- HTML, CSS (minimal custom)
 
-# \- GitHub Pages (`gh-pages` branch deployment)
+---
 
-# 
 
-# ---
 
-# 
+\##  Built With
 
-# \##  How to Use This Portfolio Template
 
-# 
 
-# You can use this portfolio as a \*\*template to build your own academic or project website\*\*. Here's how:
+\- \[Quarto](https://quarto.org/)
 
-# 
+\- Markdown \& Jupyter Notebooks
 
-# \### 1️⃣ Fork or Clone the Repo
+\- HTML, CSS (minimal custom)
 
-# 
+\- GitHub Pages (`gh-pages` branch deployment)
 
-# ```bash
 
-# git clone https://github.com/Suman1801/Sumanbhowmick.github.io.git
 
-# cd Sumanbhowmick.github.io
+---
 
-# ````
 
-# 
 
-# \### 2️⃣ Install Quarto (if you don't have it)
+\##  How to Use This Portfolio Template
 
-# 
 
-# \* Download from: \[https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
 
-# 
+You can use this portfolio as a \*\*template to build your own academic or project website\*\*. Here's how:
 
-# \### 3️⃣ Customize Content
 
-# 
 
-# \* Edit the `.qmd` files in the root or `posts/`, `projects/`, etc.
+\### 1️⃣ Fork or Clone the Repo
 
-# \* Update your info in:
 
-# 
 
-# &nbsp; \* `index.qmd` → homepage
+```bash
 
-# &nbsp; \* `about.qmd` → profile
+git clone https://github.com/Suman1801/Sumanbhowmick.github.io.git
 
-# &nbsp; \* `\_quarto.yml` → site config and navigation
+cd Sumanbhowmick.github.io
 
-# 
+````
 
-# \### 4️⃣ Render the Site
 
-# 
 
-# ```bash
+\### 2️⃣ Install Quarto (if you don't have it)
 
-# quarto render
 
-# ```
 
-# 
+\* Download from: \[https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
 
-# \### 5️⃣ Preview Locally
 
-# 
 
-# ```bash
+\### 3️⃣ Customize Content
 
-# quarto preview
 
-# ```
 
-# 
+\* Edit the `.qmd` files in the root or `posts/`, `projects/`, etc.
 
-# Then open `http://localhost:4200` in your browser.
+\* Update your info in:
 
-# 
 
-# \### 6️⃣ Deploy to GitHub Pages
 
-# 
+&nbsp; \* `index.qmd` → homepage
 
-# \#### Option A: Automatic (with GitHub Actions)
+&nbsp; \* `about.qmd` → profile
 
-# 
+&nbsp; \* `\_quarto.yml` → site config and navigation
 
-# Push to your main branch — GitHub Actions will build and publish the site to the `gh-pages` branch.
 
-# 
 
-# \#### Option B: Manual
+\### 4️⃣ Render the Site
 
-# 
 
-# ```bash
 
-# quarto publish gh-pages
+```bash
 
-# ```
+quarto render
 
-# 
+```
 
-# ---
 
-# \## 🙋‍♂️ Contact
 
-# 
+\### 5️⃣ Preview Locally
 
-# If you found this useful or want to collaborate, feel free to reach out!
 
-# 
 
-# 📧 Email: \\\[sumanbhowmick768@gmail.com]
+```bash
 
-# 🔗 LinkedIn: \\\[www.linkedin.com/in/suman-bhowmick]
+quarto preview
 
-# 
+```
 
-# ```
+
+
+Then open `http://localhost:4200` in your browser.
+
+
+
+\### 6️⃣ Deploy to GitHub Pages
+
+
+
+\#### Option A: Automatic (with GitHub Actions)
+
+
+
+Push to your main branch — GitHub Actions will build and publish the site to the `gh-pages` branch.
+
+
+
+\#### Option B: Manual
+
+
+
+```bash
+
+quarto publish gh-pages
+
+```
+
+
+
+---
+
+\## 🙋‍♂️ Contact
+
+
+
+If you found this useful or want to collaborate, feel free to reach out!
+
+
+
+📧 Email: \\\[sumanbhowmick768@gmail.com]
+
+🔗 LinkedIn: \\\[www.linkedin.com/in/suman-bhowmick]
+
+
+
+```
 
