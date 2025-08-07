@@ -1,10 +1,10 @@
 project:
   type: website
   resources: 
-   - gis-projects/mizoram-population/style.css
+   - gis-projects/mizoram-population/**
    - python-projects/road-network/**
    
-  output-dir: docs
+  output-dir: _site/
 
 website:
   title: "Suman Bhowmick"

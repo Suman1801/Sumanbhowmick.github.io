@@ -1,0 +1,24 @@
+---
+title: "Suman Bhowmick"
+image: files/images/suman.jpg
+format:
+  html:
+    page-layout: full
+---
+
+<img src="files/images/suman.jpg" alt="Suman Bhowmick" width="160" style="border-radius: 50%; margin-bottom: 1rem;">
+
+# 👋 Welcome!
+
+Hi! I'm **Suman Bhowmick**, a geographer with a keen interest in:
+
+- Hydrology, groundwater  
+- Watershed and hydrological modelling  
+- River course changes, and sediment transport  
+- ML/DL (Google Earth Engine, Python, R)  
+- Agricultural geospatial modelling, climate–soil interactions  
+
+🔭 I'm currently working on:  
+*Spatial Modelling of Soil Degradation and Its Impact on Agricultural Sustainability in the Lower Ganga Delta*
+
+📍 **Barasath, West Bengal, India**

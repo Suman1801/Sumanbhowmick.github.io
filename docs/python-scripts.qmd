@@ -1,0 +1,135 @@
+---
+format:
+  html:
+    toc: false
+page-layout: full
+anchor-sections: false
+sidebar: false
+---
+
+
+:::{.py-header}
+:::{.py-header-content}
+<h2>PYTHON PROJECTS</h2>
+<p>A selection of Python-based data science and geospatial applications.</p>
+<p>Each project combines clean code, visualizations, and analytical depth.</p>
+:::
+:::
+
+:::{.project-grid}
+
+::: {.project-card}
+### Road Networks
+
+![](python-projects/road-network/thumb.jpg)
+
+<p class="card-description">
+  Visualisation of urban road networks for four major Indian cities using OSMnx and Matplotlib. Highlights spatial morphology through minimalist mapping
+</p>
+
+<div class="card-footer">
+  [View More Details](python-projects/road-network/road.html){.view-button}
+</div>
+:::
+
+
+
+:::
+
+<style>
+.py-header {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: linear-gradient(to top, #d6d5f0, #ffffff);
+  padding: 3rem 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.py-header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  color: 1b5e20;
+}
+
+.py-header-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 700px;
+  padding: 1.5rem;
+  background: linear-gradient(to bottom right, #ffffff, #f4f4f4);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  width: 320px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card h3 {
+  font-family: Geneva, Tahoma, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.project-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.card-footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.view-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #6a1b9a;
+  color: white !important;
+  padding: 0.6rem 0;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.view-button:hover {
+  background: #4a148c;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+</style>

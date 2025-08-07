@@ -1,0 +1,141 @@
+---
+format:
+  html:
+    toc: false
+page-layout: full
+anchor-sections: false
+sidebar: false
+---
+
+
+:::{.r-header}
+:::{.r-header-content}
+<h2>R programming</h2>
+<p>This section presents R-powered statistical and geospatial workflows.</p>
+<p>Focusing on reproducibility, data wrangling, and elegant visualization.</p>
+:::
+:::
+
+:::{.project-grid}
+
+
+::: {.project-card}
+### NDVI & Crop Productivity coming soon..
+
+![](r-codes/ndvi-crop/thumb.png)
+
+<p class="card-description">
+  Regression-based modeling of NDVI and yield metrics using R’s caret and ggplot2.
+</p>
+
+<div class="card-footer">
+  [View More Details](r-codes/ndvi-crop/index.html){.view-button}
+</div>
+:::
+
+:::
+
+<style>
+/* HEADER SECTION */
+.r-header {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: linear-gradient(to top, #d0ede0, #ffffff); /* soft mint green fade */
+  padding: 3rem 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.r-header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.r-header-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1b5e20;
+  margin-bottom: 1rem;
+}
+
+/* PROJECT CARD GRID */
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+/* CARD STYLE */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 700px;
+  padding: 1.5rem;
+  background:  transparent;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  width: 30%;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card h3 {
+  font-family: "Segoe UI", Geneva, Tahoma, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a3e2f;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* IMAGE STYLING */
+.project-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+
+/* CARD TEXT */
+.card-description {
+  font-size: 1rem;
+  color: #2e473d;
+  text-align: center;
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* HOVER EFFECT */
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* FOOTER / BUTTON */
+.card-footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.view-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #388e3c; /* strong green */
+  color: white !important;
+  padding: 0.6rem 0;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.view-button:hover {
+  background: #2e7d32;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+</style>
