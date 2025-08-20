@@ -1,0 +1,194 @@
+/* ==========================
+   GLOBAL STYLES
+   ========================== */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #222;
+  background-color: #f9fafb;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* ==========================
+   HERO SECTION
+   ========================== */
+.hero {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+  padding: 5rem 1rem 3rem 1rem;
+  text-align: center;
+  animation: fadeIn 1s ease-in;
+  border-bottom: 3px solid #0ea5e9;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.hero nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+
+.hero nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================
+   SECTIONS
+   ========================== */
+section {
+  padding: 3rem 0;
+}
+
+.overview-section {
+  background: #f8fafc; /* very light grey/blue background */
+  color: #0f172a;
+  text-align: center;
+  border-top: 2px solid #e2e8f0;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.overview-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #0ea5e9; /* accent blue */
+}
+
+.overview-section p {
+  font-size: 1.3rem;
+  max-width: 850px;
+  margin: 1rem auto;
+  line-height: 1.9;
+}
+
+.content-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.1rem;
+  color: #0f172a;
+  border-left: 5px solid #0ea5e9;
+  padding-left: 0.5rem;
+}
+
+.project-details {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.project-details li {
+  margin-bottom: 0.6rem;
+}
+
+/* ==========================
+   IMAGES
+   ========================== */
+img {
+  max-width: 800px;   /* standard size for single visuals */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 2.5rem auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+.image-caption {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #334155;
+  margin-top: -0.5rem;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================
+   SIDE-BY-SIDE VISUALS
+   ========================== */
+.side-by-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem; /* more gap between visuals */
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.side-by-side img {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.side-by-side p {
+  text-align: center;
+  font-size: 1.1rem;  /* bigger caption */
+  font-weight: 500;
+  margin-top: 0.8rem;
+  color: #334155;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .side-by-side {
+    grid-template-columns: 1fr; /* stack vertically */
+  }
+}
+
+/* ==========================
+   FOOTER
+   ========================== */
+footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+/* ==========================
+   ANIMATIONS
+   ========================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
