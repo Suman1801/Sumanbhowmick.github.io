@@ -4,7 +4,8 @@ project:
    - gis-projects/mizoram-population/**
    - python-projects/road-network/**
    - files/**
-   
+   - gee-projects/cloud-masking/**
+
   output-dir: _site/
 
 website:
