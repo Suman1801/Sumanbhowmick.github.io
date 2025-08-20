@@ -15,10 +15,8 @@ sidebar: false
 :::
 :::
 
+
 :::{.project-grid}
-
-
-
 
 :::{.project-card}
 ### Sentinel-2 Cloud Masking: QA60 vs CloudScore+
@@ -29,11 +27,13 @@ sidebar: false
 Comparative analysis of Sentinel-2 cloud masking approaches (QA60 vs CloudScore+) using Google Earth Engine for imagery over Barasat, India.
 </p>
 
-::: {.card-footer}
+:::{.card-footer}
 [View More Details](gee-projects/cloud-masking/index.html){.view-button}
 :::
 
 :::
+:::
+
 
 
 
