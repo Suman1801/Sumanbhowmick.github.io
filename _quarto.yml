@@ -5,7 +5,7 @@ project:
    - python-projects/road-network/**
    - files/**
    - gee-projects/cloud-masking/**
-
+   - gee-projects/**
   output-dir: _site/
 
 website:
