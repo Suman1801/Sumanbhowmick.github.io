@@ -21,20 +21,19 @@ sidebar: false
 
 
 ::: {.project-card}
-### RUSLE Soil Erosion
+### Sentinel-2 Cloud Masking: QA60 vs CloudScore+
 
-![](gee-projects/rusle/thumb.png)
+![](gee-projects/cloud-masking/thumb.png)
 
 <p class="card-description">
-Soil erosion risk zones modeled using RUSLE with rainfall, topography, and land cover data.
+Comparative analysis of Sentinel-2 cloud masking approaches (QA60 vs CloudScore+) using Google Earth Engine for imagery over Barasat, India.
 </p>
 
 <div class="card-footer">
-  [View More Details](gee-projects/rusle/index.html){.view-button}
+  [View More Details](gee-projects/cloud-masking/index.html){.view-button}
 </div>
 :::
 
-:::
 
 <style>
 .gee-header {
