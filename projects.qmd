@@ -3,6 +3,125 @@ title: "Projects"
 format:
   html:
     toc: false
+page-layout: full
+anchor-sections: false
+sidebar: false
 ---
 
-Coming soon.
+:::{.project-grid}
+
+::: {.project-card}
+### Global Forest Monitoring App
+
+![](files/Screenshot.png)
+
+<p class="card-description">
+  An interactive web application built with <strong>Google Earth Engine</strong> that allows users 
+  to visualize and quantify forest change over time using the Hansen Global Forest Change dataset.
+</p>
+
+<ul>
+  <li> Visualize forest cover, loss, and gain globally.</li>
+  <li> Calculate statistics for a user-defined area of interest.</li>
+  <li> Compare imagery from different years with an interactive slider.</li>
+</ul>
+
+<div class="card-footer">
+  [🚀 Launch App](https://ee-sumanbhowmick768.projects.earthengine.app/view/global-forest-monitoring-app){.view-button target="_blank"}
+</div>
+:::
+
+:::
+
+<style>
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  padding: 1.5rem;
+  background: linear-gradient(to bottom right, #ffffff, #f4f4f4);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  width: 340px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card h3 {
+  font-family: Geneva, Tahoma, sans-serif;
+  font-size: 1.6rem;
+  margin-top: 0;
+  font-weight: 800;
+  color: #0a3d62;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  margin: 0.5rem 0 1rem 0;
+  flex-grow: 0;
+  line-height: 1.5;
+}
+
+.project-card ul {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+}
+
+.project-card li {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Push footer to bottom */
+.card-footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+/* Button styling */
+.view-button {
+  display: inline-block;
+  text-align: center;
+  background: #0a3d62;
+  color: white !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effect */
+.view-button:hover {
+  background: #05415c;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+</style>
