@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3b6ee8636be88510b4ed5a73013aefcf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-bfe2937805c616f1626527cf1746a37f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -183,23 +183,39 @@ An exploration of projects and concepts in the world of Geo-informatics, Remote 
 </div>
 </div>
 <div class="post-grid">
-<section id="from-the-field-to-the-map-the-critical-role-of-ground-truth" class="level3 post-card">
-<h3 data-anchor-id="from-the-field-to-the-map-the-critical-role-of-ground-truth">From the Field to the Map: The Critical Role of Ground Truth</h3>
-<p><img src="Blog\Field to the Map/IMG_2095.jpg" class="img-fluid"></p>
+<div class="post-card">
+<h3>
+From the Field to the Map: The Critical Role of Ground Truth
+</h3>
+<p><img src="Blog/Field-to-the-Map/IMG_2095.jpg" alt="Ground Truth blog image showing field data collection"></p>
 <p class="card-description">
 An in-depth look at why on-site data collection is the gold standard for training, validating, and ensuring the accuracy of any serious geospatial analysis.
 </p>
 <div class="card-footer">
-<p><a href="Blog\Field to the Map/ground-truth-post.html" class="view-button">View Full Post</a></p>
+<p><a href="Blog/Field-to-the-Map/ground-truth-post.html" class="view-button">View Full Post</a></p>
 </div>
-</section>
-<!-- TO ADD A NEW POST: Copy the entire ".post-card" block above and paste it here. Then, change the title, image, description, and link. -->
+</div>
+<!-- TO ADD A NEW POST:
+Copy the entire block below (from ::: {.post-card} to its closing :::),
+then update the <h3> title, <img> path, description, and href.
+Be sure to keep forward slashes in paths and avoid spaces in folder names.
+Example skeleton:
+
+:::{.post-card}
+<h3>Your Post Title</h3>
+<img src="Blog/Your-Post-Folder/thumbnail.jpg" alt="Short descriptive alt text" />
+<p class="card-description">One–two sentence summary of the post.</p>
+<div class="card-footer">
+  <a href="Blog/Your-Post-Folder/post.html" class="view-button">View Full Post</a>
+</div>
+:::
+-->
 </div>
 <style>
 .blog-header {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  background: linear-gradient(to top, #e0f2ff, #ffffff); /* Blue fade to white */
+  background: linear-gradient(to top, #e0f2ff, #ffffff);
   padding: 3rem 1rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
@@ -245,7 +261,7 @@ An in-depth look at why on-site data collection is the gold standard for trainin
 
 .post-card h3 {
   font-family: Geneva, Tahoma, sans-serif;
-  font-size: 1.5rem; /* Adjusted for blog titles */
+  font-size: 1.5rem;
   margin-top: 0;
   font-weight: 800;
   color: #0e5e6f;
@@ -256,7 +272,7 @@ An in-depth look at why on-site data collection is the gold standard for trainin
 
 .post-card img {
   width: 100%;
-  height: 200px; /* Adjusted height for blog thumbnails */
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 1.2rem;
@@ -267,11 +283,11 @@ An in-depth look at why on-site data collection is the gold standard for trainin
   color: #333;
   text-align: center;
   margin: 0.5rem 0 1rem 0;
-  flex-grow: 1; /* Allows description to fill space */
+  flex-grow: 1;
 }
 
 .card-footer {
-  margin-top: auto; /* Pushes button to the bottom */
+  margin-top: auto;
 }
 
 .view-button {
