@@ -30,8 +30,6 @@ format:
 </div>
 :::
 
-
-
 :::
 
 <!-- TO ADD A NEW POST:
