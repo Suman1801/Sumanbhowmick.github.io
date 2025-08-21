@@ -5,7 +5,7 @@ project:
    - python-projects/road-network/**
    - files/**
    - gee-projects/cloud-masking/**
-   - Blog\Field_to_the_Map/**
+   - Blog/Field_to_the_Map/**
   output-dir: _site/
 
 website:
@@ -13,6 +13,10 @@ website:
   description: "Geographer | Researcher | Watershed Modeling | Soil Erosion | LULC Analysis"
   site-url: "https://Suman1801.github.io/suman-portfolio"
   repo-url: "https://github.com/Suman1801/suman-portfolio"
+
+ search: 
+    location: navbar
+    type: textbox
 
   navbar:
     background: primary
