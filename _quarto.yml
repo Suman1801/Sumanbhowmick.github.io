@@ -6,6 +6,7 @@ project:
    - files/**
    - gee-projects/cloud-masking/**
    - Blog/Field-to-the-Map/**
+   - Blog/**
   output-dir: _site/
 
 website:

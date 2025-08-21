@@ -19,7 +19,7 @@ format:
 :::{.post-card}
 <h3>From the Field to the Map: The Critical Role of Ground Truth</h3>
 
-<img src="files/Thumb.jpg" >
+<img src="Blog/Field-to-the-Map/Thumb.jpg" >
 
 <p class="card-description">
   An in-depth look at why on-site data collection is the gold standard for training, validating, and ensuring the accuracy of any serious geospatial analysis.
