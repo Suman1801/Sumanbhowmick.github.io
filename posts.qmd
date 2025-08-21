@@ -19,17 +19,18 @@ format:
 :::{.post-card}
 <h3>From the Field to the Map: The Critical Role of Ground Truth</h3>
 
-<img src="/Blog/Field_to_the_Map/Thumb.jpg" alt="" />
-
+<img src="Blog/Field_to_the_Map/Thumb.jpg" alt="Ground truthing in geospatial research" />
 
 <p class="card-description">
-An in-depth look at why on-site data collection is the gold standard for training, validating, and ensuring the accuracy of any serious geospatial analysis.
+  An in-depth look at why on-site data collection is the gold standard for training, validating, and ensuring the accuracy of any serious geospatial analysis.
 </p>
 
 <div class="card-footer">
   <a href="Blog/Field_to_the_Map/ground-truth-post.html" class="view-button">View Full Post</a>
 </div>
 :::
+:::
+
 
 <!-- TO ADD A NEW POST:
 Copy the entire block below (from ::: {.post-card} to its closing :::),
