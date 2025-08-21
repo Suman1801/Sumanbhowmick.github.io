@@ -29,8 +29,8 @@ format:
   <a href="Blog/Field_to_the_Map/ground-truth-post.html" class="view-button">View Full Post</a>
 </div>
 :::
-:::
 
+:::
 
 <!-- TO ADD A NEW POST:
 Copy the entire block below (from ::: {.post-card} to its closing :::),
@@ -47,8 +47,6 @@ Example skeleton:
 </div>
 :::
 -->
-
-:::
 
 <style>
 .blog-header {
