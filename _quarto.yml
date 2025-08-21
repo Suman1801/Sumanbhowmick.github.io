@@ -5,7 +5,7 @@ project:
    - python-projects/road-network/**
    - files/**
    - gee-projects/cloud-masking/**
-   - gee-projects/**
+   - Blog\Field to the Map/**
   output-dir: _site/
 
 website:
@@ -58,9 +58,7 @@ website:
         href: https://www.linkedin.com/in/suman-bhowmick
         target: _blank
 
-  search:
-    location: navbar
-    type: textbox
+ 
 
 format:
   html:

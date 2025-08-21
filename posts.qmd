@@ -1,8 +1,137 @@
 ---
-title: "Posts"
 format:
   html:
     toc: false
+page-layout: full
+anchor-sections: false
+sidebar: false
 ---
 
-Coming soon...
+:::{.blog-header}
+:::{.blog-header-content}
+<h2>SUMAN'S GEOSPATIAL BLOG</h2>
+<p>An exploration of projects and concepts in the world of Geo-informatics, Remote Sensing, and Earth Observation.</p>
+:::
+:::
+
+
+:::{.post-grid}
+
+:::{.post-card}
+### From the Field to the Map: The Critical Role of Ground Truth
+
+![](Blog\Field to the Map/IMG_2095.jpg)
+
+<p class="card-description">
+An in-depth look at why on-site data collection is the gold standard for training, validating, and ensuring the accuracy of any serious geospatial analysis.
+</p>
+
+:::{.card-footer}
+[View Full Post](Blog\Field to the Map/ground-truth-post.html){.view-button}
+:::
+
+:::
+
+<!-- TO ADD A NEW POST: Copy the entire ".post-card" block above and paste it here. Then, change the title, image, description, and link. -->
+
+:::
+
+
+<style>
+.blog-header {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: linear-gradient(to top, #e0f2ff, #ffffff); /* Blue fade to white */
+  padding: 3rem 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.blog-header-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.blog-header-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a1f44;
+  margin-bottom: 1rem;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: linear-gradient(to bottom right, #ffffff, #f4f4f4);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.post-card h3 {
+  font-family: Geneva, Tahoma, sans-serif;
+  font-size: 1.5rem; /* Adjusted for blog titles */
+  margin-top: 0;
+  font-weight: 800;
+  color: #0e5e6f;
+  text-align: center;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.post-card img {
+  width: 100%;
+  height: 200px; /* Adjusted height for blog thumbnails */
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  margin: 0.5rem 0 1rem 0;
+  flex-grow: 1; /* Allows description to fill space */
+}
+
+.card-footer {
+  margin-top: auto; /* Pushes button to the bottom */
+}
+
+.view-button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #0e5e6f;
+  color: white !important;
+  padding: 0.75rem 0;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.view-button:hover {
+  background: #084c59;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+</style>
