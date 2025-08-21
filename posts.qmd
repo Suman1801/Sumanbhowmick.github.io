@@ -19,7 +19,7 @@ format:
 :::{.post-card}
 <h3>From the Field to the Map: The Critical Role of Ground Truth</h3>
 
-<img src="files/Thumb.jpg" alt="Ground truthing in geospatial research" />
+<img src="Blog/Field-to-the-Map/Thumb-Copy.jpg" alt="Ground truthing in geospatial research" />
 
 <p class="card-description">
   An in-depth look at why on-site data collection is the gold standard for training, validating, and ensuring the accuracy of any serious geospatial analysis.
@@ -40,7 +40,7 @@ format:
 </p>
 
 <div class="card-footer">
-  <a href="Blog/Urban_Growth/urban-growth-post.html" class="view-button">View Full Post</a>
+  <a href="Blog/Field-to-the-Map/ground-truth-post.html" class="view-button">View Full Post</a>
 </div>
 :::
 
