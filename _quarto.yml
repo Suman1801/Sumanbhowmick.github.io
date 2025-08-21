@@ -5,7 +5,7 @@ project:
    - python-projects/road-network/**
    - files/**
    - gee-projects/cloud-masking/**
-   - Blog\Field to the Map/**
+   - Blog\Field_to_the_Map/**
   output-dir: _site/
 
 website:
