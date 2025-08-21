@@ -2,9 +2,9 @@
 format:
   html:
     toc: false
-page-layout: full
-anchor-sections: false
-sidebar: false
+    page-layout: full
+    anchor-sections: false
+    sidebar: false
 ---
 
 :::{.blog-header}
@@ -14,34 +14,45 @@ sidebar: false
 :::
 :::
 
-
 :::{.post-grid}
 
 :::{.post-card}
-### From the Field to the Map: The Critical Role of Ground Truth
+<h3>From the Field to the Map: The Critical Role of Ground Truth</h3>
 
-![](Blog\Field to the Map/IMG_2095.jpg)
+<img src="Blog/Field-to-the-Map/IMG_2095.jpg" alt="Ground Truth blog image showing field data collection" />
 
 <p class="card-description">
 An in-depth look at why on-site data collection is the gold standard for training, validating, and ensuring the accuracy of any serious geospatial analysis.
 </p>
 
-:::{.card-footer}
-[View Full Post](Blog\Field to the Map/ground-truth-post.html){.view-button}
+<div class="card-footer">
+  <a href="Blog/Field-to-the-Map/ground-truth-post.html" class="view-button">View Full Post</a>
+</div>
 :::
 
+<!-- TO ADD A NEW POST:
+Copy the entire block below (from ::: {.post-card} to its closing :::),
+then update the <h3> title, <img> path, description, and href.
+Be sure to keep forward slashes in paths and avoid spaces in folder names.
+Example skeleton:
+
+:::{.post-card}
+<h3>Your Post Title</h3>
+<img src="Blog/Your-Post-Folder/thumbnail.jpg" alt="Short descriptive alt text" />
+<p class="card-description">One–two sentence summary of the post.</p>
+<div class="card-footer">
+  <a href="Blog/Your-Post-Folder/post.html" class="view-button">View Full Post</a>
+</div>
 :::
-
-<!-- TO ADD A NEW POST: Copy the entire ".post-card" block above and paste it here. Then, change the title, image, description, and link. -->
+-->
 
 :::
-
 
 <style>
 .blog-header {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  background: linear-gradient(to top, #e0f2ff, #ffffff); /* Blue fade to white */
+  background: linear-gradient(to top, #e0f2ff, #ffffff);
   padding: 3rem 1rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
@@ -87,7 +98,7 @@ An in-depth look at why on-site data collection is the gold standard for trainin
 
 .post-card h3 {
   font-family: Geneva, Tahoma, sans-serif;
-  font-size: 1.5rem; /* Adjusted for blog titles */
+  font-size: 1.5rem;
   margin-top: 0;
   font-weight: 800;
   color: #0e5e6f;
@@ -98,7 +109,7 @@ An in-depth look at why on-site data collection is the gold standard for trainin
 
 .post-card img {
   width: 100%;
-  height: 200px; /* Adjusted height for blog thumbnails */
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 1.2rem;
@@ -109,11 +120,11 @@ An in-depth look at why on-site data collection is the gold standard for trainin
   color: #333;
   text-align: center;
   margin: 0.5rem 0 1rem 0;
-  flex-grow: 1; /* Allows description to fill space */
+  flex-grow: 1;
 }
 
 .card-footer {
-  margin-top: auto; /* Pushes button to the bottom */
+  margin-top: auto;
 }
 
 .view-button {
