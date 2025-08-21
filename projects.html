@@ -34,7 +34,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -188,20 +187,127 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Coming soon.</p>
+<div class="project-grid">
+<section id="global-forest-monitoring-app" class="level3 project-card">
+<h3 data-anchor-id="global-forest-monitoring-app">Global Forest Monitoring App</h3>
+<p><img src="files/Screenshot.png" class="img-fluid"></p>
+<p class="card-description">
+An interactive web application built with <strong>Google Earth Engine</strong> that allows users to visualize and quantify forest change over time using the Hansen Global Forest Change dataset.
+</p>
+<ul>
+<li>
+Visualize forest cover, loss, and gain globally.
+</li>
+<li>
+Calculate statistics for a user-defined area of interest.
+</li>
+<li>
+Compare imagery from different years with an interactive slider.
+</li>
+</ul>
+<div class="card-footer">
+<p><a href="https://ee-sumanbhowmick768.projects.earthengine.app/view/global-forest-monitoring-app" class="view-button" target="_blank">🚀 Launch App</a></p>
+</div>
+</section>
+</div>
+<style>
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  margin: 2rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  padding: 1.5rem;
+  background: linear-gradient(to bottom right, #ffffff, #f4f4f4);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  width: 340px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card h3 {
+  font-family: Geneva, Tahoma, sans-serif;
+  font-size: 1.6rem;
+  margin-top: 0;
+  font-weight: 800;
+  color: #0a3d62;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+  margin: 0.5rem 0 1rem 0;
+  flex-grow: 0;
+  line-height: 1.5;
+}
+
+.project-card ul {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+}
+
+.project-card li {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Push footer to bottom */
+.card-footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+/* Button styling */
+.view-button {
+  display: inline-block;
+  text-align: center;
+  background: #0a3d62;
+  color: white !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Button hover effect */
+.view-button:hover {
+  background: #05415c;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+</style>
 
 
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

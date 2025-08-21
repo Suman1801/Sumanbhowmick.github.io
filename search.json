@@ -18,7 +18,7 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Coming soon."
+    "text": "Global Forest Monitoring App\n\n\nAn interactive web application built with Google Earth Engine that allows users to visualize and quantify forest change over time using the Hansen Global Forest Change dataset.\n\n\n\nVisualize forest cover, loss, and gain globally.\n\n\nCalculate statistics for a user-defined area of interest.\n\n\nCompare imagery from different years with an interactive slider.\n\n\n\n🚀 Launch App"
   },
   {
     "objectID": "index.html",
