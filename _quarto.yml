@@ -14,7 +14,7 @@ website:
   site-url: "https://Suman1801.github.io/suman-portfolio"
   repo-url: "https://github.com/Suman1801/suman-portfolio"
 
- search: 
+  search: 
     location: navbar
     type: textbox
 
@@ -61,8 +61,6 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/suman-bhowmick
         target: _blank
-
- 
 
 format:
   html:
