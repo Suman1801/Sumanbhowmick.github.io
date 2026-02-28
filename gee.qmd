@@ -40,7 +40,7 @@ Climatological phenology visualization using 20+ years of MODIS data to demonstr
 </p>
 
 :::{.card-footer}
-[View More Details](gee-projects/MODIS_NDVI_Animation/index.html){.view-button}
+[View More Details](gee-projects/MODIS_NDVI_Animation/Index.html){.view-button}
 :::
 :::
 

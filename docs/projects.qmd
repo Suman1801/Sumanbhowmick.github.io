@@ -1,8 +1,0 @@
----
-title: "Projects"
-format:
-  html:
-    toc: false
----
-
-Coming soon.
