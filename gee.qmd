@@ -33,7 +33,7 @@ Comparative analysis of Sentinel-2 cloud masking approaches (QA60 vs CloudScore+
 :::{.project-card}
 ### MODIS NDVI Seasonal Dynamics: India
 
-![](gee-projects/MODIS_NDVI_Animation/India.GIF)
+![](files/images/Thamb.GIF)
 
 <p class="card-description">
 Climatological phenology visualization using 20+ years of MODIS data to demonstrate the "Green Wave" and vegetation cycles across the Indian subcontinent.
