@@ -7,7 +7,6 @@ anchor-sections: false
 sidebar: false
 ---
 
-
 :::{.gee-header}
 :::{.gee-header-content}
 <h2>MY GEE PROJECTS</h2>
@@ -15,13 +14,12 @@ sidebar: false
 :::
 :::
 
-
 :::{.project-grid}
 
 :::{.project-card}
 ### Sentinel-2 Cloud Masking: QA60 vs CloudScore+
 
-![](gee-projects/cloud-masking/thumb.jpg)
+![](gee-projects/cloud-masking/thumb.jpg )
 
 <p class="card-description">
 Comparative analysis of Sentinel-2 cloud masking approaches (QA60 vs CloudScore+) using Google Earth Engine for imagery over Barasat, India.
@@ -30,8 +28,22 @@ Comparative analysis of Sentinel-2 cloud masking approaches (QA60 vs CloudScore+
 :::{.card-footer}
 [View More Details](gee-projects/cloud-masking/index.html){.view-button}
 :::
-
 :::
+
+:::{.project-card}
+### MODIS NDVI Seasonal Dynamics: India
+
+![](gee-projects/MODIS_NDVI_Animation/India.GIF)
+
+<p class="card-description">
+Climatological phenology visualization using 20+ years of MODIS data to demonstrate the "Green Wave" and vegetation cycles across the Indian subcontinent.
+</p>
+
+:::{.card-footer}
+[View More Details](gee-projects/MODIS_NDVI_Animation/index.html){.view-button}
+:::
+:::
+
 :::
 
 

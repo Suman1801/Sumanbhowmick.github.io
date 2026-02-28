@@ -7,6 +7,7 @@ project:
    - gee-projects/cloud-masking/**
    - Blog/Field-to-the-Map/**
    - Blog/**
+   - gee-projects/MODIS_NDVI_Animation/**
   output-dir: _site/
 
 website:
@@ -34,8 +35,7 @@ website:
             href: posts.qmd
       - text: "Technical"
         menu:
-          - text: "R Programming"
-            href: r-codes.qmd
+          
           - text: "GIS Projects"
             href: gis-projects.qmd
           - text: "Python Scripts"
