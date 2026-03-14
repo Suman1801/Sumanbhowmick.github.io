@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Urban Walkability - Mumbai vs World Cities - Suman's Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body { margin:0; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background:#fdfdfd; color:#222; line-height:1.6; }
+    a { color:#007acc; text-decoration:none; }
+    img { max-width:100%; height:auto; border-radius:10px; }
+    .container { max-width:1000px; margin:auto; padding:1.5rem; }
+
+    .hero { background:linear-gradient(to top,#d0e8ff,#ffffff); padding:3rem 1.5rem 2rem; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,0.05); }
+    .hero h1 { font-size:3.2rem; margin-bottom:0.5rem; color:#003366; }
+    .hero p { font-size:1.15rem; color:#333; margin-bottom:1.2rem; }
+    nav ul { list-style:none; padding:0; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; }
+    nav ul li a { color:#003366; font-weight:600; padding:0.3rem 0.6rem; }
+    nav ul li a:hover { text-decoration:underline; }
+
+    .overview-section { padding:2rem 1.5rem; background:linear-gradient(to top,#f4f9ff,#ffffff); text-align:center; }
+    .overview-section h2 { font-size:2.2rem; font-weight:800; color:#2c3e50; margin-bottom:1rem; }
+    .overview-section p { font-size:1.1rem; font-weight:500; color:#333; max-width:800px; margin:0 auto; line-height:1.8; }
+
+    section.content-section { padding:1.5rem 1rem; margin:0 auto; border-bottom:1px solid #e0e0e0; }
+    .content-section h2 { font-size:1.8rem; color:#003366; margin-bottom:1rem; margin-top:0.5rem; }
+    .content-section h3 { color:#003366; margin-top:1.2rem; }
+
+    .project-details { padding-left:1rem; margin-bottom:1.5rem; }
+    .project-details li { margin-bottom:0.5rem; }
+
+    /* SCORE BADGES */
+    .score-badge { display:inline-block; padding:0.22rem 0.65rem; border-radius:6px; font-weight:700; font-size:0.92rem; margin-left:0.3rem; }
+    .badge-green  { background:#d4f5e2; color:#1a7a45; }
+    .badge-orange { background:#fff3cd; color:#856404; }
+    .badge-red    { background:#fde8e8; color:#991b1b; }
+
+    /* RANKING STRIP */
+    .rank-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:1.2rem; }
+    .rank-card { border-radius:10px; padding:1.2rem 1rem; text-align:center; border:2px solid #e0e0e0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.06); transition:transform 0.2s; }
+    .rank-card:hover { transform:translateY(-3px); }
+    .rank-medal { font-size:2rem; line-height:1; }
+    .rank-city  { font-size:1.05rem; font-weight:700; margin:0.3rem 0 0.2rem; color:#003366; }
+    .rank-score { font-size:1.8rem; font-weight:800; }
+    .rank-label { font-size:0.72rem; color:#888; margin-top:0.1rem; }
+    .rank-card.green  { border-color:#86efac; }
+    .rank-card.orange { border-color:#fcd34d; }
+    .rank-card.red    { border-color:#fca5a5; }
+
+    /* IMAGE GRID */
+    .image-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; margin-top:1.5rem; }
+    .image-block { background:#fff; border:1px solid #e0e0e0; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.06); transition:box-shadow 0.2s,transform 0.2s; cursor:pointer; }
+    .image-block:hover { box-shadow:0 8px 28px rgba(0,122,204,0.15); transform:translateY(-4px); }
+    .image-block img { width:100%; display:block; border-radius:10px 10px 0 0; transition:transform 0.3s; }
+    .image-block:hover img { transform:scale(1.02); }
+    .image-caption { font-size:0.92rem; color:#444; text-align:center; padding:0.6rem 0.5rem 0; font-weight:600; }
+    .card-footer { display:flex; gap:0.5rem; padding:0.75rem; justify-content:center; flex-wrap:wrap; }
+
+    .download-button { display:inline-block; padding:0.6rem 1.1rem; background:#007acc; color:white; font-weight:600; border-radius:8px; text-decoration:none; transition:background 0.3s; font-size:0.85rem; }
+    .download-button:hover { background:#005f99; }
+    .view-button { display:inline-block; padding:0.6rem 1.1rem; background:#6a1b9a; color:white; border-radius:8px; font-weight:600; text-decoration:none; font-size:0.85rem; transition:background 0.3s; cursor:pointer; border:none; }
+    .view-button:hover { background:#4a148c; }
+
+    /* SCORE TABLE */
+    .score-table { width:100%; border-collapse:collapse; margin-top:1rem; font-size:0.88rem; }
+    .score-table th { background:#003366; color:white; padding:0.7rem 0.8rem; text-align:left; }
+    .score-table td { padding:0.6rem 0.8rem; border-bottom:1px solid #e0e0e0; vertical-align:middle; }
+    .score-table tr:nth-child(even) { background:#f4f9ff; }
+    .score-table tr:hover { background:#e8f4fd; }
+    .bar-wrap { background:#e0e0e0; border-radius:4px; height:10px; width:110px; display:inline-block; vertical-align:middle; margin-left:0.4rem; }
+    .bar-fill  { height:100%; border-radius:4px; }
+
+    /* PIPELINE */
+    .pipeline { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-top:1.2rem; }
+    .pipeline-step { background:#f4f9ff; border:1px solid #c8e0f4; border-radius:10px; padding:1rem; text-align:center; }
+    .step-num   { font-size:1.5rem; font-weight:800; color:#003366; }
+    .step-title { font-weight:700; color:#003366; margin:0.3rem 0 0.2rem; font-size:0.92rem; }
+    .step-desc  { font-size:0.8rem; color:#555; line-height:1.5; }
+
+    /* TECH TAGS */
+    .tech-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.8rem; }
+    .tech-tag { background:#e8f4fd; color:#003366; border:1px solid #b3d4f0; border-radius:20px; padding:0.22rem 0.7rem; font-size:0.8rem; font-weight:600; }
+
+    /* INSIGHT CARDS */
+    .insight-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin-top:1rem; }
+    .insight-card { border-radius:8px; padding:1rem 1.2rem; }
+    .insight-card h4 { margin:0 0 0.4rem; font-size:1rem; }
+    .insight-card p  { font-size:0.87rem; color:#444; margin:0; line-height:1.65; }
+    .card-london { background:#f0fdf4; border-left:4px solid #16a34a; }
+    .card-paris  { background:#eff6ff; border-left:4px solid #2563eb; }
+    .card-mumbai { background:#fffbeb; border-left:4px solid #d97706; }
+    .card-dubai  { background:#fff5f5; border-left:4px solid #dc2626; }
+
+    /* CODE WINDOW */
+    .code-window { background:#1e1e2e; border-radius:10px; overflow:hidden; margin-top:1rem; box-shadow:0 4px 16px rgba(0,0,0,0.12); }
+    .code-toolbar { background:#2a2a3e; padding:0.6rem 1rem; display:flex; align-items:center; gap:0.4rem; }
+    .dot { width:10px; height:10px; border-radius:50%; }
+    .dot-r{background:#FF5F57;} .dot-y{background:#FEBC2E;} .dot-g{background:#28C840;}
+    .code-filename { margin-left:auto; color:#888; font-family:monospace; font-size:0.72rem; }
+    pre { padding:1.2rem 1.5rem; margin:0; font-family:'Consolas','Courier New',monospace; font-size:0.78rem; line-height:1.75; color:#cdd6f4; overflow-x:auto; }
+    .kw{color:#f38ba8;} .fn{color:#cba6f7;} .st{color:#a6e3a1;} .cm{color:#6c7086;font-style:italic;} .nm{color:#fab387;}
+
+    /* NOTE BOX */
+    .note-box { background:#fff8e1; border-left:4px solid #f59e0b; border-radius:6px; padding:0.9rem 1.2rem; margin-top:1.2rem; font-size:0.88rem; color:#555; line-height:1.7; }
+
+    /* LIGHTBOX */
+    .lightbox { display:none; position:fixed; inset:0; z-index:999; background:rgba(0,0,0,0.9); align-items:center; justify-content:center; }
+    .lightbox.active { display:flex; }
+    .lightbox-inner { position:relative; max-width:96vw; max-height:94vh; display:flex; flex-direction:column; align-items:center; gap:0.8rem; }
+    .lightbox-inner img { max-width:100%; max-height:84vh; object-fit:contain; border-radius:8px; box-shadow:0 8px 40px rgba(0,0,0,0.6); }
+    .lightbox-close { position:absolute; top:-2.6rem; right:0; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.3); color:white; font-size:1.1rem; width:36px; height:36px; border-radius:6px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s; }
+    .lightbox-close:hover { background:rgba(255,255,255,0.28); }
+    .lightbox-caption { color:#bbb; font-size:0.82rem; font-family:monospace; letter-spacing:0.04em; }
+
+    footer { background:#f4f4f4; text-align:center; padding:2rem 1rem; font-size:0.9rem; color:#555; border-top:1px solid #e0e0e0; }
+
+    @media(max-width:700px){
+      .hero h1{font-size:2.1rem;}
+      .image-grid,.pipeline,.insight-grid,.rank-strip{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Urban Walkability Analysis</h1>
+    <p>Mumbai vs London, Paris &amp; Dubai &mdash; measuring daily-life accessibility on foot using OpenStreetMap</p>
+    <nav><ul>
+      <li><a href="../../python-scripts.html">&#8592; Back to Python Projects</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#visuals">Maps</a></li>
+      <li><a href="#scores">Scores</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#code">Code</a></li>
+    </ul></nav>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview" class="overview-section">
+  <div class="container">
+    <h2>Overview</h2>
+    <p>
+      How walkable is Mumbai compared to some of the world&rsquo;s most iconic cities?
+      This project downloads real OpenStreetMap street networks and Points of Interest for
+      <strong>Mumbai, London, Paris and Dubai</strong>, then uses graph-distance isochrone analysis
+      to count how many daily-life amenities &mdash; shops, restaurants, clinics, transit stops, parks &mdash;
+      are reachable within a <strong>1200&thinsp;m walk (~15 minutes)</strong> from each city centre.
+      A weighted composite score (0&ndash;100) ranks each city. The methodology works for any city on Earth.
+    </p>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section id="details" class="content-section">
+  <div class="container">
+    <h2>&#129150; Project Details</h2>
+    <ul class="project-details">
+      <li><strong>Organization:</strong> Personal Research</li>
+      <li><strong>Tools Used:</strong> OSMnx, NetworkX, GeoPandas, Shapely, Matplotlib</li>
+      <li><strong>Platform:</strong> Google Colab &mdash; no local setup required</li>
+      <li><strong>Data Source:</strong> OpenStreetMap contributors</li>
+      <li><strong>Walk Radius:</strong> 1200&thinsp;m (&asymp;15 min at 5&thinsp;km/h)</li>
+      <li><strong>POI Categories:</strong> Shop, Restaurant, Transit, Supermarket, Clinic, Park, School, Gym, Hotel, ATM</li>
+      <li><strong>City Centres:</strong>
+        Mumbai (Fort/CST &mdash; 18.9388&deg;N, 72.8354&deg;E) &bull;
+        London (Covent Garden &mdash; 51.5117&deg;N, 0.1240&deg;W) &bull;
+        Dubai (Downtown &mdash; 25.1972&deg;N, 55.2744&deg;E) &bull;
+        Paris (Le Marais &mdash; 48.8566&deg;N, 2.3522&deg;E)
+      </li>
+    </ul>
+
+    <h3>How It Works &mdash; Pipeline</h3>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Fetch Network</div>
+        <div class="step-desc">Download walkable street graph from OSM within 1500&thinsp;m of city centre using OSMnx</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Fetch POIs</div>
+        <div class="step-desc">Pull 10 categories of daily amenities using the OSMnx features API</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Isochrone</div>
+        <div class="step-desc">Dijkstra shortest-path finds every node reachable within exactly 1200&thinsp;m on foot</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Score</div>
+        <div class="step-desc">Weighted composite 0&ndash;100 with per-category saturation targets</div>
+      </div>
+    </div>
+
+    <h3>Tech Stack</h3>
+    <div class="tech-tags">
+      <span class="tech-tag">OSMnx</span>
+      <span class="tech-tag">NetworkX</span>
+      <span class="tech-tag">GeoPandas</span>
+      <span class="tech-tag">Shapely</span>
+      <span class="tech-tag">Matplotlib</span>
+      <span class="tech-tag">city2graph</span>
+      <span class="tech-tag">Google Colab</span>
+      <span class="tech-tag">Python 3</span>
+    </div>
+  </div>
+</section>
+
+<!-- VISUALS -->
+<section id="visuals" class="content-section">
+  <div class="container">
+    <h2>&#128506; City Maps</h2>
+    <p style="color:#555;margin-bottom:0.3rem;">
+      Blue network = streets reachable within 1200&thinsp;m (isochrone). Coloured dots = POIs by category. White dot = measurement centre.
+      Click any map to view full size.
+    </p>
+    <div class="image-grid">
+
+      <div class="image-block" onclick="openLightbox('london')">
+        <img src="walkability_london.png" alt="London Walkability" loading="lazy">
+        <p class="image-caption">London <span class="score-badge badge-green">100.0 / 100</span></p>
+        <div class="card-footer">
+          <button class="view-button" onclick="openLightbox('london');event.stopPropagation()">&#128269; View Full Size</button>
+          <a href="walkability_london.png" download="walkability_london.png" class="download-button" onclick="event.stopPropagation()">&#8659; Download</a>
+        </div>
+      </div>
+
+      <div class="image-block" onclick="openLightbox('paris')">
+        <img src="walkability_paris.png" alt="Paris Walkability" loading="lazy">
+        <p class="image-caption">Paris <span class="score-badge badge-green">100.0 / 100</span></p>
+        <div class="card-footer">
+          <button class="view-button" onclick="openLightbox('paris');event.stopPropagation()">&#128269; View Full Size</button>
+          <a href="walkability_paris.png" download="walkability_paris.png" class="download-button" onclick="event.stopPropagation()">&#8659; Download</a>
+        </div>
+      </div>
+
+      <div class="image-block" onclick="openLightbox('mumbai')">
+        <img src="walkability_mumbai.png" alt="Mumbai Walkability" loading="lazy">
+        <p class="image-caption">Mumbai <span class="score-badge badge-orange">61.8 / 100</span></p>
+        <div class="card-footer">
+          <button class="view-button" onclick="openLightbox('mumbai');event.stopPropagation()">&#128269; View Full Size</button>
+          <a href="walkability_mumbai.png" download="walkability_mumbai.png" class="download-button" onclick="event.stopPropagation()">&#8659; Download</a>
+        </div>
+      </div>
+
+      <div class="image-block" onclick="openLightbox('dubai')">
+        <img src="walkability_dubai.png" alt="Dubai Walkability" loading="lazy">
+        <p class="image-caption">Dubai <span class="score-badge badge-red">34.0 / 100</span></p>
+        <div class="card-footer">
+          <button class="view-button" onclick="openLightbox('dubai');event.stopPropagation()">&#128269; View Full Size</button>
+          <a href="walkability_dubai.png" download="walkability_dubai.png" class="download-button" onclick="event.stopPropagation()">&#8659; Download</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SCORES -->
+<section id="scores" class="content-section">
+  <div class="container">
+    <h2>&#128200; Walkability Scores</h2>
+
+    <div class="rank-strip">
+      <div class="rank-card green">
+        <div class="rank-medal">&#127947;</div>
+        <div class="rank-city">London</div>
+        <div class="rank-score" style="color:#16a34a">100.0</div>
+        <div class="rank-label">out of 100</div>
+      </div>
+      <div class="rank-card green">
+        <div class="rank-medal">&#129352;</div>
+        <div class="rank-city">Paris</div>
+        <div class="rank-score" style="color:#16a34a">100.0</div>
+        <div class="rank-label">out of 100</div>
+      </div>
+      <div class="rank-card orange">
+        <div class="rank-medal">&#129353;</div>
+        <div class="rank-city">Mumbai</div>
+        <div class="rank-score" style="color:#d97706">61.8</div>
+        <div class="rank-label">out of 100</div>
+      </div>
+      <div class="rank-card red">
+        <div class="rank-medal">&#129354;</div>
+        <div class="rank-city">Dubai</div>
+        <div class="rank-score" style="color:#dc2626">34.0</div>
+        <div class="rank-label">out of 100</div>
+      </div>
+    </div>
+
+    <table class="score-table" style="margin-top:1.8rem;">
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>Score</th>
+          <th>Bar</th>
+          <th>Shop</th>
+          <th>Restaurant</th>
+          <th>Transit</th>
+          <th>Supermarket</th>
+          <th>Clinic</th>
+          <th>Park</th>
+          <th>ATM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>London</strong></td>
+          <td><span class="score-badge badge-green">100.0</span></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#16a34a"></div></div></td>
+          <td>1230</td><td>1503</td><td>336</td><td>67</td><td>63</td><td>41</td><td>56</td>
+        </tr>
+        <tr>
+          <td><strong>Paris</strong></td>
+          <td><span class="score-badge badge-green">100.0</span></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:100%;background:#16a34a"></div></div></td>
+          <td>2943</td><td>1629</td><td>403</td><td>127</td><td>98</td><td>125</td><td>86</td>
+        </tr>
+        <tr>
+          <td><strong>Mumbai</strong></td>
+          <td><span class="score-badge badge-orange">61.8</span></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:61.8%;background:#d97706"></div></div></td>
+          <td>73</td><td>67</td><td>98</td><td>3</td><td>16</td><td>24</td><td>44</td>
+        </tr>
+        <tr>
+          <td><strong>Dubai</strong></td>
+          <td><span class="score-badge badge-red">34.0</span></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:34%;background:#dc2626"></div></div></td>
+          <td>58</td><td>91</td><td>2</td><td>3</td><td>2</td><td>23</td><td>18</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <strong>Note on scores:</strong> London and Paris score 100 because their exceptional OSM data coverage
+      saturates every category &mdash; 1503 and 1629 restaurants respectively. Mumbai&rsquo;s 61.8 likely
+      <em>understates</em> real walkability due to thinner OSM data coverage in its older neighbourhoods.
+      Dubai&rsquo;s 34.0 genuinely reflects its car-dependent urban design &mdash; only <strong>2 transit stops</strong>
+      within 1200&thinsp;m confirms this structurally.
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights" class="content-section">
+  <div class="container">
+    <h2>&#128161; Insights</h2>
+    <div class="insight-grid">
+
+      <div class="insight-card card-london">
+        <h4>&#127981; London &mdash; 100.0 &mdash; World-Class Grid</h4>
+        <p>Covent Garden sits at the heart of one of the world&rsquo;s most walkable urban grids.
+        336 transit stops, 1230 shops and 63 clinics within 1200&thinsp;m saturate every scoring category.
+        London Zone 1&rsquo;s dense, mixed-use street grid represents the gold standard of urban walkability.</p>
+      </div>
+
+      <div class="insight-card card-paris">
+        <h4>&#127970; Paris &mdash; 100.0 &mdash; Haussmann Density</h4>
+        <p>Le Marais has the highest raw POI counts of all four cities &mdash; 2943 shops and 1629 restaurants.
+        Baron Haussmann&rsquo;s 19th-century redesign created wide, mixed-use boulevards where every daily need
+        is within walking distance. 403 transit stops add exceptional connectivity.</p>
+      </div>
+
+      <div class="insight-card card-mumbai">
+        <h4>&#127961; Mumbai &mdash; 61.8 &mdash; Dense but Under-Mapped</h4>
+        <p>Fort area is genuinely walkable &mdash; 98 transit stops and 73 shops reflect real urban density.
+        Mumbai&rsquo;s score likely understates reality due to incomplete OSM mapping of restaurants and supermarkets.
+        Improved data coverage would push Mumbai significantly higher in the ranking.</p>
+      </div>
+
+      <div class="insight-card card-dubai">
+        <h4>&#127963; Dubai &mdash; 34.0 &mdash; Car City by Design</h4>
+        <p>Downtown Dubai was master-planned around the automobile. Just 2 transit stops and 2 clinics within 1200&thinsp;m
+        reveals a fundamental design incompatibility with walkability. The 91 restaurants reflect tourist
+        infrastructure, but daily life structurally requires a car or taxi.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CODE -->
+<section id="code" class="content-section">
+  <div class="container">
+    <h2>&#128230; Download Code</h2>
+    <p>Core isochrone + POI scoring logic used in this analysis:</p>
+    <div class="code-window">
+      <div class="code-toolbar">
+        <div class="dot dot-r"></div>
+        <div class="dot dot-y"></div>
+        <div class="dot dot-g"></div>
+        <div class="code-filename">walkability_world_colab.py</div>
+      </div>
+      <pre><span class="cm"># Cities: add any lat/lon pair to analyse a new city</span>
+CITIES = {
+    <span class="st">"Mumbai"</span>: {<span class="st">"center"</span>: (<span class="nm">18.9388</span>,  <span class="nm">72.8354</span>)},
+    <span class="st">"London"</span>: {<span class="st">"center"</span>: (<span class="nm">51.5117</span>,  <span class="nm">-0.1240</span>)},
+    <span class="st">"Dubai"</span>:  {<span class="st">"center"</span>: (<span class="nm">25.1972</span>,  <span class="nm">55.2744</span>)},
+    <span class="st">"Paris"</span>:  {<span class="st">"center"</span>: (<span class="nm">48.8566</span>,   <span class="nm">2.3522</span>)},
+}
+
+<span class="cm"># Step 3: isochrone — nodes reachable within 1200m on foot</span>
+<span class="kw">def</span> <span class="fn">isochrone_nodes</span>(G, lat, lon, dist=<span class="nm">1200</span>):
+    origin = ox.<span class="fn">nearest_nodes</span>(G, lon, lat)
+    lengths = nx.<span class="fn">single_source_dijkstra_path_length</span>(
+        G, origin, cutoff=dist, weight=<span class="st">"length"</span>
+    )
+    <span class="kw">return</span> <span class="fn">set</span>(lengths.keys())
+
+<span class="cm"># Count POIs whose centroid falls inside the reachable convex hull</span>
+<span class="kw">def</span> <span class="fn">count_pois</span>(G, reachable, poi_dict):
+    pts  = [Point(G.nodes[n][<span class="st">"x"</span>], G.nodes[n][<span class="st">"y"</span>]) <span class="kw">for</span> n <span class="kw">in</span> reachable]
+    hull = gpd.<span class="fn">GeoSeries</span>(pts, crs=<span class="st">"EPSG:4326"</span>).unary_union.convex_hull
+    <span class="kw">return</span> {cat: <span class="fn">int</span>(gdf.geometry.<span class="fn">within</span>(hull).<span class="fn">sum</span>())
+            <span class="kw">for</span> cat, gdf <span class="kw">in</span> poi_dict.items()}
+
+<span class="cm"># Weighted score 0-100 with per-category saturation</span>
+<span class="kw">def</span> <span class="fn">walkability_score</span>(counts):
+    tw = <span class="fn">sum</span>(WEIGHTS.values())
+    s  = <span class="fn">sum</span>(<span class="fn">min</span>(<span class="nm">1.0</span>, counts.<span class="fn">get</span>(c, <span class="nm">0</span>) / SATURATION[c]) * w
+             <span class="kw">for</span> c, w <span class="kw">in</span> WEIGHTS.items())
+    <span class="kw">return</span> <span class="fn">round</span>(s / tw * <span class="nm">100</span>, <span class="nm">1</span>)</pre>
+    </div>
+    <br>
+    <a href="walkability_world_colab.py" class="download-button" download>&#8659; Download Python Script (.py)</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a>
+    &bull; Analysis by Suman &bull; 2026</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+    <img id="lb-img" src="" alt="">
+    <div class="lightbox-caption" id="lb-cap"></div>
+  </div>
+</div>
+
+<script>
+  const LB = {
+    london: { src:"walkability_london.png", cap:"London — Urban Walkability · Score: 100.0 / 100" },
+    paris:  { src:"walkability_paris.png", cap:"Paris — Urban Walkability · Score: 100.0 / 100" },
+    mumbai: { src:"walkability_mumbai.png", cap:"Mumbai — Urban Walkability · Score: 61.8 / 100" },
+    dubai:  { src:"walkability_dubai.png", cap:"Dubai — Urban Walkability · Score: 34.0 / 100"  },
+  };
+  function openLightbox(c) {
+    document.getElementById("lb-img").src = LB[c].src;
+    document.getElementById("lb-cap").textContent = LB[c].cap;
+    document.getElementById("lightbox").classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("active");
+    document.body.style.overflow = "";
+  }
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+</script>
+</body>
+</html>
