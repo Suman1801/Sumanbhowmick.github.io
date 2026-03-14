@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>India Demographics 1951-2011 - Suman's Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#fdfdfd;color:#222;line-height:1.6;}
+    a{color:#007acc;text-decoration:none;}
+    img{max-width:100%;height:auto;border-radius:10px;}
+    .container{max-width:1000px;margin:auto;padding:1.5rem;}
+
+    /* HERO — deep teal gradient */
+    .hero{background:linear-gradient(135deg,#0B2340 0%,#1a3a5c 60%,#0d2e4a 100%);padding:3rem 1.5rem 2rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.25);}
+    .hero h1{font-size:3.2rem;margin-bottom:0.5rem;color:#7DD3FC;letter-spacing:-0.02em;}
+    .hero p{font-size:1.15rem;color:#BAD9F5;margin-bottom:1.2rem;}
+    nav ul{list-style:none;padding:0;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;}
+    nav ul li a{color:#7DD3FC;font-weight:600;padding:0.3rem 0.6rem;border-bottom:1px solid transparent;transition:border-color 0.2s;}
+    nav ul li a:hover{border-color:#7DD3FC;}
+
+    /* OVERVIEW */
+    .overview-section{padding:2rem 1.5rem;background:linear-gradient(to top,#eef6ff,#ffffff);text-align:center;}
+    .overview-section h2{font-size:2.2rem;font-weight:800;color:#0B2340;margin-bottom:1rem;}
+    .overview-section p{font-size:1.1rem;font-weight:500;color:#333;max-width:800px;margin:0 auto;line-height:1.8;}
+
+    /* SECTIONS */
+    section.content-section{padding:1.5rem 1rem;margin:0 auto;border-bottom:1px solid #e0e0e0;}
+    .content-section h2{font-size:1.8rem;color:#0B2340;margin-bottom:1rem;margin-top:0.5rem;}
+    .content-section h3{color:#0B2340;margin-top:1.2rem;}
+    .project-details{padding-left:1rem;margin-bottom:1.5rem;}
+    .project-details li{margin-bottom:0.5rem;}
+
+    /* STAT CARDS */
+    .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+    .stat-card{background:#0B2340;border:1px solid #1E4D7A;border-radius:10px;padding:1.2rem;text-align:center;}
+    .stat-num{font-size:2rem;font-weight:800;color:#7DD3FC;line-height:1;}
+    .stat-label{font-size:0.72rem;color:#6B9EC4;margin-top:0.3rem;letter-spacing:0.08em;text-transform:uppercase;}
+
+    /* PIPELINE */
+    .pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+    .pipeline-step{background:#0B2340;border:1px solid #1E4D7A;border-radius:10px;padding:1rem;text-align:center;}
+    .step-num{font-size:1.5rem;font-weight:800;color:#7DD3FC;}
+    .step-title{font-weight:700;color:#BAD9F5;margin:0.3rem 0 0.2rem;font-size:0.92rem;}
+    .step-desc{font-size:0.8rem;color:#6B9EC4;line-height:1.5;}
+
+    /* TECH TAGS */
+    .tech-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
+    .tech-tag{background:#0B2340;color:#7DD3FC;border:1px solid #1E4D7A;border-radius:20px;padding:0.22rem 0.7rem;font-size:0.8rem;font-weight:600;}
+
+    /* GIF */
+    .gif-wrap{background:#0B0F1A;border-radius:14px;padding:1.2rem;border:1px solid #1E4D7A;margin-top:1.2rem;text-align:center;}
+    .gif-wrap img{border-radius:8px;max-width:100%;box-shadow:0 8px 32px rgba(0,0,0,0.6);}
+    .gif-caption{font-size:0.82rem;color:#6B9EC4;margin-top:0.7rem;font-style:italic;}
+
+    /* COLOUR KEY */
+    .color-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:0.7rem;margin-top:1rem;}
+    .color-item{display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;color:#333;}
+    .color-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0;box-shadow:0 0 6px rgba(0,0,0,0.2);}
+
+    /* INSIGHTS */
+    .insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
+    .insight-card{background:#f4f8ff;border-left:4px solid #1E4D7A;border-radius:8px;padding:1rem 1.2rem;}
+    .insight-card.highlight{border-color:#2ECC71;background:#f0fdf4;}
+    .insight-card.warn{border-color:#E74C3C;background:#fff5f5;}
+    .insight-card.gold{border-color:#F5A623;background:#fffbeb;}
+    .insight-card h4{margin:0 0 0.4rem;font-size:1rem;color:#0B2340;}
+    .insight-card p{font-size:0.87rem;color:#444;margin:0;line-height:1.65;}
+
+    /* TIMELINE */
+    .timeline{margin-top:1.2rem;display:flex;flex-direction:column;gap:0.8rem;}
+    .timeline-row{display:grid;grid-template-columns:80px 1fr;gap:1rem;align-items:start;}
+    .timeline-year{font-family:'Courier New',monospace;font-size:1rem;font-weight:700;color:#1E4D7A;text-align:right;padding-top:0.1rem;}
+    .timeline-text{font-size:0.87rem;color:#444;line-height:1.6;border-left:2px solid #c8ddf0;padding-left:1rem;}
+
+    /* CODE */
+    .code-window{background:#0B0F1A;border-radius:10px;overflow:hidden;margin-top:1rem;box-shadow:0 4px 16px rgba(0,0,0,0.3);border:1px solid #1E4D7A;}
+    .code-toolbar{background:#0B2340;padding:0.6rem 1rem;display:flex;align-items:center;gap:0.4rem;border-bottom:1px solid #1E4D7A;}
+    .dot{width:10px;height:10px;border-radius:50%;}
+    .dot-r{background:#FF5F57;}.dot-y{background:#FEBC2E;}.dot-g{background:#28C840;}
+    .code-filename{margin-left:auto;color:#7DD3FC;font-family:monospace;font-size:0.72rem;}
+    pre{padding:1.2rem 1.5rem;margin:0;font-family:'Consolas','Courier New',monospace;font-size:0.78rem;line-height:1.75;color:#BAD9F5;overflow-x:auto;}
+    .kw{color:#FF6B6B;}.fn{color:#7DD3FC;}.st{color:#2ECC71;}.cm{color:#2A4A6A;font-style:italic;}.nm{color:#F5A623;}
+
+    /* NOTE BOX */
+    .note-box{background:#eef6ff;border-left:4px solid #1E4D7A;border-radius:6px;padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.88rem;color:#555;line-height:1.7;}
+
+    /* BUTTONS */
+    .download-button{display:inline-block;padding:0.7rem 1.4rem;background:#1E4D7A;color:white;font-weight:600;border-radius:8px;text-decoration:none;transition:background 0.3s;font-size:0.88rem;}
+    .download-button:hover{background:#0B2340;}
+
+    footer{background:#0B2340;text-align:center;padding:2rem 1rem;font-size:0.9rem;color:#6B9EC4;border-top:1px solid #1E4D7A;}
+    footer a{color:#7DD3FC;}
+
+    @media(max-width:700px){
+      .hero h1{font-size:2.1rem;}
+      .pipeline,.insight-grid,.stat-strip,.color-legend{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>India Demographics 1951–2011</h1>
+    <p>Animated bubble chart — 60 years of literacy, urbanisation &amp; population across 35 states</p>
+    <nav><ul>
+      <li><a href="../../python-scripts.html">&#8592; Back to Python Projects</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#animation">Animation</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#code">Code</a></li>
+    </ul></nav>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview" class="overview-section">
+  <div class="container">
+    <h2>Overview</h2>
+    <p>
+      How has India changed over 60 years of Census data?
+      This project animates the relationship between <strong>literacy rate</strong> and
+      <strong>urbanisation</strong> for every Indian state from 1951 to 2011.
+      Each bubble represents one state — its size shows population, its colour shows region,
+      and its position moves decade by decade, revealing stark divergences between
+      Kerala and Bihar, between coastal metros and landlocked heartlands.
+    </p>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section id="details" class="content-section">
+  <div class="container">
+    <h2>&#129150; Project Details</h2>
+    <div class="stat-strip">
+      <div class="stat-card"><div class="stat-num">35</div><div class="stat-label">States & UTs</div></div>
+      <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Census Years</div></div>
+      <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Metrics</div></div>
+      <div class="stat-card"><div class="stat-num">60</div><div class="stat-label">Years Covered</div></div>
+    </div>
+
+    <ul class="project-details" style="margin-top:1.5rem;">
+      <li><strong>Organization:</strong> Personal Research</li>
+      <li><strong>Data Source:</strong> <a href="https://www.kaggle.com" target="_blank">Kaggle</a> &mdash; India Statewise Demographics 1951–2011</li>
+      <li><strong>Variables:</strong> Population, Rural, Urban, Literacy Rate, Sex Ratio</li>
+      <li><strong>Animation:</strong> Smooth-step easing between census years, ghost trail of previous year, per-year annotations</li>
+      <li><strong>Output:</strong> Looping GIF with variable frame duration (pause on each year, fast interpolation)</li>
+    </ul>
+
+    <h3>Pipeline</h3>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Load & Clean</div>
+        <div class="step-desc">Read Census CSV, compute urban %, handle missing 1951 data for some states</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Interpolate</div>
+        <div class="step-desc">12 smooth-step easing frames between each census year for fluid motion</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Render</div>
+        <div class="step-desc">Dark-theme Matplotlib frames with glow rings, ghost trails and year annotations</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Export GIF</div>
+        <div class="step-desc">Variable-duration Pillow GIF — 700ms hold on each year, 70ms interp frames</div>
+      </div>
+    </div>
+
+    <h3>Tech Stack</h3>
+    <div class="tech-tags">
+      <span class="tech-tag">Pandas</span>
+      <span class="tech-tag">Matplotlib</span>
+      <span class="tech-tag">NumPy</span>
+      <span class="tech-tag">Pillow</span>
+      <span class="tech-tag">Kaggle</span>
+      <span class="tech-tag">Google Colab</span>
+      <span class="tech-tag">Python 3</span>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMATION -->
+<section id="animation" class="content-section">
+  <div class="container">
+    <h2>&#127916; Animation</h2>
+    <p style="color:#555;margin-bottom:0.3rem;">
+      X axis = Literacy rate &bull; Y axis = Urban population % &bull;
+      Bubble size = total population &bull; Colour = geographic region.
+      Ghost trails show where each state was in the previous Census.
+    </p>
+
+    <div class="gif-wrap">
+      <img src="india_demographics_bubble.gif" alt="India Demographics Animated Bubble Chart">
+      <p class="gif-caption">
+        India state demographics &mdash; Census 1951 to 2011 &mdash;
+        35 states &bull; 7 decades &bull; literacy vs urbanisation
+      </p>
+    </div>
+
+    <h3 style="margin-top:1.5rem;">Region colour key</h3>
+    <div class="color-legend">
+      <div class="color-item"><div class="color-dot" style="background:#FF6B6B"></div>North India</div>
+      <div class="color-item"><div class="color-dot" style="background:#2ECC71"></div>South India</div>
+      <div class="color-item"><div class="color-dot" style="background:#F5A623"></div>West India</div>
+      <div class="color-item"><div class="color-dot" style="background:#4ECDC4"></div>East India</div>
+      <div class="color-item"><div class="color-dot" style="background:#A78BFA"></div>Central India</div>
+      <div class="color-item"><div class="color-dot" style="background:#60D4F7"></div>Northeast India</div>
+      <div class="color-item"><div class="color-dot" style="background:#B0B8C8"></div>Union Territories</div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights" class="content-section">
+  <div class="container">
+    <h2>&#128161; Key Insights</h2>
+    <div class="insight-grid">
+      <div class="insight-card highlight">
+        <h4>Kerala &mdash; The Outlier</h4>
+        <p>From 1951, Kerala sits far to the right of every other state on literacy.
+        By 2011 it reaches 94% literacy &mdash; near-universal &mdash; while simultaneously
+        achieving the highest sex ratio (1084 females per 1000 males). The Kerala model
+        of education-first development is visible in every frame.</p>
+      </div>
+      <div class="insight-card warn">
+        <h4>Bihar &mdash; Stuck Bottom-Left</h4>
+        <p>Through all 7 decades, Bihar barely moves. Starting at 13.5% literacy and
+        6.4% urban in 1951, it reaches only 61.8% and 11.3% by 2011.
+        Despite having India's third-largest population, it remains
+        one of the least urbanised states &mdash; a stark outlier in every frame.</p>
+      </div>
+      <div class="insight-card gold">
+        <h4>Maharashtra &mdash; Steady Climber</h4>
+        <p>Maharashtra shows the most consistent rightward and upward movement of any
+        large state. Starting at 28.8% urban in 1951 (already high due to Mumbai),
+        it reaches 45.2% by 2011 while literacy climbs from 27.9% to 82.3%.</p>
+      </div>
+      <div class="insight-card">
+        <h4>Northeast &mdash; Literacy Without Urbanisation</h4>
+        <p>States like Mizoram and Nagaland achieve high literacy rates comparable to
+        Kerala but remain overwhelmingly rural. This unique pattern &mdash; educated
+        but not urban &mdash; reflects a distinctly different development path
+        from the rest of India.</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Note:</strong> Some states have missing literacy data for 1951 (notably Andhra Pradesh, Karnataka, Tamil Nadu, Punjab) due to reorganisation of state boundaries after independence. These states appear from 1961 onwards in the animation.
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="content-section">
+  <div class="container">
+    <h2>&#128336; Decade by Decade</h2>
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="timeline-year">1951</div>
+        <div class="timeline-text">India newly independent. National literacy at 18.3%, urban population just 17.3%. Most states clustered bottom-left. Kerala already an outlier at 47% literacy.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">1961</div>
+        <div class="timeline-text">First decade of Five-Year Plans. Literacy climbs to 28.3%. South Indian states begin separating from the pack. States reorganised — AP, Karnataka, Tamil Nadu now appear.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">1971</div>
+        <div class="timeline-text">Green Revolution transforms rural north but urbanisation stays low. Kerala literacy at 69.8% — 35 percentage points ahead of national average. Delhi emerges as most urban state.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">1981</div>
+        <div class="timeline-text">Emergency era industrialisation. Maharashtra and Gujarat bubbles move right sharply. National literacy crosses 43%. North-south divide becomes pronounced.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">1991</div>
+        <div class="timeline-text">Economic liberalisation begins. IT boom begins seeding Bengaluru and Hyderabad. Literacy crosses 52%. The two-speed India &mdash; fast-growing south vs lagging north &mdash; is clearly visible.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2001</div>
+        <div class="timeline-text">Post-liberalisation decade. Urban migration accelerates. Bihar and UP remain stubbornly bottom-left despite absolute population growth. Kerala approaches 91% literacy.</div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2011</div>
+        <div class="timeline-text">India at 1.21 billion. National literacy 73%, urban 31.2%. Kerala at 94% literacy. Delhi 97.5% urban. The bubble chart spreads widest here — greatest divergence between states in history.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CODE -->
+<section id="code" class="content-section">
+  <div class="container">
+    <h2>&#128230; Code</h2>
+    <p>Smooth-step interpolation and glow effect — the key visual techniques:</p>
+    <div class="code-window">
+      <div class="code-toolbar">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="code-filename">india_demographics_bubble.py</div>
+      </div>
+      <pre><span class="cm"># Smooth-step easing — bubbles accelerate then decelerate</span>
+<span class="kw">def</span> <span class="fn">smooth_step</span>(t):
+    <span class="kw">return</span> t * t * (<span class="nm">3</span> - <span class="nm">2</span> * t)
+
+<span class="cm"># Interpolate all state values between two census years</span>
+<span class="kw">for</span> ti <span class="kw">in</span> <span class="fn">range</span>(N_INTERP):
+    t    = (ti + <span class="nm">1</span>) / (N_INTERP + <span class="nm">1</span>)
+    ease = <span class="fn">smooth_step</span>(t)
+    interp[<span class="st">"Literacy"</span>]  = cur * (<span class="nm">1</span>-ease) + nxt * ease
+    interp[<span class="st">"Urban_Pct"</span>] = cur * (<span class="nm">1</span>-ease) + nxt * ease
+
+<span class="cm"># Glow ring — outer bubble at 1.6x size, low alpha</span>
+ax.<span class="fn">scatter</span>(x, y, s=size * <span class="nm">1.6</span>, c=color,
+           alpha=<span class="nm">0.12</span>, edgecolors=<span class="st">"none"</span>, zorder=<span class="nm">2</span>)
+<span class="cm"># Main bubble on top</span>
+ax.<span class="fn">scatter</span>(x, y, s=size, c=color,
+           alpha=<span class="nm">0.80</span>, edgecolors=<span class="st">"white"</span>,
+           linewidths=<span class="nm">0.6</span>, zorder=<span class="nm">3</span>)</pre>
+    </div>
+    <br>
+    <a href="india_demographics_bubble.py" class="download-button" download>&#8659; Download Python Script (.py)</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>
+      Data: <a href="https://www.kaggle.com" target="_blank">Kaggle</a> &mdash;
+      Census of India 1951&ndash;2011 &bull;
+      Analysis by Suman &bull; 2026
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
