@@ -32,7 +32,16 @@ sidebar: false
 </div>
 :::
 
-
+::: {.project-card}
+### Urban Walkability
+![](python-projects/walkability-world/thumb.png)
+<p class="card-description">
+  Measures daily-life accessibility on foot for Mumbai, London, Paris and Dubai using OSMnx isochrone analysis and OpenStreetMap POI data. Scores each city 0–100.
+</p>
+<div class="card-footer">
+  [View More Details](python-projects/walkability-world/walkability_world_portfolio.html){.view-button}
+</div>
+:::
 
 :::
 
