@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>India Migration Flows - Suman's Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#fdfdfd;color:#222;line-height:1.6;}
+    a{color:#B8860B;text-decoration:none;}
+    img{max-width:100%;height:auto;border-radius:10px;}
+    .container{max-width:1000px;margin:auto;padding:1.5rem;}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,#0a1628 0%,#1a2e4a 60%,#0d2137 100%);padding:3rem 1.5rem 2rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.3);}
+    .hero h1{font-size:3.2rem;margin-bottom:0.5rem;color:#F5D76E;letter-spacing:-0.02em;}
+    .hero p{font-size:1.15rem;color:#B0C4DE;margin-bottom:1.2rem;}
+    nav ul{list-style:none;padding:0;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;}
+    nav ul li a{color:#F5D76E;font-weight:600;padding:0.3rem 0.6rem;border-bottom:1px solid transparent;transition:border-color 0.2s;}
+    nav ul li a:hover{border-color:#F5D76E;}
+
+    /* OVERVIEW */
+    .overview-section{padding:2rem 1.5rem;background:linear-gradient(to top,#f0f4fa,#ffffff);text-align:center;}
+    .overview-section h2{font-size:2.2rem;font-weight:800;color:#0a1628;margin-bottom:1rem;}
+    .overview-section p{font-size:1.1rem;font-weight:500;color:#333;max-width:800px;margin:0 auto;line-height:1.8;}
+
+    /* SECTIONS */
+    section.content-section{padding:1.5rem 1rem;margin:0 auto;border-bottom:1px solid #e0e0e0;}
+    .content-section h2{font-size:1.8rem;color:#0a1628;margin-bottom:1rem;margin-top:0.5rem;}
+    .content-section h3{color:#0a1628;margin-top:1.2rem;}
+    .project-details{padding-left:1rem;margin-bottom:1.5rem;}
+    .project-details li{margin-bottom:0.5rem;}
+
+    /* STAT CARDS */
+    .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+    .stat-card{background:#0a1628;border:1px solid #1E4D7A;border-radius:10px;padding:1.2rem;text-align:center;}
+    .stat-num{font-size:2rem;font-weight:800;color:#F5D76E;line-height:1;}
+    .stat-label{font-size:0.72rem;color:#7090B0;margin-top:0.3rem;letter-spacing:0.08em;text-transform:uppercase;}
+
+    /* PIPELINE */
+    .pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+    .pipeline-step{background:#0a1628;border:1px solid #1E4D7A;border-radius:10px;padding:1rem;text-align:center;}
+    .step-num{font-size:1.5rem;font-weight:800;color:#F5D76E;}
+    .step-title{font-weight:700;color:#B0C4DE;margin:0.3rem 0 0.2rem;font-size:0.92rem;}
+    .step-desc{font-size:0.8rem;color:#7090B0;line-height:1.5;}
+
+    /* TECH TAGS */
+    .tech-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
+    .tech-tag{background:#0a1628;color:#F5D76E;border:1px solid #1E4D7A;border-radius:20px;padding:0.22rem 0.7rem;font-size:0.8rem;font-weight:600;}
+
+    /* GIF DISPLAY */
+    .gif-wrap{background:#050810;border-radius:14px;padding:1.2rem;border:1px solid #1E4D7A;margin-top:1.2rem;text-align:center;}
+    .gif-wrap img{border-radius:8px;max-width:100%;box-shadow:0 8px 32px rgba(0,0,0,0.6);}
+    .gif-caption{font-size:0.82rem;color:#7090B0;margin-top:0.7rem;font-style:italic;}
+
+    /* COLOUR KEY */
+    .color-legend{display:grid;grid-template-columns:repeat(5,1fr);gap:0.6rem;margin-top:1rem;}
+    .color-item{display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:#333;}
+    .color-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
+
+    /* CORRIDORS TABLE */
+    .corr-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:0.87rem;}
+    .corr-table th{background:#0a1628;color:#F5D76E;padding:0.7rem 0.8rem;text-align:left;font-weight:600;}
+    .corr-table td{padding:0.55rem 0.8rem;border-bottom:1px solid #e0e0e0;vertical-align:middle;}
+    .corr-table tr:nth-child(even){background:#f8f9fc;}
+    .corr-table tr:hover{background:#f0f4fa;}
+    .vol-bar-wrap{background:#e0e0e0;border-radius:4px;height:8px;width:120px;display:inline-block;vertical-align:middle;margin-left:0.5rem;}
+    .vol-bar-fill{height:100%;border-radius:4px;}
+
+    /* DEST BADGES */
+    .dest-badge{display:inline-block;padding:0.15rem 0.55rem;border-radius:4px;font-weight:700;font-size:0.8rem;}
+
+    /* INSIGHT CARDS */
+    .insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
+    .insight-card{background:#f8f9fc;border-left:4px solid #1E4D7A;border-radius:8px;padding:1rem 1.2rem;}
+    .insight-card.gold{border-color:#B8860B;background:#fffdf0;}
+    .insight-card h4{margin:0 0 0.4rem;font-size:1rem;color:#0a1628;}
+    .insight-card p{font-size:0.87rem;color:#444;margin:0;line-height:1.65;}
+
+    /* CODE */
+    .code-window{background:#050810;border-radius:10px;overflow:hidden;margin-top:1rem;box-shadow:0 4px 16px rgba(0,0,0,0.3);border:1px solid #1E4D7A;}
+    .code-toolbar{background:#0a1628;padding:0.6rem 1rem;display:flex;align-items:center;gap:0.4rem;border-bottom:1px solid #1E4D7A;}
+    .dot{width:10px;height:10px;border-radius:50%;}
+    .dot-r{background:#FF5F57;}.dot-y{background:#FEBC2E;}.dot-g{background:#28C840;}
+    .code-filename{margin-left:auto;color:#F5D76E;font-family:monospace;font-size:0.72rem;}
+    pre{padding:1.2rem 1.5rem;margin:0;font-family:'Consolas','Courier New',monospace;font-size:0.78rem;line-height:1.75;color:#B0C4DE;overflow-x:auto;}
+    .kw{color:#FF6B6B;}.fn{color:#F5D76E;}.st{color:#96CEB4;}.cm{color:#2A4A6A;font-style:italic;}.nm{color:#4ECDC4;}
+
+    /* NOTE BOX */
+    .note-box{background:#fffdf0;border-left:4px solid #B8860B;border-radius:6px;padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.88rem;color:#555;line-height:1.7;}
+
+    /* BUTTONS */
+    .download-button{display:inline-block;padding:0.7rem 1.4rem;background:#1E4D7A;color:white;font-weight:600;border-radius:8px;text-decoration:none;transition:background 0.3s;font-size:0.88rem;border:1px solid #F5D76E;}
+    .download-button:hover{background:#0a1628;}
+
+    footer{background:#0a1628;text-align:center;padding:2rem 1rem;font-size:0.9rem;color:#7090B0;border-top:1px solid #1E4D7A;}
+    footer a{color:#F5D76E;}
+
+    @media(max-width:700px){
+      .hero h1{font-size:2.1rem;}
+      .pipeline,.insight-grid,.stat-strip,.color-legend{grid-template-columns:1fr 1fr;}
+      .color-legend{grid-template-columns:repeat(2,1fr);}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>India Migration Flows</h1>
+    <p>Animated particle visualisation of inter-city migration across 36 cities &mdash; Census 2011 data via Kaggle</p>
+    <nav><ul>
+      <li><a href="../../python-scripts.html">&#8592; Back to Python Projects</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#animation">Animation</a></li>
+      <li><a href="#corridors">Corridors</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#code">Code</a></li>
+    </ul></nav>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview" class="overview-section">
+  <div class="container">
+    <h2>Overview</h2>
+    <p>
+      Where do people move within India? This project animates <strong>inter-city migration flows</strong>
+      as glowing particles travelling along curved Bezier arc paths on a dark India map.
+      Based on <strong>Census 2011 migration data from Kaggle</strong>, 261 corridors across
+      36 cities are visualised &mdash; each particle colour representing its destination city.
+
+    </p>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section id="details" class="content-section">
+  <div class="container">
+    <h2>&#129150; Project Details</h2>
+
+    <div class="stat-strip">
+      <div class="stat-card"><div class="stat-num">36</div><div class="stat-label">Cities</div></div>
+      <div class="stat-card"><div class="stat-num">261</div><div class="stat-label">Corridors</div></div>
+      <div class="stat-card"><div class="stat-num">80</div><div class="stat-label">GIF Frames</div></div>
+      <div class="stat-card"><div class="stat-num">1 Cr+</div><div class="stat-label">UP Out-migrants</div></div>
+    </div>
+
+    <ul class="project-details" style="margin-top:1.5rem;">
+      <li><strong>Organization:</strong> Personal Research</li>
+      <li><strong>Data Source:</strong> <a href="https://www.kaggle.com" target="_blank">Kaggle</a> &mdash; Census of India 2011 migration dataset</li>
+      <li><strong>Boundary:</strong> geoBoundaries ADM1 &mdash; Survey of India compliant, includes J&amp;K, Ladakh &amp; Northeast</li>
+      <li><strong>Animation:</strong> 80 frames at 22 fps &asymp; 3.6-second loop</li>
+      <li><strong>Output:</strong> Looping GIF + PNG thumbnail</li>
+      <li><strong>Largest corridor:</strong> Patna &rarr; Delhi &mdash; 10,39,047 people</li>
+    </ul>
+
+    <h3>Pipeline</h3>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Load Data</div>
+        <div class="step-desc">Read Census 2011 migration CSV from Kaggle. Extract state-level urban out-migration volumes.</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Disaggregate</div>
+        <div class="step-desc">Distribute state totals to city pairs using Census 2011 urban population weights.</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Build Arcs</div>
+        <div class="step-desc">Pre-compute quadratic Bezier curves for all 261 migration corridors.</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Animate</div>
+        <div class="step-desc">Staggered particles travel along arcs, fade in/out. 80 frames exported as GIF.</div>
+      </div>
+    </div>
+
+    <h3>Tech Stack</h3>
+    <div class="tech-tags">
+      <span class="tech-tag">Matplotlib</span>
+      <span class="tech-tag">NumPy</span>
+      <span class="tech-tag">Pillow</span>
+      <span class="tech-tag">GeoPandas</span>
+      <span class="tech-tag">Shapely</span>
+      <span class="tech-tag">geoBoundaries</span>
+      <span class="tech-tag">Kaggle</span>
+      <span class="tech-tag">Google Colab</span>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMATION -->
+<section id="animation" class="content-section">
+  <div class="container">
+    <h2>&#127916; Animation</h2>
+    <p style="color:#555;margin-bottom:0.3rem;">
+      Each glowing dot travels from its origin city to its destination along a curved arc.
+      Colour = destination city. Dot density = migration volume.
+    </p>
+
+    <div class="gif-wrap">
+      <img src="india_migration_flows.gif" alt="India Internal Migration Flows Animation">
+      <p class="gif-caption">
+        India internal migration flows &mdash; Census 2011 (Kaggle) &mdash;
+        36 cities &bull; 261 corridors &bull; looping GIF at 22 fps
+      </p>
+    </div>
+
+    <h3 style="margin-top:1.5rem;">Particle colour key</h3>
+    <div class="color-legend">
+      <div class="color-item"><div class="color-dot" style="background:#FF6B6B"></div>&rarr; Mumbai</div>
+      <div class="color-item"><div class="color-dot" style="background:#4ECDC4"></div>&rarr; Delhi</div>
+      <div class="color-item"><div class="color-dot" style="background:#45B7D1"></div>&rarr; Bengaluru</div>
+      <div class="color-item"><div class="color-dot" style="background:#96CEB4"></div>&rarr; Hyderabad</div>
+      <div class="color-item"><div class="color-dot" style="background:#FFEAA7"></div>&rarr; Pune</div>
+      <div class="color-item"><div class="color-dot" style="background:#DDA0DD"></div>&rarr; Ahmedabad</div>
+      <div class="color-item"><div class="color-dot" style="background:#F0A500"></div>&rarr; Surat</div>
+      <div class="color-item"><div class="color-dot" style="background:#FF8C69"></div>&rarr; Chennai</div>
+      <div class="color-item"><div class="color-dot" style="background:#87CEEB"></div>&rarr; Kolkata</div>
+      <div class="color-item"><div class="color-dot" style="background:#98FB98"></div>&rarr; Lucknow</div>
+    </div>
+  </div>
+</section>
+
+<!-- CORRIDORS -->
+<section id="corridors" class="content-section">
+  <div class="container">
+    <h2>&#128200; Top Migration Corridors</h2>
+    <p style="color:#555;margin-bottom:0.5rem;">
+      Top 15 corridors by volume. State totals from <strong>Kaggle</strong>,
+      disaggregated to city pairs using urban population weights.
+    </p>
+    <table class="corr-table">
+      <thead>
+        <tr><th>#</th><th>Origin</th><th>Destination</th><th>People</th><th>Volume</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Patna</td><td><span class="dest-badge" style="background:#4ECDC422;color:#0a1628;">Delhi</span></td><td>10,39,047</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:100%;background:#4ECDC4"></div></div></td></tr>
+        <tr><td>2</td><td>Patna</td><td><span class="dest-badge" style="background:#FF6B6B22;color:#0a1628;">Mumbai</span></td><td>8,16,394</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:79%;background:#FF6B6B"></div></div></td></tr>
+        <tr><td>3</td><td>Ranchi</td><td><span class="dest-badge" style="background:#4ECDC422;color:#0a1628;">Delhi</span></td><td>6,86,456</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:66%;background:#4ECDC4"></div></div></td></tr>
+        <tr><td>4</td><td>Patna</td><td><span class="dest-badge" style="background:#87CEEB22;color:#0a1628;">Kolkata</span></td><td>6,67,959</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:64%;background:#87CEEB"></div></div></td></tr>
+        <tr><td>5</td><td>Kanpur</td><td><span class="dest-badge" style="background:#4ECDC422;color:#0a1628;">Delhi</span></td><td>6,41,741</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:62%;background:#4ECDC4"></div></div></td></tr>
+        <tr><td>6</td><td>Ranchi</td><td><span class="dest-badge" style="background:#FF6B6B22;color:#0a1628;">Mumbai</span></td><td>5,43,480</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:52%;background:#FF6B6B"></div></div></td></tr>
+        <tr><td>7</td><td>Ranchi</td><td><span class="dest-badge" style="background:#87CEEB22;color:#0a1628;">Kolkata</span></td><td>5,32,809</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:51%;background:#87CEEB"></div></div></td></tr>
+        <tr><td>8</td><td>Chandigarh</td><td><span class="dest-badge" style="background:#4ECDC422;color:#0a1628;">Delhi</span></td><td>5,19,524</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:50%;background:#4ECDC4"></div></div></td></tr>
+        <tr><td>9</td><td>Lucknow</td><td><span class="dest-badge" style="background:#4ECDC422;color:#0a1628;">Delhi</span></td><td>5,13,393</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:49%;background:#4ECDC4"></div></div></td></tr>
+        <tr><td>10</td><td>Patna</td><td><span class="dest-badge" style="background:#F0A50022;color:#0a1628;">Surat</span></td><td>4,45,306</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:43%;background:#F0A500"></div></div></td></tr>
+        <tr><td>11</td><td>Jaipur</td><td><span class="dest-badge" style="background:#4ECDC422;color:#0a1628;">Delhi</span></td><td>4,21,664</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:41%;background:#4ECDC4"></div></div></td></tr>
+        <tr><td>12</td><td>Agra</td><td><span class="dest-badge" style="background:#4ECDC422;color:#0a1628;">Delhi</span></td><td>4,17,131</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:40%;background:#4ECDC4"></div></div></td></tr>
+        <tr><td>13</td><td>Kanpur</td><td><span class="dest-badge" style="background:#FF6B6B22;color:#0a1628;">Mumbai</span></td><td>4,01,088</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:39%;background:#FF6B6B"></div></div></td></tr>
+        <tr><td>14</td><td>Varanasi</td><td><span class="dest-badge" style="background:#4ECDC422;color:#0a1628;">Delhi</span></td><td>3,85,044</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:37%;background:#4ECDC4"></div></div></td></tr>
+        <tr><td>15</td><td>Allahabad</td><td><span class="dest-badge" style="background:#4ECDC422;color:#0a1628;">Delhi</span></td><td>3,52,957</td><td><div class="vol-bar-wrap"><div class="vol-bar-fill" style="width:34%;background:#4ECDC4"></div></div></td></tr>
+      </tbody>
+    </table>
+
+    <div class="note-box">
+      <strong>Data note:</strong> State-level urban out-migration volumes from
+      <strong>Kaggle &mdash; Census of India 2011 migration data</strong>.
+      City-level flows are estimated by distributing state totals using Census 2011
+      destination patterns and urban population weights. The largest origin state is
+      Uttar Pradesh (1 crore+ urban migrants), followed by Bihar (57 lakh).
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights" class="content-section">
+  <div class="container">
+    <h2>&#128161; Insights</h2>
+    <div class="insight-grid">
+      <div class="insight-card gold">
+        <h4>Delhi &mdash; Dominant Destination</h4>
+        <p>9 of the top 15 corridors flow into Delhi. UP and Bihar together send
+        over 32 lakh migrants to Delhi, driven by employment in services, construction
+        and government. Patna &rarr; Delhi alone accounts for 10.4 lakh people.</p>
+      </div>
+      <div class="insight-card gold">
+        <h4>Patna &mdash; Largest Origin City</h4>
+        <p>Patna appears in 4 of the top 10 corridors — to Delhi, Mumbai, Kolkata
+        and Surat. Bihar's capital acts as a migration hub, channelling workers
+        from the Gangetic plains into every major metro.</p>
+      </div>
+      <div class="insight-card">
+        <h4>Surat &mdash; The Textile Pull</h4>
+        <p>Patna &rarr; Surat (4.4 lakh) highlights Gujarat's massive demand for
+        labour in textiles and diamonds. This is one of India's most economically
+        significant corridors but rarely discussed in mainstream migration discourse.</p>
+      </div>
+      <div class="insight-card">
+        <h4>South India &mdash; Bengaluru Hub</h4>
+        <p>Southern flows converge on Bengaluru from Chennai, Hyderabad, Kochi and
+        Coimbatore. The IT boom created a unique intra-southern migration cluster
+        that mirrors the UP &rarr; Delhi pattern in the north.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CODE -->
+<section id="code" class="content-section">
+  <div class="container">
+    <h2>&#128230; Code</h2>
+    <p>Core Bezier particle system — how particles travel along curved arcs:</p>
+    <div class="code-window">
+      <div class="code-toolbar">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+        <div class="code-filename">india_migration_flows.py</div>
+      </div>
+      <pre><span class="cm"># Quadratic Bezier arc between two city coordinates</span>
+<span class="kw">def</span> <span class="fn">bezier_curve</span>(p0, p1, ctrl_offset=<span class="nm">0.25</span>):
+    mid  = (p0 + p1) / <span class="nm">2</span>
+    dx, dy = p1[<span class="nm">0</span>]-p0[<span class="nm">0</span>], p1[<span class="nm">1</span>]-p0[<span class="nm">1</span>]
+    length = np.<span class="fn">sqrt</span>(dx**<span class="nm">2</span> + dy**<span class="nm">2</span>)
+    perp   = np.<span class="fn">array</span>([-dy, dx]) / (length + <span class="nm">1e-9</span>)
+    ctrl   = mid + perp * length * ctrl_offset
+    t      = np.<span class="fn">linspace</span>(<span class="nm">0</span>, <span class="nm">1</span>, <span class="nm">100</span>)
+    <span class="kw">return</span> (np.<span class="fn">outer</span>((<span class="nm">1</span>-t)**<span class="nm">2</span>, p0) +
+            np.<span class="fn">outer</span>(<span class="nm">2</span>*(<span class="nm">1</span>-t)*t, ctrl) +
+            np.<span class="fn">outer</span>(t**<span class="nm">2</span>, p1))
+
+<span class="cm"># Particle fades in at origin, travels arc, fades out at dest</span>
+<span class="kw">def</span> <span class="fn">get_positions</span>(frame, n_frames, particles):
+    t_global = frame / n_frames
+    <span class="kw">for</span> p <span class="kw">in</span> particles:
+        t     = (t_global + p[<span class="st">"phase"</span>]) % <span class="nm">1.0</span>
+        alpha = t/<span class="nm">0.1</span> <span class="kw">if</span> t&lt;<span class="nm">0.1</span> <span class="kw">else</span> (<span class="nm">1</span>-t)/<span class="nm">0.15</span> <span class="kw">if</span> t&gt;<span class="nm">0.85</span> <span class="kw">else</span> <span class="nm">1.0</span>
+        idx   = <span class="fn">int</span>(t * (<span class="fn">len</span>(curve) - <span class="nm">1</span>))
+        <span class="kw">yield</span> curve[idx], alpha * <span class="nm">0.85</span></pre>
+    </div>
+    <br>
+    <a href="india_migration_flows.py" class="download-button" download>&#8659; Download Python Script (.py)</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>
+      Data: <a href="https://www.kaggle.com" target="_blank">Kaggle</a> &mdash; Census of India 2011 &bull;
+      Boundary: <a href="https://www.geoboundaries.org" target="_blank">geoBoundaries</a> &bull;
+      Analysis by Suman &bull; 2026
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
