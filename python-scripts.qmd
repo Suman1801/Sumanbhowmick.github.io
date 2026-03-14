@@ -56,7 +56,7 @@ sidebar: false
 
 ::: {.project-card}
 ### India Demographics
-![](python-projects/demographics/dindia_demographics_bubble.gif)
+![](python-projects/demographics/india_demographics_bubble.gif)
 <p class="card-description">
   Animated bubble chart tracing literacy, urbanisation and population across 35 Indian states from 1951 to 2011 using Census data from Kaggle.
 </p>
