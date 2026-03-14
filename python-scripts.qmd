@@ -43,6 +43,28 @@ sidebar: false
 </div>
 :::
 
+::: {.project-card}
+### Migration Flows
+![](python-projects/migration-flows/india_migration_flows.gif)
+<p class="card-description">
+  Animated particle visualisation of inter-city migration across 36 Indian cities using Census 2011 data from Kaggle. Particles flow along Bezier arcs coloured by destination city.
+</p>
+<div class="card-footer">
+  [View More Details](python-projects/migration-flows/migration_portfolio.html){.view-button}
+</div>
+:::
+
+::: {.project-card}
+### Hospital Accessibility
+![](python-projects/hospital-accessibility/thumb.png)
+<p class="card-description">
+  Maps healthcare facility coverage across 12 major Indian cities using OSMnx and OpenStreetMap. Scores each city 0–100 based on hospital and clinic density within 5 km.
+</p>
+<div class="card-footer">
+  [View More Details](python-projects/hospital-accessibility/hospital_accessibility_portfolio.html){.view-button}
+</div>
+:::
+
 :::
 
 <style>
@@ -85,7 +107,7 @@ sidebar: false
   background: linear-gradient(to bottom right, #ffffff, #f4f4f4);
   border-radius: 20px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-  width: 320px;
+  width: calc(33.333% - 1.5rem); 
   transition: transform 0.3s, box-shadow 0.3s;
 }
 

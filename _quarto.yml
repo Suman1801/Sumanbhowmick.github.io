@@ -4,6 +4,7 @@ project:
    - gis-projects/mizoram-population/**
    - python-projects/road-network/**
    - python-projects/walkability-world/**
+   - python-projects/**
    - files/images/**
    - gee-projects/cloud-masking/**
    - Blog/Field-to-the-Map/**
