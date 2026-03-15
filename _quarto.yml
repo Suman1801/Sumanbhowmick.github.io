@@ -5,7 +5,9 @@ project:
    - python-projects/road-network/**
    - python-projects/walkability-world/**
    - python-projects/migration-flows/**
+   - python-projects/flights/**
    - python-projects/**
+   - python-projects/night-lights/**
    - files/images/**
    - gee-projects/cloud-masking/**
    - Blog/Field-to-the-Map/**

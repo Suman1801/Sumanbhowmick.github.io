@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>India Domestic Flights 24 Hours - Suman Bhowmick</title>
+ <link rel="stylesheet" href="style.css"/>
+ <style>
+ *{box-sizing:border-box;margin:0;padding:0;}
+ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#02000A;color:#E0EEFF;line-height:1.6;}
+ a{color:#00E5FF;text-decoration:none;}
+ a:hover{text-decoration:underline;}
+ img{max-width:100%;height:auto;border-radius:10px;}
+ .container{max-width:1000px;margin:auto;padding:1.5rem;}
+
+ /* HERO */
+ .hero{background:linear-gradient(135deg,#02000A 0%,#06001F 50%,#02000A 100%);
+ padding:3rem 1.5rem 2rem;text-align:center;
+ border-bottom:1px solid #1A004A;
+ box-shadow:0 4px 40px rgba(0,229,255,0.08);}
+ .hero h1{font-size:3.2rem;margin-bottom:0.5rem;color:#00E5FF;letter-spacing:-0.02em;
+ text-shadow:0 0 30px rgba(0,229,255,0.4);}
+ .hero p{font-size:1.15rem;color:#5080A0;margin-bottom:1.2rem;}
+ nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;}
+ nav ul li a{color:#00CCFF;font-weight:600;padding:0.3rem 0.6rem;
+ border-bottom:1px solid transparent;transition:all 0.2s;}
+ nav ul li a:hover{border-color:#FF2079;color:#FF2079;}
+
+ /* OVERVIEW */
+ .overview-section{padding:2rem 1.5rem;background:#04000F;text-align:center;border-bottom:1px solid #1A004A;}
+ .overview-section h2{font-size:2.2rem;font-weight:800;color:#00E5FF;margin-bottom:1rem;}
+ .overview-section p{font-size:1.1rem;color:#8090B0;max-width:800px;margin:0 auto;line-height:1.8;}
+
+ /* SECTIONS */
+ section.content-section{padding:1.5rem 1rem;border-bottom:1px solid #0D0030;background:#02000A;}
+ .content-section h2{font-size:1.8rem;color:#00E5FF;margin-bottom:1rem;margin-top:0.5rem;}
+ .content-section h3{color:#00CCFF;margin-top:1.2rem;margin-bottom:0.6rem;}
+ .project-details{padding-left:1rem;margin-bottom:1.5rem;}
+ .project-details li{margin-bottom:0.5rem;color:#8090B0;}
+ .project-details li strong{color:#C0D8F0;}
+
+ /* STAT CARDS */
+ .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+ .stat-card{background:#06001F;border:1px solid #1A004A;border-radius:10px;
+ padding:1.2rem;text-align:center;
+ box-shadow:0 0 20px rgba(0,229,255,0.05);}
+ .stat-num{font-size:2rem;font-weight:800;color:#00E5FF;line-height:1;}
+ .stat-label{font-size:0.72rem;color:#3A5A7A;margin-top:0.3rem;
+ letter-spacing:0.1em;text-transform:uppercase;}
+
+ /* GIF */
+ .gif-wrap{background:#000000;border-radius:14px;padding:1.2rem;
+ border:1px solid #1A004A;margin-top:1.2rem;text-align:center;
+ box-shadow:0 0 40px rgba(0,204,255,0.12);}
+ .gif-wrap img{border-radius:8px;max-width:100%;
+ box-shadow:0 0 30px rgba(0,204,255,0.2);}
+ .gif-caption{font-size:0.82rem;color:#3A5A7A;margin-top:0.7rem;font-style:italic;}
+
+ /* AIRLINE COLOUR KEY */
+ .airline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-top:1rem;}
+ .airline-item{display:flex;align-items:center;gap:0.7rem;
+ background:#06001F;border:1px solid #1A004A;border-radius:8px;
+ padding:0.6rem 0.9rem;}
+ .airline-dot{width:14px;height:14px;border-radius:3px;flex-shrink:0;}
+ .airline-name{font-size:0.85rem;color:#C0D8F0;font-weight:600;}
+
+ /* PIPELINE */
+ .pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+ .pipeline-step{background:#06001F;border:1px solid #1A004A;
+ border-radius:10px;padding:1rem;text-align:center;}
+ .step-num{font-size:1.5rem;font-weight:800;color:#00E5FF;}
+ .step-title{font-weight:700;color:#80C0FF;margin:0.3rem 0 0.2rem;font-size:0.92rem;}
+ .step-desc{font-size:0.8rem;color:#3A5A7A;line-height:1.5;}
+
+ /* TECH TAGS */
+ .tech-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
+ .tech-tag{background:#06001F;color:#00E5FF;border:1px solid #1A004A;
+ border-radius:20px;padding:0.22rem 0.7rem;font-size:0.8rem;font-weight:600;}
+
+ /* TIMELINE peak hours */
+ .peak-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
+ .peak-card{background:#06001F;border-radius:8px;padding:1rem 1.2rem;}
+ .peak-card.hot{border-left:4px solid #FF2079;}
+ .peak-card.cool{border-left:4px solid #00E5FF;}
+ .peak-card.dim{border-left:4px solid #1A004A;}
+ .peak-card h4{margin:0 0 0.4rem;font-size:1rem;color:#E0EEFF;}
+ .peak-card p{font-size:0.87rem;color:#6080A0;margin:0;line-height:1.65;}
+ .peak-time{font-family:monospace;font-size:0.9rem;color:#FF2079;font-weight:700;}
+
+ /* INSIGHT CARDS */
+ .insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
+ .insight-card{background:#06001F;border-left:4px solid #1A004A;
+ border-radius:8px;padding:1rem 1.2rem;}
+ .insight-card.cyan{border-color:#00E5FF;}
+ .insight-card.pink{border-color:#FF2079;}
+ .insight-card.purple{border-color:#7B2FFF;}
+ .insight-card.gold{border-color:#FFD600;}
+ .insight-card h4{margin:0 0 0.4rem;font-size:1rem;color:#80C0FF;}
+ .insight-card p{font-size:0.87rem;color:#6080A0;margin:0;line-height:1.65;}
+
+ /* CODE */
+ .code-window{background:#000000;border-radius:10px;overflow:hidden;
+ margin-top:1rem;border:1px solid #1A004A;
+ box-shadow:0 0 20px rgba(0,229,255,0.05);}
+ .code-toolbar{background:#06001F;padding:0.6rem 1rem;
+ display:flex;align-items:center;gap:0.4rem;border-bottom:1px solid #1A004A;}
+ .dot{width:10px;height:10px;border-radius:50%;}
+ .dot-r{background:#FF5F57;}.dot-y{background:#FEBC2E;}.dot-g{background:#28C840;}
+ .code-filename{margin-left:auto;color:#00E5FF;font-family:monospace;font-size:0.72rem;}
+ pre{padding:1.2rem 1.5rem;margin:0;
+ font-family:'Consolas','Courier New',monospace;
+ font-size:0.78rem;line-height:1.75;color:#80C0FF;overflow-x:auto;}
+ .kw{color:#FF2079;}.fn{color:#00E5FF;}.st{color:#00FF9F;}
+ .cm{color:#1A3A5A;font-style:italic;}.nm{color:#FFD600;}
+
+ /* NOTE */
+ .note-box{background:#06001F;border-left:4px solid #00E5FF;border-radius:6px;
+ padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.88rem;
+ color:#6080A0;line-height:1.7;}
+ .note-box strong{color:#C0D8F0;}
+
+ /* DOWNLOAD */
+ .download-button{display:inline-block;padding:0.7rem 1.4rem;
+ background:#06001F;color:#00E5FF;font-weight:600;border-radius:8px;
+ text-decoration:none;transition:all 0.3s;font-size:0.88rem;
+ border:1px solid #00E5FF;}
+ .download-button:hover{background:#1A004A;color:#FFFFFF;}
+
+ footer{background:#04000F;text-align:center;padding:2rem 1rem;
+ font-size:0.9rem;color:#3A5A7A;border-top:1px solid #1A004A;}
+ footer a{color:#00E5FF;}
+
+ @media(max-width:700px){
+ .hero h1{font-size:2.1rem;}
+ .pipeline,.insight-grid,.stat-strip,.peak-grid,.airline-grid{grid-template-columns:1fr 1fr;}
+ }
+ </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+ <div class="container">
+ <h1>India Domestic Flights</h1>
+ <p>Animated 24-hour flight map across 74 airports and 3,173 routes</p>
+ <nav><ul>
+ <li><a href="../../python-scripts.html">&#8592; Back to Python Projects</a></li>
+ <li><a href="#overview">Overview</a></li>
+ <li><a href="#details">Details</a></li>
+ <li><a href="#animation">Animation</a></li>
+ <li><a href="#insights">Insights</a></li>
+ <li><a href="#code">Code</a></li>
+ </ul></nav>
+ </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview" class="overview-section">
+ <div class="container">
+ <h2>Overview</h2>
+ <p>
+ This project animates every scheduled domestic flight in India on <strong style="color:#00E5FF;">Friday 01 March 2019</strong> the busiest Friday in the IATA Winter 2018/19 schedule.
+ Each aircraft is represented as a coloured <strong style="color:#00E5FF;">✈</strong> symbol
+ flying along a curved Bezier arc between its origin and destination airport.
+ Colour encodes the airline. The clock ticks in real time and the progress bar
+ highlights the two daily peak windows when Indian skies are most crowded.
+ </p>
+ </div>
+</section>
+
+<!-- DETAILS -->
+<section id="details" class="content-section">
+ <div class="container">
+ <h2>&#129150; Project Details</h2>
+ <div class="stat-strip">
+ <div class="stat-card"><div class="stat-num">3,173</div><div class="stat-label">Flights</div></div>
+ <div class="stat-card"><div class="stat-num">74</div><div class="stat-label">Airports</div></div>
+ <div class="stat-card"><div class="stat-num">9</div><div class="stat-label">Airlines</div></div>
+ <div class="stat-card"><div class="stat-num">24h</div><div class="stat-label">Coverage</div></div>
+ </div>
+
+ <ul class="project-details" style="margin-top:1.5rem;">
+ <li><strong>Data Source:</strong> <a href="https://www.kaggle.com" target="_blank">Kaggle</a> Indian Flight Schedules dataset</li>
+ <li><strong>Method:</strong> Quadratic Bezier arc interpolation for smooth curved flight paths</li>
+ <li><strong>Rendering:</strong> Parallel multiprocessing (4 workers) with disk-based frame storage</li>
+ <li><strong>Symbol:</strong> ✈ rotated to match flight heading, sized by route distance</li>
+ <li><strong>Trail:</strong> 3-step fade trail showing recent aircraft positions</li>
+ <li><strong>Output:</strong> 72-frame looping GIF, variable speed (slower at peak hours)</li>
+ </ul>
+
+ <h3>Pipeline</h3>
+ <div class="pipeline">
+ <div class="pipeline-step">
+ <div class="step-num">01</div>
+ <div class="step-title">Load Data</div>
+ <div class="step-desc">Parse departure and arrival times, filter valid routes, map airports to coordinates</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="step-num">02</div>
+ <div class="step-title">Bezier Arcs</div>
+ <div class="step-desc">Pre-compute curved arcs for top 50 routes. Live interpolate position for all active flights</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="step-num">03</div>
+ <div class="step-title">Parallel Render</div>
+ <div class="step-desc">4 workers render frames simultaneously to /tmp. Variable speed: slower at peak hours</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="step-num">04</div>
+ <div class="step-title">GIF Assembly</div>
+ <div class="step-desc">Pillow assembles frames with adaptive palette quantisation for compact file size</div>
+ </div>
+ </div>
+
+ <h3>Tech Stack</h3>
+ <div class="tech-tags">
+ <span class="tech-tag">Pandas</span>
+ <span class="tech-tag">Matplotlib</span>
+ <span class="tech-tag">NumPy</span>
+ <span class="tech-tag">GeoPandas</span>
+ <span class="tech-tag">Pillow</span>
+ <span class="tech-tag">multiprocessing</span>
+ <span class="tech-tag">geoBoundaries</span>
+ <span class="tech-tag">Kaggle</span>
+ <span class="tech-tag">Google Colab</span>
+ </div>
+ </div>
+</section>
+
+<!-- ANIMATION -->
+<section id="animation" class="content-section">
+ <div class="container">
+ <h2>&#127916; Animation</h2>
+ <p style="color:#6080A0;margin-bottom:0.4rem;">
+ Each ✈ symbol is coloured by airline and rotated to match its heading.
+ The pink clock shows IST. The progress bar at the bottom highlights
+ morning (07:00 10:00) and evening (17:00 21:00) peak windows in pink.
+ </p>
+ <div class="gif-wrap">
+ <img src="india_flights_24hr.gif" alt="India Domestic Flights 24 Hour Animation">
+ <p class="gif-caption">
+ India domestic flight schedules over 24 hours
+ 74 airports &bull; 3,173 flights &bull; 9 airlines &bull; Bezier arc interpolation
+ </p>
+ </div>
+
+ <h3 style="margin-top:1.5rem;">Airline colour key</h3>
+ <div class="airline-grid">
+ <div class="airline-item"><div class="airline-dot" style="background:#7B2FFF;"></div><span class="airline-name">IndiGo</span></div>
+ <div class="airline-item"><div class="airline-dot" style="background:#FF1744;"></div><span class="airline-name">SpiceJet</span></div>
+ <div class="airline-item"><div class="airline-dot" style="background:#FF8C00;"></div><span class="airline-name">Air India</span></div>
+ <div class="airline-item"><div class="airline-dot" style="background:#00E5FF;"></div><span class="airline-name">GoAir</span></div>
+ <div class="airline-item"><div class="airline-dot" style="background:#FF0055;"></div><span class="airline-name">AirAsia India</span></div>
+ <div class="airline-item"><div class="airline-dot" style="background:#E040FB;"></div><span class="airline-name">Vistara</span></div>
+ <div class="airline-item"><div class="airline-dot" style="background:#FFD600;"></div><span class="airline-name">Jet Airways</span></div>
+ <div class="airline-item"><div class="airline-dot" style="background:#00E676;"></div><span class="airline-name">TruJet</span></div>
+ <div class="airline-item"><div class="airline-dot" style="background:#FF6D00;"></div><span class="airline-name">Jetlite</span></div>
+ </div>
+ </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights" class="content-section">
+ <div class="container">
+ <h2>&#128161; Insights</h2>
+
+ <div class="peak-grid">
+ <div class="peak-card hot">
+ <h4>&#9992; Morning Peak</h4>
+ <p class="peak-time">07:00 to 10:00 IST</p>
+ <p>The busiest window of the day. Delhi, Mumbai and Bengaluru hubs explode with activity. The map transforms from near-empty to densely packed within 90 minutes as the first wave of departures fans out across India.</p>
+ </div>
+ <div class="peak-card hot">
+ <h4>&#9992; Evening Peak</h4>
+ <p class="peak-time">17:00 to 21:00 IST</p>
+ <p>The second surge, almost as busy as the morning. Return flights converge back on metros. The Delhi Mumbai and Bengaluru Chennai corridors are at their most congested during this window.</p>
+ </div>
+ <div class="peak-card cool">
+ <h4>&#128564; Night Silence</h4>
+ <p class="peak-time">23:00 to 05:30 IST</p>
+ <p>India's domestic network almost completely shuts down overnight. Only a handful of red-eye flights remain airborne. The map returns to the same empty state it started from, ready for the next morning wave.</p>
+ </div>
+ <div class="peak-card dim">
+ <h4>&#128205; Hub Dominance</h4>
+ <p class="peak-time">All day</p>
+ <p>Delhi, Mumbai and Bengaluru act as the three primary hubs throughout the day. Nearly every route either originates or terminates at one of these three cities, creating a clear hub-and-spoke topology visible in the arc lines.</p>
+ </div>
+ </div>
+
+ <div class="insight-grid" style="margin-top:1rem;">
+ <div class="insight-card cyan">
+ <h4>Busiest Route: Mumbai to Delhi</h4>
+ <p>With 60 scheduled services on this single day, Delhi Mumbai is India's busiest domestic sector. The arc connecting these two cities pulses with activity throughout the day, rarely going dark between 06:00 and 23:00.</p>
+ </div>
+ <div class="insight-card pink">
+ <h4>IndiGo Dominance</h4>
+ <p>IndiGo (purple) accounts for 874 of the 3,173 flights on this day, representing ~28% of operations. At any given peak hour, roughly one in three planes in the animation is an IndiGo aircraft.</p>
+ </div>
+ <div class="insight-card purple">
+ <h4>Bezier Arc Paths</h4>
+ <p>Flight paths are drawn as quadratic Bezier curves with a perpendicular control point offset of 22% of the route length. This creates natural-looking curved arcs that avoid overlapping on busy corridors.</p>
+ </div>
+ <div class="insight-card gold">
+ <h4>Northeast Isolation</h4>
+ <p>Northeast India (Guwahati, Imphal, Dimapur, Agartala) has limited connectivity compared to its population. Most routes require a connection through Kolkata, visible as the lone eastern hub feeding the region.</p>
+ </div>
+ </div>
+
+ <div class="note-box">
+ <strong>Data note:</strong> Flights are from <strong>Friday 01 March 2019</strong>, filtered from the Kaggle Indian Flight Schedules dataset (IATA Winter 2018/19). Animated using scheduled departure and arrival times. Some carriers (notably Jet Airways) have since ceased operations.
+ </div>
+ </div>
+</section>
+
+<!-- CODE -->
+<section id="code" class="content-section">
+ <div class="container">
+ <h2>&#128230; Code</h2>
+ <p style="color:#6080A0;margin-bottom:0.5rem;">Bezier interpolation and aircraft heading calculation:</p>
+ <div class="code-window">
+ <div class="code-toolbar">
+ <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+ <div class="code-filename">india_flights_24hr_v2.py</div>
+ </div>
+ <pre><span class="cm"># Quadratic Bezier position + heading angle at progress t</span>
+<span class="kw">def</span> <span class="fn">bezier_pos</span>(lon0, lat0, lon1, lat1, t):
+ p0 = np.<span class="fn">array</span>([lon0, lat0])
+ p1 = np.<span class="fn">array</span>([lon1, lat1])
+ mid = (p0 + p1) / <span class="nm">2</span>
+ dx, dy = p1 - p0
+ L = np.<span class="fn">hypot</span>(dx, dy)
+ ctrl = mid + np.<span class="fn">array</span>([-dy, dx]) / (L + <span class="nm">1e-9</span>) * L * <span class="nm">0.22</span>
+ pos = (<span class="nm">1</span>-t)**<span class="nm">2</span>*p0 + <span class="nm">2</span>*(<span class="nm">1</span>-t)*t*ctrl + t**<span class="nm">2</span>*p1
+ deriv = <span class="nm">2</span>*(<span class="nm">1</span>-t)*(ctrl-p0) + <span class="nm">2</span>*t*(p1-ctrl)
+ angle = np.<span class="fn">degrees</span>(np.<span class="fn">arctan2</span>(deriv[<span class="nm">1</span>], deriv[<span class="nm">0</span>]))
+ <span class="kw">return</span> pos[<span class="nm">0</span>], pos[<span class="nm">1</span>], angle
+
+<span class="cm"># Parallel frame rendering 4 workers, one frame per worker</span>
+<span class="kw">with</span> mp.<span class="fn">Pool</span>(processes=<span class="nm">4</span>) <span class="kw">as</span> pool:
+ <span class="kw">for</span> done <span class="kw">in</span> pool.<span class="fn">imap_unordered</span>(render_one, tasks):
+ completed += <span class="nm">1</span></pre>
+ </div>
+ <br>
+ <a href="india_flights_24hr_v2.py" class="download-button" download>&#8659; Download Python Script (.py)</a>
+ </div>
+</section>
+
+<footer>
+ <div class="container">
+ <p>
+ Data: <a href="https://www.kaggle.com" target="_blank">Kaggle</a> Indian Flight Schedules
+ &bull; Boundary: <a href="https://www.geoboundaries.org" target="_blank">geoBoundaries</a>
+ &bull; Suman Bhowmick &bull; 2026
+ </p>
+ </div>
+</footer>
+
+</body>
+</html>

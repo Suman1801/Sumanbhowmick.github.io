@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8"/>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>India Night Lights 2015-2025 - Suman Bhowmick's Portfolio</title>
+ <link rel="stylesheet" href="style.css"/>
+ <style>
+ * { box-sizing: border-box; margin: 0; padding: 0; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #06000F; color: #E0D0FF; line-height: 1.6; }
+ a { color: #FF33FF; text-decoration: none; }
+ a:hover { text-decoration: underline; }
+ img { max-width: 100%; height: auto; border-radius: 10px; }
+ .container { max-width: 1000px; margin: auto; padding: 1.5rem; }
+
+ /* HERO */
+ .hero {
+ background: linear-gradient(135deg, #0A0018 0%, #1A0035 50%, #0D0022 100%);
+ padding: 3rem 1.5rem 2rem; text-align: center;
+ border-bottom: 1px solid #440066;
+ box-shadow: 0 4px 40px rgba(180,0,255,0.15);
+ }
+ .hero h1 { font-size: 3.2rem; margin-bottom: 0.5rem; color: #FF33FF; letter-spacing: -0.02em; }
+ .hero p { font-size: 1.15rem; color: #B080D0; margin-bottom: 1.2rem; }
+ nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+ nav ul li a { color: #CC66FF; font-weight: 600; padding: 0.3rem 0.6rem; border-bottom: 1px solid transparent; transition: border-color 0.2s, color 0.2s; }
+ nav ul li a:hover { border-color: #FF33FF; color: #FF33FF; }
+
+ /* OVERVIEW */
+ .overview-section { padding: 2rem 1.5rem; background: #0A0018; text-align: center; border-bottom: 1px solid #2A0044; }
+ .overview-section h2 { font-size: 2.2rem; font-weight: 800; color: #FF99FF; margin-bottom: 1rem; }
+ .overview-section p { font-size: 1.1rem; color: #C0A0D0; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+
+ /* SECTIONS */
+ section.content-section { padding: 1.5rem 1rem; border-bottom: 1px solid #2A0044; background: #06000F; }
+ .content-section h2 { font-size: 1.8rem; color: #FF99FF; margin-bottom: 1rem; margin-top: 0.5rem; }
+ .content-section h3 { color: #CC66FF; margin-top: 1.2rem; margin-bottom: 0.6rem; }
+ .project-details { padding-left: 1rem; margin-bottom: 1.5rem; }
+ .project-details li { margin-bottom: 0.5rem; color: #C0A0D0; }
+ .project-details li strong { color: #E0D0FF; }
+
+ /* STAT CARDS */
+ .stat-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 1.2rem; }
+ .stat-card { background: #0D0022; border: 1px solid #440066; border-radius: 10px; padding: 1.2rem; text-align: center; box-shadow: 0 0 20px rgba(180,0,255,0.1); }
+ .stat-num { font-size: 2rem; font-weight: 800; color: #FF33FF; line-height: 1; }
+ .stat-label { font-size: 0.72rem; color: #7744AA; margin-top: 0.3rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+ /* PIPELINE */
+ .pipeline { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: 1.2rem; }
+ .pipeline-step { background: #0D0022; border: 1px solid #440066; border-radius: 10px; padding: 1rem; text-align: center; }
+ .step-num { font-size: 1.5rem; font-weight: 800; color: #FF33FF; }
+ .step-title { font-weight: 700; color: #CC66FF; margin: 0.3rem 0 0.2rem; font-size: 0.92rem; }
+ .step-desc { font-size: 0.8rem; color: #7744AA; line-height: 1.5; }
+
+ /* TECH TAGS */
+ .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+ .tech-tag { background: #0D0022; color: #FF33FF; border: 1px solid #440066; border-radius: 20px; padding: 0.22rem 0.7rem; font-size: 0.8rem; font-weight: 600; }
+
+ /* GIF DISPLAY */
+ .gif-wrap { background: #000000; border-radius: 14px; padding: 1.2rem; border: 1px solid #440066; margin-top: 1.2rem; text-align: center; box-shadow: 0 0 40px rgba(180,0,255,0.2); }
+ .gif-wrap img { border-radius: 8px; max-width: 100%; box-shadow: 0 0 30px rgba(255,51,255,0.3); }
+ .gif-caption { font-size: 0.82rem; color: #7744AA; margin-top: 0.7rem; font-style: italic; }
+
+ /* COLOUR SCALE */
+ .scale-bar { width: 100%; height: 28px; border-radius: 6px; margin: 0.8rem 0 0.3rem;
+ background: linear-gradient(to right, #000000, #05000F, #2D0050, #6600AA, #CC00CC, #FF33FF, #FF99FF, #FFE0FF, #FFFFFF);
+ border: 1px solid #440066; }
+ .scale-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: #7744AA; }
+
+ /* INSIGHT CARDS */
+ .insight-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-top: 1rem; }
+ .insight-card { background: #0D0022; border-left: 4px solid #6600AA; border-radius: 8px; padding: 1rem 1.2rem; }
+ .insight-card.bright { border-color: #FF33FF; }
+ .insight-card.dim { border-color: #440066; }
+ .insight-card.covid { border-color: #CC0066; background: #150010; }
+ .insight-card.recover { border-color: #9933FF; }
+ .insight-card h4 { margin: 0 0 0.4rem; font-size: 1rem; color: #FF99FF; }
+ .insight-card p { font-size: 0.87rem; color: #B080D0; margin: 0; line-height: 1.65; }
+
+ /* TIMELINE */
+ .timeline { margin-top: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem; }
+ .timeline-row { display: grid; grid-template-columns: 80px 1fr; gap: 1rem; align-items: start; }
+ .timeline-year { font-family: 'Courier New', monospace; font-size: 1rem; font-weight: 700; color: #FF33FF; text-align: right; padding-top: 0.15rem; }
+ .timeline-text { font-size: 0.87rem; color: #C0A0D0; line-height: 1.6; border-left: 2px solid #440066; padding-left: 1rem; }
+
+ /* NOTE BOX */
+ .note-box { background: #0D0022; border-left: 4px solid #9933FF; border-radius: 6px; padding: 0.9rem 1.2rem; margin-top: 1.2rem; font-size: 0.88rem; color: #B080D0; line-height: 1.7; }
+ .note-box strong { color: #E0D0FF; }
+
+ /* CODE */
+ .code-window { background: #000000; border-radius: 10px; overflow: hidden; margin-top: 1rem; border: 1px solid #440066; box-shadow: 0 0 20px rgba(180,0,255,0.1); }
+ .code-toolbar { background: #0D0022; padding: 0.6rem 1rem; display: flex; align-items: center; gap: 0.4rem; border-bottom: 1px solid #440066; }
+ .dot { width: 10px; height: 10px; border-radius: 50%; }
+ .dot-r { background: #FF5F57; } .dot-y { background: #FEBC2E; } .dot-g { background: #28C840; }
+ .code-filename { margin-left: auto; color: #FF33FF; font-family: monospace; font-size: 0.72rem; }
+ pre { padding: 1.2rem 1.5rem; margin: 0; font-family: 'Consolas','Courier New',monospace; font-size: 0.78rem; line-height: 1.75; color: #CC99FF; overflow-x: auto; }
+ .kw { color: #FF66AA; } .fn { color: #FF33FF; } .st { color: #99FFCC; } .cm { color: #440066; font-style: italic; } .nm { color: #FFAA33; }
+
+ /* DOWNLOAD */
+ .download-button { display: inline-block; padding: 0.7rem 1.4rem; background: #2D0050; color: #FF99FF; font-weight: 600; border-radius: 8px; text-decoration: none; transition: background 0.3s; font-size: 0.88rem; border: 1px solid #FF33FF; }
+ .download-button:hover { background: #440066; color: #FFFFFF; }
+
+ footer { background: #0A0018; text-align: center; padding: 2rem 1rem; font-size: 0.9rem; color: #7744AA; border-top: 1px solid #2A0044; }
+ footer a { color: #FF33FF; }
+
+ @media(max-width:700px) {
+ .hero h1 { font-size: 2.1rem; }
+ .pipeline, .insight-grid, .stat-strip { grid-template-columns: 1fr 1fr; }
+ }
+ </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+ <div class="container">
+ <h1>India Night Lights</h1>
+ <p>Monthly satellite animation of electrification &amp; urbanisation 2015 to 2025</p>
+ <nav><ul>
+ <li><a href="../../python-scripts.html">&#8592; Back to Python Projects</a></li>
+ <li><a href="#overview">Overview</a></li>
+ <li><a href="#details">Details</a></li>
+ <li><a href="#animation">Animation</a></li>
+ <li><a href="#insights">Insights</a></li>
+ <li><a href="#timeline">Timeline</a></li>
+ <li><a href="#code">Code</a></li>
+ </ul></nav>
+ </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview" class="overview-section">
+ <div class="container">
+ <h2>Overview</h2>
+ <p>
+ This project uses <strong>VIIRS-DNB satellite imagery</strong> from Google Earth Engine
+ to animate India&rsquo;s night-light radiance every month from 2015 to 2025 
+ 132 frames of electrification history. The images are processed using
+ <strong>log-scaling, noise masking and temporal smoothing</strong> 
+ standard techniques in remote-sensing research to reveal both the blazing
+ metros and the faint glow of newly electrified villages.
+ </p>
+ </div>
+</section>
+
+<!-- DETAILS -->
+<section id="details" class="content-section">
+ <div class="container">
+ <h2>&#129150; Project Details</h2>
+ <div class="stat-strip">
+ <div class="stat-card"><div class="stat-num">132</div><div class="stat-label">Monthly Frames</div></div>
+ <div class="stat-card"><div class="stat-num">11</div><div class="stat-label">Years (2015 25)</div></div>
+ <div class="stat-card"><div class="stat-num">5km</div><div class="stat-label">Pixel Resolution</div></div>
+ <div class="stat-card"><div class="stat-num">GEE</div><div class="stat-label">Data Platform</div></div>
+ </div>
+
+ <ul class="project-details" style="margin-top:1.5rem;">
+ <li><strong>Satellite:</strong> VIIRS-DNB (Visible Infrared Imaging Radiometer Suite Day/Night Band)</li>
+ <li><strong>Dataset:</strong> NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG via Google Earth Engine</li>
+ <li><strong>Processing:</strong> Noise mask (&gt;0.5 nW/cm&sup2;/sr), log(1+x) scaling, 3-month temporal smoothing</li>
+ <li><strong>Colourmap:</strong> Black &rarr; deep violet &rarr; magenta &rarr; white (custom cyberpunk ramp)</li>
+ <li><strong>Output:</strong> Looping GIF 80ms per frame, 300ms hold on January of each year</li>
+ </ul>
+
+ <h3>Processing Pipeline</h3>
+ <div class="pipeline">
+ <div class="pipeline-step">
+ <div class="step-num">01</div>
+ <div class="step-title">GEE Query</div>
+ <div class="step-desc">Filter VIIRS monthly collection per month, compute median composite, clip to India</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="step-num">02</div>
+ <div class="step-title">Clean</div>
+ <div class="step-desc">Mask pixels &lt;0.5 nW (noise), apply log(1+x) to reveal dim rural lights</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="step-num">03</div>
+ <div class="step-title">Smooth</div>
+ <div class="step-desc">3-month rolling mean removes atmospheric noise and sensor drift flicker</div>
+ </div>
+ <div class="pipeline-step">
+ <div class="step-num">04</div>
+ <div class="step-title">Render</div>
+ <div class="step-desc">132 Matplotlib frames with boundary overlay, progress bar and annotations</div>
+ </div>
+ </div>
+
+ <h3>Tech Stack</h3>
+ <div class="tech-tags">
+ <span class="tech-tag">Google Earth Engine</span>
+ <span class="tech-tag">VIIRS-DNB</span>
+ <span class="tech-tag">Matplotlib</span>
+ <span class="tech-tag">NumPy</span>
+ <span class="tech-tag">Pillow</span>
+ <span class="tech-tag">GeoPandas</span>
+ <span class="tech-tag">geoBoundaries</span>
+ <span class="tech-tag">Google Colab</span>
+ </div>
+ </div>
+</section>
+
+<!-- ANIMATION -->
+<section id="animation" class="content-section">
+ <div class="container">
+ <h2>&#127916; Animation</h2>
+ <p style="color:#B080D0; margin-bottom:0.4rem;">
+ Each frame = one month of VIIRS satellite data. Colour encodes radiance intensity.
+ The progress bar at the bottom shows exact position in the 2015 2025 timeline.
+ </p>
+ <div class="gif-wrap">
+ <img src="india_night_lights_monthly.gif" alt="India Night Lights Monthly Animation 2015-2025">
+ <p class="gif-caption">
+ VIIRS-DNB monthly composites India 2015 2025 
+ 132 frames &bull; log-scaled &bull; noise-masked &bull; temporally smoothed
+ </p>
+ </div>
+
+ <h3>Colour scale radiance intensity</h3>
+ <div class="scale-bar"></div>
+ <div class="scale-labels">
+ <span>No light (dark rural)</span>
+ <span>Faint glow (small town)</span>
+ <span>Bright (city)</span>
+ <span>Intense (metro core)</span>
+ </div>
+
+ <div class="note-box" style="margin-top:1rem;">
+ <strong>Why log scaling?</strong> Raw night-light radiance is highly skewed 
+ Mumbai emits ~10,000&times; more light than a small village. Without transformation,
+ cities dominate and rural electrification is invisible. Applying log(1+x)
+ compresses bright pixels and amplifies faint ones, revealing the full story.
+ </div>
+ </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights" class="content-section">
+ <div class="container">
+ <h2>&#128161; Key Insights</h2>
+ <div class="insight-grid">
+ <div class="insight-card bright">
+ <h4>Saubhagya Scheme (2017 2018)</h4>
+ <p>The most visually dramatic change in the animation. Watch eastern UP, Bihar
+ and Odisha historically the darkest regions brighten month by month
+ through 2017 18 as the government&rsquo;s 100% household electrification
+ drive reaches remote villages.</p>
+ </div>
+ <div class="insight-card covid">
+ <h4>COVID Lockdown (March May 2020)</h4>
+ <p>One of the clearest satellite signatures of the pandemic. Industrial zones
+ around Surat, Pune and Chennai dim noticeably in March 2020 as factories shut.
+ The recovery from June 2020 onwards is equally visible a rare
+ natural experiment in human activity.</p>
+ </div>
+ <div class="insight-card recover">
+ <h4>Highway Corridors Emerge</h4>
+ <p>By 2019 2022 the Delhi Mumbai Industrial Corridor and the
+ Chennai Bengaluru highway appear as bright linear features in the animation.
+ These infrastructure investments are legible from space before they register
+ in economic statistics.</p>
+ </div>
+ <div class="insight-card dim">
+ <h4>Monsoon Dimming (Jun Sep)</h4>
+ <p>Every year shows a subtle seasonal pattern cloud cover during the
+ monsoon months attenuates the satellite signal. This is physical, not economic.
+ Temporal smoothing reduces but does not fully remove this seasonal oscillation,
+ which is itself an interesting data artefact.</p>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="content-section">
+ <div class="container">
+ <h2>&#128336; Year by Year</h2>
+ <div class="timeline">
+ <div class="timeline-row">
+ <div class="timeline-year">2015</div>
+ <div class="timeline-text">Baseline year. ~300 million people still without electricity. Major metros blaze; eastern India largely dark.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2016</div>
+ <div class="timeline-text">Demonetisation in November. Digital payment infrastructure spreads to semi-urban areas. Slight economic disruption visible.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2017</div>
+ <div class="timeline-text">Saubhagya scheme launched (Sept). Target: every household electrified. Eastern India begins its dramatic brightening.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2018</div>
+ <div class="timeline-text">Peak Saubhagya rollout. Bihar, UP, Odisha and Jharkhand show the fastest month-on-month brightness increase in the dataset.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2019</div>
+ <div class="timeline-text">India officially fully electrified (April 2018 declaration). 2019 is the pre-pandemic brightness peak India&rsquo;s night-light footprint at its largest.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2020</div>
+ <div class="timeline-text">COVID-19. National lockdown from March 25. Industrial zones dim. Highways go dark. Recovery visible from June as restrictions ease.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2021</div>
+ <div class="timeline-text">Post-COVID rebound. Manufacturing restarts. Urban centres recover rapidly India&rsquo;s GDP growth fastest in the world by Q2 2021.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2022</div>
+ <div class="timeline-text">Russia-Ukraine war drives energy demand. India&rsquo;s power consumption at record highs. New industrial corridors under construction.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2023</div>
+ <div class="timeline-text">G20 presidency. Infrastructure investment visible as new nodes of brightness appear in tier-2 cities and logistics hubs.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2024</div>
+ <div class="timeline-text">World&rsquo;s fastest-growing major economy. Delhi Mumbai corridor, Chennai Bengaluru axis and coastal industrial zones at their brightest.</div>
+ </div>
+ <div class="timeline-row">
+ <div class="timeline-year">2025</div>
+ <div class="timeline-text">Latest available data. India&rsquo;s cumulative night-light brightness index at ~1.4&times; the 2015 baseline a 40% increase in a decade.</div>
+ </div>
+ </div>
+ </div>
+</section>
+
+<!-- CODE -->
+<section id="code" class="content-section">
+ <div class="container">
+ <h2>&#128230; Code</h2>
+ <p style="color:#C0A0D0; margin-bottom:0.5rem;">Core GEE processing noise mask, log scaling and download:</p>
+ <div class="code-window">
+ <div class="code-toolbar">
+ <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+ <div class="code-filename">india_night_lights_monthly.py</div>
+ </div>
+ <pre><span class="cm"># Fetch one month of VIIRS night-lights research-grade processing</span>
+<span class="kw">def</span> <span class="fn">get_viirs_month</span>(year, month):
+ start = ee.Date.<span class="fn">fromYMD</span>(year, month, <span class="nm">1</span>)
+ end = start.<span class="fn">advance</span>(<span class="nm">1</span>, <span class="st">"month"</span>)
+
+ img = (ee.ImageCollection(<span class="st">"NOAA/VIIRS/DNB/MONTHLY_V1/VCMSLCFG"</span>)
+ .<span class="fn">filterDate</span>(start, end)
+ .<span class="fn">select</span>(<span class="st">"avg_rad"</span>)
+ .<span class="fn">median</span>()
+ .<span class="fn">max</span>(<span class="nm">0</span>)
+ .<span class="fn">clip</span>(india_region))
+
+ img = img.<span class="fn">updateMask</span>(img.<span class="fn">gt</span>(<span class="nm">0.5</span>)) <span class="cm"># noise mask</span>
+ img = img.<span class="fn">add</span>(<span class="nm">1</span>).<span class="fn">log</span>() <span class="cm"># log(1+x) scaling</span>
+ img = img.<span class="fn">divide</span>(<span class="nm">4</span>) <span class="cm"># normalise 0-1</span>
+ <span class="kw">return</span> img.<span class="fn">rename</span>(<span class="st">"lights"</span>)
+
+<span class="cm"># 3-month temporal smoothing removes atmospheric flicker</span>
+<span class="kw">for</span> i, key <span class="kw">in</span> <span class="fn">enumerate</span>(keys):
+ neighbors = [arrays[keys[i+di]] <span class="kw">for</span> di <span class="kw">in</span> [-<span class="nm">1</span>,<span class="nm">0</span>,<span class="nm">1</span>]
+ <span class="kw">if</span> <span class="nm">0</span> &lt;= i+di &lt; <span class="fn">len</span>(keys)]
+ smoothed[key] = np.<span class="fn">mean</span>(neighbors, axis=<span class="nm">0</span>)</pre>
+ </div>
+ <br>
+ <a href="india_night_lights_quarterly.py" class="download-button" download>&#8659; Download Python Script (.py)</a>
+ </div>
+</section>
+
+<footer>
+ <div class="container">
+ <p>
+ Satellite data: <a href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_DNB_MONTHLY_V1_VCMSLCFG" target="_blank">NOAA VIIRS-DNB via Google Earth Engine</a>
+ &bull; Boundary: <a href="https://www.geoboundaries.org" target="_blank">geoBoundaries</a>
+ &bull; Suman Bhowmick &bull; 2026
+ </p>
+ </div>
+</footer>
+
+</body>
+</html>
