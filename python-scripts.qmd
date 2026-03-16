@@ -22,7 +22,7 @@ sidebar: false
 ### India Domestic Flights
 ![](python-projects/flights/india_flights_24hr.gif)
 <p class="card-description">
-  Animated 24-hour map of 3,173 real domestic flights on Friday 01 March 2019 across 74 Indian airports using Bezier arc interpolation.
+  Animated 24-hour map of 2,100 real domestic flights on Friday 01 March 2019 across 74 Indian airports using Bezier arc interpolation.
 </p>
 <div class="card-footer">
   [View More Details](python-projects/flights/flights_portfolio.html){.view-button}

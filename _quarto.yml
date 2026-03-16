@@ -2,6 +2,7 @@ project:
   type: website
   resources: 
    - gis-projects/mizoram-population/**
+   - gis-projects/literacy-disparity/**
    - python-projects/road-network/**
    - python-projects/walkability-world/**
    - python-projects/migration-flows/**
