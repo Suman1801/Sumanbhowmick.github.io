@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Literacy Disparity of Indian States - Suman Bhowmick</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f5f0e8;color:#0f0e0c;line-height:1.6;font-weight:300;}
+a{color:#1a4a7a;text-decoration:none;}
+a:hover{text-decoration:underline;}
+img{max-width:100%;height:auto;border-radius:4px;}
+.container{max-width:1000px;margin:auto;padding:1.5rem;}
+
+/* ── HERO ── */
+.hero{
+  position:relative;background:#0a0f1a;
+  padding:3rem 1.5rem 2rem;text-align:center;
+  border-bottom:2px solid #d4c9a8;overflow:hidden;
+}
+.hero::before{
+  content:'GIS';position:absolute;top:-20px;right:-10px;
+  font-family:'Playfair Display',serif;font-size:clamp(100px,16vw,220px);font-weight:900;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.04);
+  letter-spacing:-8px;pointer-events:none;user-select:none;line-height:1;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:0.5rem;
+  color:#f5f0e8;letter-spacing:-0.02em;font-weight:900;
+  text-shadow:0 0 40px rgba(100,160,255,0.2);
+}
+.hero h1 em{font-style:italic;color:#5b9bd5;}
+.hero p{font-size:1.1rem;color:#5a6070;margin-bottom:1.4rem;}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;}
+nav ul li a{color:#7ab3e0;font-weight:500;padding:0.3rem 0.6rem;font-size:0.9rem;border-bottom:1px solid transparent;transition:all 0.2s;}
+nav ul li a:hover{border-color:#5b9bd5;color:#5b9bd5;}
+
+/* ── OVERVIEW ── */
+.overview-section{padding:2.5rem 1.5rem;background:#fff;text-align:center;border-bottom:1.5px solid #d4c9a8;}
+.overview-section h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:#0f0e0c;margin-bottom:1rem;}
+.overview-section p{font-size:1.05rem;color:#555;max-width:800px;margin:0 auto;line-height:1.85;}
+
+/* ── SECTIONS ── */
+section.content-section{padding:2rem 1rem;border-bottom:1.5px solid #d4c9a8;background:#f5f0e8;}
+section.content-section:nth-child(even){background:#fff;}
+.content-section h2{font-family:'Playfair Display',serif;font-size:1.9rem;color:#0f0e0c;margin-bottom:1rem;margin-top:0.5rem;font-weight:700;}
+.content-section h3{font-family:'Playfair Display',serif;color:#1a4a7a;margin-top:1.4rem;margin-bottom:0.7rem;font-size:1.1rem;font-weight:700;}
+.project-details{padding-left:1rem;margin-bottom:1.5rem;}
+.project-details li{margin-bottom:0.5rem;color:#555;}
+.project-details li strong{color:#0f0e0c;font-weight:500;}
+
+/* ── STAT CARDS ── */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+.stat-card{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1.2rem;text-align:center;box-shadow:4px 4px 0 #d4c9a8;transition:box-shadow .2s,transform .2s;cursor:default;}
+.stat-card:hover{box-shadow:6px 6px 0 #d4c9a8;transform:translate(-1px,-1px);}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#1a4a7a;line-height:1;}
+.stat-label{font-size:0.7rem;color:#aaa;margin-top:0.3rem;letter-spacing:0.1em;text-transform:uppercase;}
+
+/* ── MAP FRAME ── */
+.map-wrap{background:#f0f4f8;border-radius:4px;padding:1rem;border:1.5px solid #d4c9a8;margin-top:1.2rem;text-align:center;box-shadow:6px 6px 0 #d4c9a8;}
+.map-wrap img{width:100%;border-radius:4px;box-shadow:0 2px 20px rgba(0,0,0,0.1);display:block;}
+.map-caption{font-size:0.82rem;color:#aaa;margin-top:0.8rem;font-style:italic;}
+
+/* ── LEGEND ── */
+.legend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-top:1rem;}
+.legend-item{display:flex;align-items:center;gap:0.7rem;background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:0.6rem 0.9rem;transition:transform .15s;cursor:default;}
+.legend-item:hover{transform:translateX(3px);}
+.legend-dot{width:16px;height:16px;border-radius:3px;flex-shrink:0;}
+.legend-name{font-size:0.85rem;color:#0f0e0c;font-weight:500;}
+.legend-range{font-size:0.75rem;color:#aaa;margin-top:1px;}
+
+/* ── PIPELINE ── */
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+.pipeline-step{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1rem;text-align:center;box-shadow:3px 3px 0 #d4c9a8;transition:box-shadow .2s,transform .2s;}
+.pipeline-step:hover{box-shadow:5px 5px 0 #d4c9a8;transform:translate(-1px,-1px);}
+.step-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#5b9bd5;}
+.step-title{font-weight:600;color:#0f0e0c;margin:0.3rem 0 0.2rem;font-size:0.9rem;}
+.step-desc{font-size:0.78rem;color:#888;line-height:1.55;}
+
+/* ── TECH TAGS ── */
+.tech-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
+.tech-tag{background:#fff;color:#1a4a7a;border:1.5px solid #d4c9a8;border-radius:20px;padding:0.22rem 0.8rem;font-size:0.78rem;font-weight:500;transition:background .2s,color .2s;cursor:default;}
+.tech-tag:hover{background:#1a4a7a;color:#fff;}
+
+/* ── INTERPRETATION CARDS ── */
+.peak-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
+.peak-card{background:#fff;border-radius:4px;padding:1.1rem 1.2rem;border:1.5px solid #d4c9a8;}
+.peak-card.vlow {border-left:5px solid #08306b;}
+.peak-card.low  {border-left:5px solid #2171b5;}
+.peak-card.mod  {border-left:5px solid #6baed6;}
+.peak-card.high {border-left:5px solid #bdd7e7;}
+.peak-card h4{margin:0 0 0.4rem;font-size:0.95rem;color:#0f0e0c;font-weight:600;}
+.peak-card p{font-size:0.86rem;color:#666;margin:0;line-height:1.7;}
+.peak-tag{font-size:0.75rem;font-weight:600;display:inline-block;margin-bottom:0.5rem;padding:2px 8px;border-radius:3px;}
+.tag-vlow{background:#08306b;color:#fff;}
+.tag-low {background:#2171b5;color:#fff;}
+.tag-mod {background:#6baed6;color:#fff;}
+.tag-high{background:#bdd7e7;color:#1a4a7a;}
+
+/* ── INSIGHT CARDS ── */
+.insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
+.insight-card{background:#fff;border-radius:4px;padding:1rem 1.2rem;border:1.5px solid #d4c9a8;}
+.insight-card.dark {border-left:4px solid #08306b;}
+.insight-card.mid  {border-left:4px solid #2171b5;}
+.insight-card.light{border-left:4px solid #6baed6;}
+.insight-card.pale {border-left:4px solid #bdd7e7;}
+.insight-card h4{margin:0 0 0.4rem;font-size:0.95rem;color:#0f0e0c;font-weight:600;}
+.insight-card p{font-size:0.86rem;color:#666;margin:0;line-height:1.7;}
+
+/* ── FORMULA BOX ── */
+.formula-box{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1.8rem;margin-top:1rem;text-align:center;box-shadow:4px 4px 0 #d4c9a8;}
+.formula-main{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#1a4a7a;background:#f0f4f8;border:1.5px solid #d4c9a8;border-radius:4px;padding:1rem 1.4rem;display:inline-block;margin-bottom:1.4rem;}
+.var-table{width:100%;max-width:560px;margin:0 auto;border-collapse:collapse;text-align:left;}
+.var-table td{padding:0.5rem 0.7rem;font-size:0.86rem;border-bottom:1px solid #e8e2d4;}
+.var-table tr:last-child td{border-bottom:none;}
+.var-key{font-family:'Playfair Display',serif;font-weight:700;color:#2171b5;font-size:1.05rem;width:40px;}
+.var-desc{color:#555;}
+
+/* ── NOTE ── */
+.note-box{background:#fff;border-left:4px solid #5b9bd5;border-radius:4px;padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.87rem;color:#666;line-height:1.75;border:1.5px solid #d4c9a8;border-left-width:4px;}
+.note-box strong{color:#0f0e0c;font-weight:500;}
+
+/* ── FOOTER ── */
+footer{background:#0a0f1a;text-align:center;padding:2rem 1rem;font-size:0.88rem;color:#555;border-top:1.5px solid #d4c9a8;}
+footer a{color:#7ab3e0;}
+
+@media(max-width:700px){
+  .hero h1{font-size:2rem;}
+  .pipeline,.insight-grid,.stat-strip,.peak-grid,.legend-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Literacy <em>Disparity</em> of Indian States</h1>
+    <p>State-level Sopher's Index choropleth &bull; 28+ states &bull; Census of India 2011</p>
+    <nav><ul>
+      <li><a href="#">&#8592; Back to GIS Projects</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#map">Map</a></li>
+      <li><a href="#interpretation">Interpretation</a></li>
+      <li><a href="#methodology">Methodology</a></li>
+    </ul></nav>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview" class="overview-section">
+  <div class="container">
+    <h2>Overview</h2>
+    <p>
+      This project maps <strong>literacy disparity</strong> across every Indian state using
+      <strong>Sopher's Disparity Index</strong> — a statistical measure of inequality devised by
+      geographer David Sopher in 1974. The index captures the gap between male and female literacy rates.
+      States are shaded using a five-class sequential blue ramp from
+      <strong style="color:#08306b;">dark blue</strong> (very low disparity) to
+      <strong style="color:#bdd7e7;">pale blue</strong> (very high disparity),
+      revealing a stark spatial divide in educational equity across India.
+    </p>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section id="details" class="content-section">
+  <div class="container">
+    <h2>&#129150; Project Details</h2>
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="stat-num">28<span style="font-size:1.1rem;color:#5b9bd5;">+</span></div>
+        <div class="stat-label">States Mapped</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Index Classes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0.040</div>
+        <div class="stat-label">Min Index · Meghalaya</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0.36</div>
+        <div class="stat-label">Total Index Range</div>
+      </div>
+    </div>
+
+    <ul class="project-details" style="margin-top:1.5rem;">
+      <li><strong>Data Source:</strong> Census of India 2011 — state-level male and female literacy rates</li>
+      <li><strong>Index:</strong> Sopher's Disparity Index — D = log(X₂/X₁) + log((100−X₁)/(100−X₂))</li>
+      <li><strong>Classification:</strong> Five natural-break (Jenks) classes ranging from 0.040 to ~0.400</li>
+      <li><strong>Colour Ramp:</strong> Sequential Blues — dark blue (very low disparity) → pale blue (very high disparity)</li>
+      <li><strong>Software:</strong> QGIS 3.28.7-Firenze with Print Composer for final layout</li>
+      <li><strong>CRS:</strong> WGS 84 (EPSG:4326) — geographic coordinate reference system</li>
+      <li><strong>Output:</strong> A4 landscape print-quality map with scale bar, north arrow and legend</li>
+    </ul>
+
+    <h3>Pipeline</h3>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Data Collection</div>
+        <div class="step-desc">State literacy rates (male &amp; female) extracted from Census 2011 and cleaned in tabular format</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Index Calculation</div>
+        <div class="step-desc">Sopher's Index computed for each state, normalised into five natural-break categories</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Spatial Join</div>
+        <div class="step-desc">Index values joined to India state boundary shapefile by state name identifier in QGIS</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Cartography</div>
+        <div class="step-desc">Blues choropleth styled, north arrow and scale bar added, exported via Print Composer</div>
+      </div>
+    </div>
+
+    <h3>Tools Used</h3>
+    <div class="tech-tags">
+      <span class="tech-tag">QGIS 3.28.7</span>
+      <span class="tech-tag">WGS 84</span>
+      <span class="tech-tag">Print Composer</span>
+      <span class="tech-tag">Sopher's Index (1974)</span>
+      <span class="tech-tag">Natural Breaks (Jenks)</span>
+      <span class="tech-tag">Sequential Blues</span>
+      <span class="tech-tag">Census of India 2011</span>
+      <span class="tech-tag">Choropleth Mapping</span>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map" class="content-section">
+  <div class="container">
+    <h2>&#127758; Choropleth Map</h2>
+    <p style="color:#666;margin-bottom:0.4rem;">
+      Each state is filled according to its Sopher Index class. Dark blue indicates near-parity
+      between male and female literacy; pale blue indicates the widest gaps. North arrow and
+      scale bar are included for cartographic completeness.
+    </p>
+
+    <div class="map-wrap">
+      <img src="map.jpg" alt="Literacy Disparity Map of Indian States — Sopher's Index choropleth, Census 2011"/>
+      <p class="map-caption">
+        Literacy Disparity Map of Indian States &bull; Sopher's Index &bull; 5 classes &bull; Sequential Blues &bull; QGIS 3.28.7-Firenze &bull; Census 2011
+      </p>
+    </div>
+
+    <h3 style="margin-top:1.5rem;">Index colour key</h3>
+    <div class="legend-grid">
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#08306b;"></div>
+        <div><div class="legend-name">Very Low</div><div class="legend-range">0.040 – 0.112</div></div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#2171b5;"></div>
+        <div><div class="legend-name">Low</div><div class="legend-range">0.112 – 0.184</div></div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#6baed6;"></div>
+        <div><div class="legend-name">Moderate</div><div class="legend-range">0.184 – 0.256</div></div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#bdd7e7;"></div>
+        <div><div class="legend-name">High</div><div class="legend-range">0.256 – 0.328</div></div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background:#eff3ff;border:1px solid #d4c9a8;"></div>
+        <div><div class="legend-name">Very High</div><div class="legend-range">0.328 – 0.400</div></div>
+      </div>
+      <div class="legend-item" style="padding:0.5rem 0.9rem;">
+        <div style="height:14px;width:100%;border-radius:3px;background:linear-gradient(to right,#08306b,#2171b5,#6baed6,#bdd7e7,#eff3ff);border:1px solid #d4c9a8;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERPRETATION -->
+<section id="interpretation" class="content-section">
+  <div class="container">
+    <h2>&#128161; Interpretation</h2>
+    <div class="peak-grid">
+      <div class="peak-card vlow">
+        <h4>&#9968; Hilly Areas</h4>
+        <span class="peak-tag tag-vlow">Very Low · 0.040–0.083</span>
+        <p>India's hilly states show the smallest gaps. Meghalaya, Kerala, Mizoram, Nagaland and Sikkim all score 0.040–0.083, benefiting from lower population density and higher socioeconomic levels. Himachal Pradesh (0.257) and J&amp;K (0.298) show minor discrepancies despite steep terrain — geography alone cannot explain inequalities here.</p>
+      </div>
+      <div class="peak-card low">
+        <h4>&#127961; Urbanised States</h4>
+        <span class="peak-tag tag-low">Low to Moderate</span>
+        <p>Urbanised states tend toward smaller gaps due to government investment and educational awareness. Yet variation exists — Delhi and Chandigarh show moderate disparities, while Goa, Maharashtra and Tamil Nadu show moderate-to-high inequalities, underlining that urbanisation alone cannot explain literacy equity.</p>
+      </div>
+      <div class="peak-card high">
+        <h4>&#129517; Northern States</h4>
+        <span class="peak-tag tag-high">High Disparity</span>
+        <p>Northern states exhibit significant disparities driven by large populations and rural-urban divides. Punjab defies the trend with a low score — suggesting that state-level policy and demographic factors outweigh broad geographic categorisation in explaining inequality.</p>
+      </div>
+      <div class="peak-card vlow">
+        <h4>&#127796; Southern States</h4>
+        <span class="peak-tag tag-vlow">Low to Moderate</span>
+        <p>The south is defined by low-to-moderate disparity — credited to high education awareness, sustained government investment, and lower rural population density. Kerala's extraordinarily low score demonstrates how deliberate policy and socioeconomic development can systematically reduce literacy inequalities over time.</p>
+      </div>
+      <div class="peak-card mod">
+        <h4>&#127807; North-Eastern States</h4>
+        <span class="peak-tag tag-mod">Varied</span>
+        <p>The northeast shows mixed patterns. Meghalaya and Mizoram have very low inequality partly due to terrain and British colonial literacy investment. Nagaland, Assam, Arunachal Pradesh (0.228), Manipur and Sikkim show mild-to-moderate variance — illustrating the combined influence of geography and socioeconomic factors.</p>
+      </div>
+      <div class="peak-card high">
+        <h4>&#128101; High-Population States</h4>
+        <span class="peak-tag tag-high">Moderate to High</span>
+        <p>Large-population states typically exhibit wider literacy gaps. West Bengal is a notable exception. Uttar Pradesh, Bihar, Madhya Pradesh, Maharashtra and Rajasthan all display varied degrees reflecting the complex interplay of factors shaping educational attainment in densely populated regions.</p>
+      </div>
+    </div>
+
+    <div class="insight-grid" style="margin-top:1rem;">
+      <div class="insight-card dark">
+        <h4>Bihar &amp; Rajasthan — Highest Disparity</h4>
+        <p>These two states rank among the highest Sopher Index scores, driven by deep rural-urban splits and historical underinvestment in female education. The gap is widest in areas where women's access to primary schooling has lagged by generations.</p>
+      </div>
+      <div class="insight-card mid">
+        <h4>The Kerala Paradox</h4>
+        <p>Despite a high overall literacy rate (~94%), Kerala scores Very Low on the disparity index — meaning male and female literacy are nearly equal. The result of decades of progressive education policy dating to the pre-Independence Travancore state.</p>
+      </div>
+      <div class="insight-card light">
+        <h4>Northeast Isolation</h4>
+        <p>Despite geographic isolation and limited infrastructure, Meghalaya and Mizoram record the lowest disparity in India. Christian missionary schools established during the British era created a tradition of universal literacy that persists to this day.</p>
+      </div>
+      <div class="insight-card pale">
+        <h4>Union Territories</h4>
+        <p>India's Union Territories show the full range — Delhi and Chandigarh show moderate disparities thanks to urbanisation, while Daman &amp; Diu and Dadra &amp; Nagar Haveli show significant inequalities due to isolation and scarce educational resources.</p>
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Data note:</strong> All literacy rates are from the <strong>Census of India 2011</strong>. Manipur, Arunachal Pradesh and Punjab defy their regional trends, underscoring that state-level governance and socioeconomic conditions outweigh geography as predictors of literacy equity.
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="methodology" class="content-section">
+  <div class="container">
+    <h2>&#128200; Methodology</h2>
+    <p style="color:#666;margin-bottom:1rem;">
+      Sopher's Disparity Index quantifies the gap between male and female literacy into a single comparable score per state.
+    </p>
+    <div class="formula-box">
+      <div class="formula-main">D = log(X₂ / X₁) + log( (100 − X₁) / (100 − X₂) )</div>
+      <table class="var-table">
+        <tr><td class="var-key">D</td><td class="var-desc">Disparity score — higher value means a greater gap between male and female literacy</td></tr>
+        <tr><td class="var-key">X₂</td><td class="var-desc">Higher literacy value (male literacy rate per state, Census 2011)</td></tr>
+        <tr><td class="var-key">X₁</td><td class="var-desc">Lower literacy value (female literacy rate per state, Census 2011)</td></tr>
+        <tr><td class="var-key">log</td><td class="var-desc">Common logarithm (base 10) — normalises the ratio for cross-state comparison</td></tr>
+      </table>
+    </div>
+    <ul class="project-details" style="margin-top:1.5rem;">
+      <li><strong>Step 1 — Data:</strong> Male and female literacy rates collected for each state from Census 2011.</li>
+      <li><strong>Step 2 — Index:</strong> Sopher's formula applied to produce a disparity score per state.</li>
+      <li><strong>Step 3 — Classification:</strong> Scores classified into five natural-break (Jenks) categories.</li>
+      <li><strong>Step 4 — Mapping:</strong> Scores spatially joined to state shapefile in QGIS and styled with Blues ramp.</li>
+      <li><strong>Step 5 — Layout:</strong> Map exported from QGIS Print Composer with scale bar and north arrow.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>
+      Data: <a href="https://censusindia.gov.in" target="_blank">Census of India 2011</a>
+      &bull; Software: <a href="https://qgis.org" target="_blank">QGIS 3.28.7-Firenze</a>
+      &bull; Index: Sopher (1974)
+      &bull; Suman Bhowmick &bull; 2023
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
