@@ -22,7 +22,7 @@ sidebar: false
 ### Literacy Disparity of Indian States
 ![](gis-projects/literacy-disparity/Thumb.jpg)
 <p class="card-description">
-  State-level choropleth map of literacy disparity across India using Sopher's Index and Census 2011 data. Reveals a stark north–south divide in male–female literacy gaps through a five-class YlOrBr classification.
+  State-level choropleth map of literacy disparity across India using Sopher's Index and Census 2011 data. Reveals a stark north–south divide in male–female literacy gaps through a five-class classification.
 </p>
 <div class="card-footer">
   [View More Details](gis-projects/literacy-disparity/gis_literacy_final.html){.view-button}
