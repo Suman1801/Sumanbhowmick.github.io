@@ -78,3 +78,4 @@ format:
     code-copy: true
     footnotes-hover: true
     fig-align: center
+    include-before-body: analytics.html

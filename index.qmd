@@ -1,5 +1,5 @@
 ---
-#title: "Suman Bhowmick"
+title: "Suman Bhowmick"
 format:
   html:
     page-layout: full
@@ -14,25 +14,26 @@ format:
 
 ::: {.flex-fill}
 
-### 👋 Welcome!
+### Welcome
 
-Hi! I’m **Suman Bhowmick**, a geographer with a keen interest in:
+Hi! I'm **Suman Bhowmick**, a geographer with a keen interest in:
 
--  Hydrology, groundwater  
--  Watershed and hydrological modelling  
--  River course changes, sediment transport  
--  ML/DL (Google Earth Engine, Python, R)  
--  Agricultural geospatial modelling, climate–soil interactions  
+- Hydrology and groundwater  
+- Watershed and hydrological modelling  
+- River course changes and sediment transport  
+- ML/DL with Google Earth Engine, Python, and R  
+- Agricultural geospatial modelling and climate-soil interactions  
 
-###  Current Research
+### Current Research
 
 *Remote Sensing Application for Flood Hazard Assessment: A Study in the Lower Gangetic Plain of West Bengal*
 
-### 📍 Location
+### Location
 
-**📌 Barasat, West Bengal, India**
+**Duttapukur, West Bengal, India**
 
-> *“Geography is the stage on which the drama of humanity unfolds — I decode it with data.”*
+> *"Geography is the stage on which the drama of humanity unfolds — I decode it with data."*
 
 :::
+
 :::
