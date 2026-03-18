@@ -18,6 +18,7 @@ project:
 
 website:
   title: "Suman Bhowmick"
+  favicon: files/images/favicon.png
   description: "Geographer | Researcher | Watershed Modeling | Soil Erosion | LULC Analysis"
   site-url: "https://Suman1801.github.io/suman-portfolio"
   repo-url: "https://github.com/Suman1801/suman-portfolio"
