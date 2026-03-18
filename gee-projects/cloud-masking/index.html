@@ -1,147 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sentinel-2 Cloud Masking: QA60 vs CloudScore+ - Suman's Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sentinel-2 Cloud Masking: QA60 vs CloudScore+ - Suman Bhowmick</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f5f0e8;color:#0f0e0c;line-height:1.6;font-weight:300;}
+a{color:#c0392b;text-decoration:none;}
+a:hover{text-decoration:underline;}
+img{max-width:100%;height:auto;border-radius:4px;}
+.container{max-width:1000px;margin:auto;padding:1.5rem;}
+
+/* ── HERO ── */
+.hero{
+  position:relative;background:#0f0e0c;
+  padding:3rem 1.5rem 2rem;text-align:center;
+  border-bottom:2px solid #d4c9a8;overflow:hidden;
+}
+.hero::before{
+  content:'GEE';position:absolute;top:-20px;right:-10px;
+  font-family:'Playfair Display',serif;font-size:clamp(100px,16vw,220px);font-weight:900;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.04);
+  letter-spacing:-8px;pointer-events:none;user-select:none;line-height:1;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:0.5rem;
+  color:#f5f0e8;letter-spacing:-0.02em;font-weight:900;
+  text-shadow:0 0 40px rgba(254,153,41,0.2);
+}
+.hero h1 .normal{font-style:normal;color:#fec44f;font-weight:400;}
+.hero p{font-size:1.1rem;color:#6a5f50;margin-bottom:1.4rem;}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;}
+nav ul li a{color:#fec44f;font-weight:500;padding:0.3rem 0.6rem;font-size:0.9rem;border-bottom:1px solid transparent;transition:all 0.2s;}
+nav ul li a:hover{border-color:#fe9929;color:#fe9929;}
+
+/* ── OVERVIEW ── */
+.overview-section{padding:2.5rem 1.5rem;background:#fff;text-align:center;border-bottom:1.5px solid #d4c9a8;}
+.overview-section h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:#0f0e0c;margin-bottom:1rem;}
+.overview-section p{font-size:1.05rem;color:#555;max-width:800px;margin:0 auto;line-height:1.85;}
+.overview-section p+p{margin-top:0.8rem;}
+
+/* ── SECTIONS ── */
+section.content-section{padding:2rem 1rem;border-bottom:1.5px solid #d4c9a8;background:#f5f0e8;}
+section.content-section:nth-child(even){background:#fff;}
+.content-section h2{font-family:'Playfair Display',serif;font-size:1.9rem;color:#0f0e0c;margin-bottom:1rem;margin-top:0.5rem;font-weight:700;}
+.content-section h3{font-family:'Playfair Display',serif;color:#7f2704;margin-top:1.4rem;margin-bottom:0.7rem;font-size:1.1rem;font-weight:700;}
+.project-details{padding-left:1rem;margin-bottom:1.5rem;}
+.project-details li{margin-bottom:0.5rem;color:#555;}
+.project-details li strong{color:#0f0e0c;font-weight:500;}
+
+/* ── STAT CARDS ── */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+.stat-card{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1.2rem;text-align:center;box-shadow:4px 4px 0 #d4c9a8;transition:box-shadow .2s,transform .2s;cursor:default;}
+.stat-card:hover{box-shadow:6px 6px 0 #d4c9a8;transform:translate(-1px,-1px);}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#7f2704;line-height:1;}
+.stat-label{font-size:0.7rem;color:#aaa;margin-top:0.3rem;letter-spacing:0.1em;text-transform:uppercase;}
+
+/* ── VISUALS ── */
+.visual-full{background:#fff;border-radius:4px;padding:1rem;border:1.5px solid #d4c9a8;margin-top:1.2rem;box-shadow:6px 6px 0 #d4c9a8;}
+.visual-full img{width:100%;display:block;border-radius:4px;box-shadow:0 2px 20px rgba(0,0,0,0.1);}
+.image-caption{font-size:0.82rem;color:#aaa;margin-top:0.7rem;font-style:italic;text-align:center;}
+
+.side-by-side{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem;}
+.visual-half{background:#fff;border-radius:4px;padding:1rem;border:1.5px solid #d4c9a8;box-shadow:4px 4px 0 #d4c9a8;}
+.visual-half img{width:100%;display:block;border-radius:4px;box-shadow:0 2px 12px rgba(0,0,0,0.08);}
+
+/* ── METHOD COMPARISON CARDS ── */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem;}
+.compare-card{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1.4rem;box-shadow:4px 4px 0 #d4c9a8;transition:box-shadow .2s,transform .2s;}
+.compare-card:hover{box-shadow:6px 6px 0 #d4c9a8;transform:translate(-1px,-1px);}
+.compare-card.qa{border-top:4px solid #d95f0e;}
+.compare-card.cs{border-top:4px solid #1a4a7a;}
+.compare-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.8rem;margin-top:0;}
+.compare-card h3.qa-title{color:#d95f0e;}
+.compare-card h3.cs-title{color:#1a4a7a;}
+.compare-card ul{padding-left:1rem;}
+.compare-card ul li{font-size:0.86rem;color:#555;margin-bottom:0.5rem;line-height:1.65;}
+.compare-card ul li strong{color:#0f0e0c;font-weight:500;}
+
+/* ── PIPELINE ── */
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+.pipeline-step{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1rem;text-align:center;box-shadow:3px 3px 0 #d4c9a8;transition:box-shadow .2s,transform .2s;}
+.pipeline-step:hover{box-shadow:5px 5px 0 #d4c9a8;transform:translate(-1px,-1px);}
+.step-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#fe9929;}
+.step-title{font-weight:600;color:#0f0e0c;margin:0.3rem 0 0.2rem;font-size:0.9rem;}
+.step-desc{font-size:0.78rem;color:#888;line-height:1.55;}
+
+/* ── TECH TAGS ── */
+.tech-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
+.tech-tag{background:#fff;color:#7f2704;border:1.5px solid #d4c9a8;border-radius:20px;padding:0.22rem 0.8rem;font-size:0.78rem;font-weight:500;transition:background .2s,color .2s;cursor:default;}
+.tech-tag:hover{background:#7f2704;color:#fff;}
+
+/* ── INSIGHT CARDS ── */
+.insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
+.insight-card{background:#fff;border-radius:4px;padding:1rem 1.2rem;border:1.5px solid #d4c9a8;}
+.insight-card.a{border-left:4px solid #d95f0e;}
+.insight-card.b{border-left:4px solid #1a4a7a;}
+.insight-card.c{border-left:4px solid #fe9929;}
+.insight-card.d{border-left:4px solid #7f2704;}
+.insight-card h4{margin:0 0 0.4rem;font-size:0.95rem;color:#0f0e0c;font-weight:600;}
+.insight-card p{font-size:0.86rem;color:#666;margin:0;line-height:1.7;}
+
+/* ── NOTE ── */
+.note-box{background:#fff;border-left:4px solid #fe9929;border-radius:4px;padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.87rem;color:#666;line-height:1.75;border:1.5px solid #d4c9a8;border-left-width:4px;}
+.note-box strong{color:#0f0e0c;font-weight:500;}
+
+/* ── CONCLUSION ── */
+.conclusion-box{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1.8rem;margin-top:1rem;box-shadow:4px 4px 0 #d4c9a8;}
+.conclusion-box p{font-size:1rem;color:#444;line-height:1.85;}
+.conclusion-box p+p{margin-top:0.9rem;}
+
+/* ── FOOTER ── */
+footer{background:#0f0e0c;text-align:center;padding:2rem 1rem;font-size:0.88rem;color:#555;border-top:1.5px solid #d4c9a8;}
+footer a{color:#fe9929;}
+
+@media(max-width:700px){
+  .hero h1{font-size:1.7rem;}
+  .pipeline,.insight-grid,.stat-strip,.compare-grid,.side-by-side{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
 
-  <!-- HERO HEADER -->
-  <section class="hero">
-    <div class="container">
-      <h1>Sentinel-2 Cloud Masking: QA60 vs CloudScore+</h1>
-      <p>Comparative analysis in Google Earth Engine over Barasat, India</p>
-      <nav>
-        <ul>
-          <li><a href="../../gee.html">← Back to GIS Projects</a></li>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#details">Details</a></li>
-          <li><a href="#visuals">Visuals</a></li>
-          <li><a href="#insights">Insights</a></li>
-        </ul>
-      </nav>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Sentinel-2 Cloud Masking: <span class="normal">QA60 vs CloudScore+</span></h1>
+    <p>Comparative analysis in Google Earth Engine &bull; Barasat, India &bull; 2025</p>
+    <nav><ul>
+      <li><a href="../../gee.html">&#8592; Back to GIS Projects</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#visuals">Visuals</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul></nav>
+  </div>
+</section>
 
-  <section id="overview" class="overview-section">
+<!-- OVERVIEW -->
+<section id="overview" class="overview-section">
   <div class="container">
     <h2>Overview</h2>
     <p>
-      This project evaluates two common Sentinel-2 cloud masking approaches—QA60 bitmasking and
-      CloudScore+ (cloud probability–based)—to understand their impact on downstream analysis.
+      This project evaluates two widely-used Sentinel-2 cloud masking approaches,
+      <strong>QA60 bitmasking</strong> and <strong>CloudScore+</strong> (cloud probability based),
+      to understand their trade-offs and impact on downstream remote sensing analysis.
     </p>
     <p>
-      Using Google Earth Engine, I compare the masks over Barasat, India and quantify
-      differences in cloud-free coverage, artifacts, and visual quality of the resulting imagery.
+      Using <strong>Google Earth Engine</strong>, both methods are applied over Barasat, India
+      and compared across cloud-free coverage, handling of thin clouds and haze, visual composite
+      quality, and practical guidance on threshold tuning.
     </p>
   </div>
 </section>
 
-
-  <!-- DETAILS -->
-  <section id="details" class="content-section">
-    <div class="container">
-      <h2>🧾 Project Details</h2>
-      <ul class="project-details">
-        <li><strong>Repository:</strong> <a href="https://github.com/Suman1801/s2-cloud-masking-qa60-vs-csplus" target="_blank" rel="noopener">S2 Cloud Masking: QA60 vs CloudScore+</a></li>
-        <li><strong>Role:</strong> Remote Sensing / GEE Developer</li>
-        <li><strong>Tools Used:</strong> Google Earth Engine (JavaScript), Sentinel-2 L1C/L2A, s2cloudless/CloudScore+, Export to Drive</li>
-        <li><strong>Region & Period:</strong> Barasat, India — 2025</li>
-        <li><strong>Duration:</strong> Aug 2025</li>
-      </ul>
-
-      <h3>Objectives</h3>
-      <ul>
-        <li>Implement QA60 and CloudScore+ masking pipelines in GEE.</li>
-        <li>Visually compare masked composites and quantify cloud-free area.</li>
-        <li>Document strengths/limitations and offer thresholding guidance.</li>
-      </ul>
-
-      <h3>Method Summary</h3>
-      <ul>
-        <li><strong>QA60 (L1C):</strong> Bit 10 (opaque) & bit 11 (cirrus) used to build a binary mask.</li>
-        <li><strong>CloudScore+ / Cloud Probability:</strong> Per-pixel cloud probability masked using a chosen threshold (e.g., 40–60%).</li>
-        <li><strong>Compositing:</strong> Generated cloud-free median mosaics for both methods over the same date range/ROI.</li>
-    
-      </ul>
-
-      <h3>Key Contributions</h3>
-      <ul>
-        <li>Produced reproducible GEE scripts for both approaches with clear comments.</li>
-        <li>Exported side-by-side maps and simple summary stats for transparent comparison.</li>
-        <li>Outlined practical tips for threshold tuning and QA checks.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- VISUALS -->
-<section id="visuals" class="content-section">
+<!-- DETAILS -->
+<section id="details" class="content-section">
   <div class="container">
-    <h2>Visuals</h2>
+    <h2>&#129150; Project Details</h2>
 
-    <!-- Original Satellite -->
-    <img src="original.jpg" alt="Original Sentinel-2 Image" />
-    <p class="image-caption">Original Sentinel-2 image of Barasat, India (unmasked).</p>
-
-    <!-- Masked QA60 -->
-    <img src="qa60-masked.jpg" alt="QA60 Masked Sentinel-2 Image" />
-    <p class="image-caption">QA60 masking result — clouds flagged using bitmask (opaque + cirrus).</p>
-
-    <!-- Masked CloudScore+ -->
-    <img src="csplus-masked.jpg" alt="CloudScore+ Masked Sentinel-2 Image" />
-    <p class="image-caption">CloudScore+ masking result — per-pixel cloud probability thresholding removes haze more effectively.</p>
-
-    <!-- Binary Masks Comparison -->
-    <div class="side-by-side">
-      <div>
-        <img src="qa60-binary.jpg" alt="QA60 Binary Cloud Mask" />
-        <p class="image-caption">QA60 binary mask (white = cloud, green = clear).</p>
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Methods Compared</div>
       </div>
-      <div>
-        <img src="csplus-binary.jpg" alt="CloudScore+ Binary Cloud Mask" />
-        <p class="image-caption">CloudScore+ binary mask (white = cloud, blue = clear).</p>
+      <div class="stat-card">
+        <div class="stat-num">S-2</div>
+        <div class="stat-label">L1C and L2A</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">40-60</div>
+        <div class="stat-label">CS+ Threshold %</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">GEE</div>
+        <div class="stat-label">Platform</div>
       </div>
     </div>
-    
+
+    <ul class="project-details" style="margin-top:1.5rem;">
+      <li><strong>Repository:</strong> <a href="https://github.com/Suman1801/s2-cloud-masking-qa60-vs-csplus" target="_blank">S2 Cloud Masking: QA60 vs CloudScore+</a></li>
+      <li><strong>Role:</strong> Remote Sensing / GEE Developer</li>
+      <li><strong>Tools:</strong> Google Earth Engine (JavaScript API), Sentinel-2 L1C/L2A, s2cloudless / CloudScore+, Export to Drive</li>
+      <li><strong>Region and Period:</strong> Barasat, West Bengal, India (2025)</li>
+      <li><strong>Duration:</strong> August 2025</li>
+    </ul>
+
+    <h3>Objectives</h3>
+    <ul class="project-details">
+      <li>Implement QA60 and CloudScore+ masking pipelines end-to-end in GEE.</li>
+      <li>Visually compare masked composites and quantify cloud-free pixel coverage.</li>
+      <li>Document method strengths and limitations with practical thresholding guidance.</li>
+    </ul>
+
+    <h3>Pipeline</h3>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Data Ingestion</div>
+        <div class="step-desc">Filter Sentinel-2 L1C/L2A collections by ROI, date range, and initial cloud cover metadata</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Masking</div>
+        <div class="step-desc">Apply QA60 bitmask (bits 10 and 11) and CloudScore+ probability threshold independently to each scene</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Compositing</div>
+        <div class="step-desc">Generate cloud-free median mosaics for both methods over the identical date range and study area</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Export and Compare</div>
+        <div class="step-desc">Export side-by-side maps and binary masks to Google Drive for quantitative and visual comparison</div>
+      </div>
+    </div>
+
+    <h3>Tools Used</h3>
+    <div class="tech-tags">
+      <span class="tech-tag">Google Earth Engine</span>
+      <span class="tech-tag">JavaScript API</span>
+      <span class="tech-tag">Sentinel-2 L1C</span>
+      <span class="tech-tag">Sentinel-2 L2A</span>
+      <span class="tech-tag">QA60 Bitmask</span>
+      <span class="tech-tag">CloudScore+</span>
+      <span class="tech-tag">s2cloudless</span>
+      <span class="tech-tag">Median Compositing</span>
+      <span class="tech-tag">Export to Drive</span>
+    </div>
   </div>
 </section>
 
-
-  <!-- INSIGHTS -->
-  <section id="insights" class="content-section">
-    <div class="container">
-      <h2>Insights</h2>
-      <ul>
-        <li><strong>Coverage vs. Cleanliness:</strong> QA60 is fast and conservative but can leave thin clouds;
-          CloudScore+ reduces haze with a well-chosen threshold, often yielding cleaner composites.</li>
-        <li><strong>Tuning Matters:</strong> Probability thresholds (e.g., 40–60%) change outcomes noticeably.
-          Lower thresholds retain more area but risk residual clouds; higher thresholds remove more haze but may over-mask bright surfaces.</li>
-        <li><strong>Use Case–Driven:</strong> For precise indices or change detection, CloudScore+ tends to be more reliable;
-          for quick looks or rough mapping, QA60 can be sufficient.</li>
-      </ul>
+<!-- METHOD COMPARISON -->
+<section class="content-section">
+  <div class="container">
+    <h2>&#9878; Method Comparison</h2>
+    <p style="color:#666;margin-bottom:0.2rem;">Both approaches applied to the same Sentinel-2 scenes over Barasat, India.</p>
+    <div class="compare-grid">
+      <div class="compare-card qa">
+        <h3 class="qa-title">QA60 Bitmasking</h3>
+        <ul>
+          <li><strong>Source:</strong> Sentinel-2 L1C QA60 band</li>
+          <li><strong>Bit 10:</strong> Opaque cloud flag</li>
+          <li><strong>Bit 11:</strong> Cirrus cloud flag</li>
+          <li><strong>Output:</strong> Binary mask, cloud or clear, no probability</li>
+          <li><strong>Speed:</strong> Very fast, no additional model required</li>
+          <li><strong>Weakness:</strong> Can leave thin clouds and haze unmasked</li>
+          <li><strong>Best for:</strong> Quick processing, rough mapping, broad overviews</li>
+        </ul>
+      </div>
+      <div class="compare-card cs">
+        <h3 class="cs-title">CloudScore+</h3>
+        <ul>
+          <li><strong>Source:</strong> Per-pixel cloud probability score (0 to 1)</li>
+          <li><strong>Threshold:</strong> Typically 40 to 60% probability cutoff</li>
+          <li><strong>Output:</strong> Continuous probability with user-defined threshold</li>
+          <li><strong>Speed:</strong> Slower, requires probability layer computation</li>
+          <li><strong>Strength:</strong> Handles thin clouds, haze, and shadow more effectively</li>
+          <li><strong>Best for:</strong> Index computation, change detection, high-precision work</li>
+        </ul>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONCLUSION -->
-  <section class="content-section">
-    <div class="container">
-      <h2>Conclusion</h2>
+<!-- VISUALS -->
+<section id="visuals" class="content-section">
+  <div class="container">
+    <h2>&#128247; Visuals</h2>
+
+    <div class="visual-full">
+      <img src="original.jpg" alt="Original Sentinel-2 image of Barasat, India unmasked"/>
+      <p class="image-caption">Original Sentinel-2 image of Barasat, India (unmasked) showing cloud coverage.</p>
+    </div>
+
+    <div class="visual-full" style="margin-top:1.2rem;">
+      <img src="qa60-masked.jpg" alt="QA60 masked Sentinel-2 composite"/>
+      <p class="image-caption">QA60 masking result. Clouds flagged using bitmask (opaque + cirrus). Note residual thin cloud areas.</p>
+    </div>
+
+    <div class="visual-full" style="margin-top:1.2rem;">
+      <img src="csplus-masked.jpg" alt="CloudScore+ masked Sentinel-2 composite"/>
+      <p class="image-caption">CloudScore+ masking result. Per-pixel cloud probability thresholding removes haze more effectively than QA60.</p>
+    </div>
+
+    <h3 style="margin-top:1.5rem;">Binary Mask Comparison</h3>
+    <div class="side-by-side">
+      <div class="visual-half">
+        <img src="qa60-binary.jpg" alt="QA60 binary cloud mask"/>
+        <p class="image-caption">QA60 binary mask. White = cloud, green = clear.</p>
+      </div>
+      <div class="visual-half">
+        <img src="csplus-binary.jpg" alt="CloudScore+ binary cloud mask"/>
+        <p class="image-caption">CloudScore+ binary mask. White = cloud, blue = clear.</p>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:1.2rem;">
+      <strong>Visual note:</strong> The CloudScore+ mask captures additional haze regions missed by QA60, particularly over vegetated areas and around cloud edges. This is most visible in the binary mask comparison above.
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights" class="content-section">
+  <div class="container">
+    <h2>&#128161; Insights</h2>
+    <div class="insight-grid">
+      <div class="insight-card a">
+        <h4>Coverage vs. Cleanliness</h4>
+        <p>QA60 is fast and conservative but regularly leaves thin clouds and haze in the composite. CloudScore+ with a well-chosen threshold produces visually cleaner results but removes slightly more valid pixels in the process.</p>
+      </div>
+      <div class="insight-card b">
+        <h4>Threshold Tuning Matters</h4>
+        <p>CloudScore+ probability thresholds of 40 to 60% change outcomes noticeably. Lower thresholds retain more surface area but risk residual clouds; higher thresholds remove more haze but may over-mask bright surfaces like sand, concrete, or snow.</p>
+      </div>
+      <div class="insight-card c">
+        <h4>Use Case Driven Choice</h4>
+        <p>For spectral indices (NDVI, NDWI) or change detection, CloudScore+ tends to be more reliable due to reduced haze contamination. For quick overviews or rough-classification mapping, QA60 is a sufficient and efficient baseline.</p>
+      </div>
+      <div class="insight-card d">
+        <h4>Reproducibility</h4>
+        <p>Both pipelines were implemented as fully commented GEE JavaScript scripts. Clear documentation of threshold choices and export parameters ensures results can be reproduced or adapted for other study areas with minimal effort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion" class="content-section">
+  <div class="container">
+    <h2>&#9989; Conclusion</h2>
+    <div class="conclusion-box">
       <p>
-        CloudScore+ generally provides cleaner, more flexible masking at the cost of threshold tuning,
-        while QA60 remains a simple baseline. The choice should reflect project goals, tolerance for
-        omission/commission errors, and available time for calibration.
+        <strong>CloudScore+</strong> generally provides cleaner, more flexible cloud masking at the cost of
+        requiring threshold calibration. Its ability to handle thin clouds and haze makes it the stronger
+        choice for analytical workflows where surface reflectance accuracy is critical.
+      </p>
+      <p>
+        <strong>QA60</strong> remains a reliable and computationally simple baseline. When speed or
+        simplicity matters, or when the study area has predominantly dense cloud cover where
+        both methods perform similarly, it is a perfectly reasonable choice.
+      </p>
+      <p>
+        Ultimately, the decision should be guided by <strong>project goals</strong>, tolerance for
+        omission and commission errors, the nature of the cloud cover in the region of interest,
+        and the time available for threshold calibration and QA validation.
       </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Suman. All rights reserved.</p>
-    </div>
-  </footer>
+<footer>
+  <div class="container">
+    <p>
+      Platform: <a href="https://earthengine.google.com" target="_blank">Google Earth Engine</a>
+      &bull; Data: ESA Sentinel-2
+      &bull; <a href="https://github.com/Suman1801/s2-cloud-masking-qa60-vs-csplus" target="_blank">GitHub Repository</a>
+      &bull; Suman Bhowmick &bull; 2025
+    </p>
+  </div>
+</footer>
 
 </body>
 </html>

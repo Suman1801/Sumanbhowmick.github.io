@@ -1,94 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Population Distribution in Mizoram - Suman's Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Population Distribution in Mizoram - Suman Bhowmick</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f5f0e8;color:#0f0e0c;line-height:1.6;font-weight:300;}
+a{color:#c0392b;text-decoration:none;}
+a:hover{text-decoration:underline;}
+img{max-width:100%;height:auto;border-radius:4px;}
+.container{max-width:1000px;margin:auto;padding:1.5rem;}
 
+/* ── HERO ── */
+.hero{
+  position:relative;background:#0f0e0c;
+  padding:3rem 1.5rem 2rem;text-align:center;
+  border-bottom:2px solid #d4c9a8;overflow:hidden;
+}
+.hero::before{
+  content:'GIS';position:absolute;top:-20px;right:-10px;
+  font-family:'Playfair Display',serif;font-size:clamp(100px,16vw,220px);font-weight:900;
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.04);
+  letter-spacing:-8px;pointer-events:none;user-select:none;line-height:1;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,4.5vw,3.2rem);margin-bottom:0.5rem;
+  color:#f5f0e8;letter-spacing:-0.02em;font-weight:900;
+  text-shadow:0 0 40px rgba(254,153,41,0.2);
+}
+.hero h1 em{font-style:italic;color:#fe9929;}
+.hero p{font-size:1.1rem;color:#6a5f50;margin-bottom:1.4rem;}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;}
+nav ul li a{color:#fec44f;font-weight:500;padding:0.3rem 0.6rem;font-size:0.9rem;border-bottom:1px solid transparent;transition:all 0.2s;}
+nav ul li a:hover{border-color:#fe9929;color:#fe9929;}
+
+/* ── OVERVIEW ── */
+.overview-section{padding:2.5rem 1.5rem;background:#fff;text-align:center;border-bottom:1.5px solid #d4c9a8;}
+.overview-section h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:#0f0e0c;margin-bottom:1rem;}
+.overview-section p{font-size:1.05rem;color:#555;max-width:800px;margin:0 auto;line-height:1.85;}
+
+/* ── SECTIONS ── */
+section.content-section{padding:2rem 1rem;border-bottom:1.5px solid #d4c9a8;background:#f5f0e8;}
+section.content-section:nth-child(even){background:#fff;}
+.content-section h2{font-family:'Playfair Display',serif;font-size:1.9rem;color:#0f0e0c;margin-bottom:1rem;margin-top:0.5rem;font-weight:700;}
+.content-section h3{font-family:'Playfair Display',serif;color:#7f2704;margin-top:1.4rem;margin-bottom:0.7rem;font-size:1.1rem;font-weight:700;}
+.project-details{padding-left:1rem;margin-bottom:1.5rem;}
+.project-details li{margin-bottom:0.5rem;color:#555;}
+.project-details li strong{color:#0f0e0c;font-weight:500;}
+
+/* ── STAT CARDS ── */
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+.stat-card{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1.2rem;text-align:center;box-shadow:4px 4px 0 #d4c9a8;transition:box-shadow .2s,transform .2s;cursor:default;}
+.stat-card:hover{box-shadow:6px 6px 0 #d4c9a8;transform:translate(-1px,-1px);}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#7f2704;line-height:1;}
+.stat-label{font-size:0.7rem;color:#aaa;margin-top:0.3rem;letter-spacing:0.1em;text-transform:uppercase;}
+
+/* ── VISUAL ── */
+.visual-full{background:#fff;border-radius:4px;padding:1rem;border:1.5px solid #d4c9a8;margin-top:1.2rem;box-shadow:6px 6px 0 #d4c9a8;}
+.visual-full img{width:100%;display:block;border-radius:4px;box-shadow:0 2px 20px rgba(0,0,0,0.1);}
+.image-caption{font-size:0.82rem;color:#aaa;margin-top:0.7rem;font-style:italic;text-align:center;}
+
+/* ── PIPELINE ── */
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
+.pipeline-step{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1rem;text-align:center;box-shadow:3px 3px 0 #d4c9a8;transition:box-shadow .2s,transform .2s;}
+.pipeline-step:hover{box-shadow:5px 5px 0 #d4c9a8;transform:translate(-1px,-1px);}
+.step-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:#fe9929;}
+.step-title{font-weight:600;color:#0f0e0c;margin:0.3rem 0 0.2rem;font-size:0.9rem;}
+.step-desc{font-size:0.78rem;color:#888;line-height:1.55;}
+
+/* ── TECH TAGS ── */
+.tech-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
+.tech-tag{background:#fff;color:#7f2704;border:1.5px solid #d4c9a8;border-radius:20px;padding:0.22rem 0.8rem;font-size:0.78rem;font-weight:500;transition:background .2s,color .2s;cursor:default;}
+.tech-tag:hover{background:#7f2704;color:#fff;}
+
+/* ── INSIGHT CARDS ── */
+.peak-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
+.peak-card{background:#fff;border-radius:4px;padding:1.1rem 1.2rem;border:1.5px solid #d4c9a8;}
+.peak-card.a{border-left:5px solid #d95f0e;}
+.peak-card.b{border-left:5px solid #fec44f;}
+.peak-card.c{border-left:5px solid #fe9929;}
+.peak-card.d{border-left:5px solid #7f2704;}
+.peak-card h4{margin:0 0 0.4rem;font-size:0.95rem;color:#0f0e0c;font-weight:600;}
+.peak-card p{font-size:0.86rem;color:#666;margin:0;line-height:1.7;}
+
+/* ── NOTE ── */
+.note-box{background:#fff;border-left:4px solid #fe9929;border-radius:4px;padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.87rem;color:#666;line-height:1.75;border:1.5px solid #d4c9a8;border-left-width:4px;}
+.note-box strong{color:#0f0e0c;font-weight:500;}
+
+/* ── CONCLUSION ── */
+.conclusion-box{background:#fff;border:1.5px solid #d4c9a8;border-radius:4px;padding:1.8rem;margin-top:1rem;box-shadow:4px 4px 0 #d4c9a8;}
+.conclusion-box p{font-size:1rem;color:#444;line-height:1.85;}
+.conclusion-box p+p{margin-top:0.9rem;}
+
+/* ── FOOTER ── */
+footer{background:#0f0e0c;text-align:center;padding:2rem 1rem;font-size:0.88rem;color:#555;border-top:1.5px solid #d4c9a8;}
+footer a{color:#fe9929;}
+
+@media(max-width:700px){
+  .hero h1{font-size:2rem;}
+  .pipeline,.peak-grid,.stat-strip{grid-template-columns:1fr 1fr;}
+}
+</style>
 </head>
 <body>
 
-  <!-- HERO HEADER -->
-  <section class="hero">
-    <div class="container">
-      <h1>Population Distribution in Mizoram</h1>
-      <p>A GIS-based analysis using remote sensing and zonal statistics</p>
-      <nav>
-        <ul>
-          <li><a href="../../gis-projects.html">← Back to GIS Projects</a></li>
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#details">Details</a></li>
-          <li><a href="#visuals">Visuals</a></li>
-          <li><a href="#insights">Insights</a></li>
-        </ul>
-      </nav>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Population Distribution<br><em>in Mizoram</em></h1>
+    <p>GIS-based choropleth and buffer analysis &bull; Census 2011 &bull; QGIS</p>
+    <nav><ul>
+      <li><a href="../../gis-projects.html">&#8592; Back to GIS Projects</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#visuals">Visuals</a></li>
+      <li><a href="#insights">Insights</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul></nav>
+  </div>
+</section>
 
-  <!-- OVERVIEW -->
-  <section id="overview" class="overview-section">
-    <div class="container">
-      <h2> Overview</h2>
-      <p>This project explores the spatial distribution of population and the urban influence zones within Mizoram. Using GIS-based cartographic methods, it analyzes population clusters and their relation to transport corridors and urban hubs.</p>
-    </div>
-  </section>
+<!-- OVERVIEW -->
+<section id="overview" class="overview-section">
+  <div class="container">
+    <h2>Overview</h2>
+    <p>
+      This project explores the spatial distribution of population and urban influence zones across
+      Mizoram. Using GIS-based cartographic methods, it analyses population clusters and their
+      relationship to transport corridors and urban hubs, revealing a pronounced concentration of
+      settlement along road networks and around the two dominant urban centres of Aizawl and Lunglei.
+    </p>
+  </div>
+</section>
 
-  <!-- DETAILS -->
-  <section id="details" class="content-section">
-    <div class="container">
-      <h2>🧾 Project Details</h2>
-      <ul class="project-details">
-        <li><strong>Organization:</strong> Independent Research</li>
-        <li><strong>Role:</strong> GIS Analyst</li>
-        <li><strong>Tools Used:</strong> QGIS, Excel, Census Data</li>
-        <li><strong>Duration:</strong> Nov 2024 – Dec 2024</li>
-      </ul>
-      <h3>Key Contributions</h3>
-      <ul>
-        <li>Mapped population density using graduated color symbology.</li>
-        <li>Performed buffer analysis to define urban influence zones.</li>
-        <li>Integrated remote sensing and census data into a composite cartographic output.</li>
-        <li>Designed the final map layout for visual storytelling and clarity.</li>
-      </ul>
-    </div>
-  </section>
+<!-- DETAILS -->
+<section id="details" class="content-section">
+  <div class="container">
+    <h2>&#129150; Project Details</h2>
 
-  <!-- VISUALS -->
-  <section id="visuals" class="content-section">
-    <div class="container">
-      <h2> Visuals</h2>
-      <img src="population-map.png" alt="Population and Urban Influence Map" />
-      <p class="image-caption">This map highlights dense population zones and their interaction with infrastructure corridors in Mizoram.</p>
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="stat-num">11</div>
+        <div class="stat-label">Districts Mapped</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Urban Centres</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Density Classes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2024</div>
+        <div class="stat-label">Year</div>
+      </div>
     </div>
-  </section>
 
-  <!-- INSIGHTS -->
-  <section id="insights" class="content-section">
-    <div class="container">
-      <h2> Insights</h2>
-      <ul>
-        <li>Highest population densities are concentrated along transport corridors.</li>
-        <li>Aizawl and Lunglei act as dominant urban centers with wide-reaching influence zones.</li>
-        <li>Remote areas in the east remain sparsely populated, indicating planning gaps.</li>
-      </ul>
-    </div>
-  </section>
+    <ul class="project-details" style="margin-top:1.5rem;">
+      <li><strong>Organisation:</strong> Independent Research</li>
+      <li><strong>Role:</strong> GIS Analyst</li>
+      <li><strong>Tools:</strong> QGIS, Microsoft Excel, Census of India 2011</li>
+      <li><strong>Duration:</strong> November 2024 to December 2024</li>
+    </ul>
 
-  <!-- CONCLUSION -->
-  <section class="content-section">
-    <div class="container">
-      <h2> Conclusion</h2>
-      <p>The study reveals pronounced spatial imbalance in population settlement, emphasizing the need for more equitable development planning in Mizoram.</p>
-    </div>
-  </section>
+    <h3>Key Contributions</h3>
+    <ul class="project-details">
+      <li>Mapped population density at district level using graduated colour symbology in QGIS.</li>
+      <li>Performed buffer analysis around major urban centres to define urban influence zones.</li>
+      <li>Integrated census data into a composite cartographic output with a designed print layout.</li>
+      <li>Designed the final map layout for visual storytelling and clarity of spatial patterns.</li>
+    </ul>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Suman. All rights reserved.</p>
+    <h3>Pipeline</h3>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Data Preparation</div>
+        <div class="step-desc">District-level population data from Census 2011 cleaned in Excel and formatted for spatial join</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Spatial Join</div>
+        <div class="step-desc">Population figures joined to Mizoram district shapefile by district name identifier in QGIS</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Choropleth Styling</div>
+        <div class="step-desc">Graduated colour symbology applied using natural-break classification across five density classes</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Buffer Analysis</div>
+        <div class="step-desc">Urban influence zones defined by buffering Aizawl and Lunglei and overlaying transport corridors</div>
+      </div>
     </div>
-  </footer>
+
+    <h3>Tools Used</h3>
+    <div class="tech-tags">
+      <span class="tech-tag">QGIS</span>
+      <span class="tech-tag">Graduated Symbology</span>
+      <span class="tech-tag">Buffer Analysis</span>
+      <span class="tech-tag">Natural Breaks (Jenks)</span>
+      <span class="tech-tag">Census of India 2011</span>
+      <span class="tech-tag">Microsoft Excel</span>
+      <span class="tech-tag">Print Composer</span>
+      <span class="tech-tag">Choropleth Mapping</span>
+    </div>
+  </div>
+</section>
+
+<!-- VISUALS -->
+<section id="visuals" class="content-section">
+  <div class="container">
+    <h2>&#127758; Map</h2>
+    <p style="color:#666;margin-bottom:0.4rem;">
+      The map shows district-level population density across Mizoram with graduated colour symbology,
+      overlaid with urban influence buffers around Aizawl and Lunglei and major transport corridors.
+    </p>
+
+    <div class="visual-full">
+      <img src="population-map.png" alt="Population Distribution and Urban Influence Map of Mizoram"/>
+      <p class="image-caption">
+        Population distribution in Mizoram &bull; District-level choropleth &bull; Urban influence buffers &bull; Census 2011 &bull; QGIS
+      </p>
+    </div>
+
+    <div class="note-box" style="margin-top:1.2rem;">
+      <strong>Map note:</strong> Buffer zones around Aizawl and Lunglei illustrate the spatial reach of urban influence on surrounding districts. Areas outside these zones correspond to the most sparsely settled and remotely located parts of the state.
+    </div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights" class="content-section">
+  <div class="container">
+    <h2>&#128161; Insights</h2>
+    <div class="peak-grid">
+      <div class="peak-card a">
+        <h4>&#128205; Corridor Concentration</h4>
+        <p>Highest population densities are concentrated along major transport corridors, particularly the NH-54 axis connecting Aizawl to Lunglei. Settlement patterns closely follow road accessibility, confirming the role of infrastructure in driving population distribution across the hilly terrain.</p>
+      </div>
+      <div class="peak-card b">
+        <h4>&#127961; Urban Hub Dominance</h4>
+        <p>Aizawl and Lunglei act as dominant urban centres with wide-reaching influence zones that extend across multiple adjacent districts. These two hubs collectively account for a disproportionate share of the state's total population and service infrastructure.</p>
+      </div>
+      <div class="peak-card c">
+        <h4>&#127807; Eastern Sparsity</h4>
+        <p>Remote districts in the eastern part of Mizoram, particularly Lawngtlai and Siaha, remain among the most sparsely populated in the state. Their limited road connectivity and distance from both urban centres are the primary drivers of this settlement gap.</p>
+      </div>
+      <div class="peak-card d">
+        <h4>&#127956; Terrain Constraint</h4>
+        <p>The rugged topography of Mizoram acts as a persistent constraint on population dispersal. Elevated ridgelines and steep valley sides confine dense settlement to valley floors and ridge-top towns, creating a strongly linear settlement pattern across the state.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion" class="content-section">
+  <div class="container">
+    <h2>Conclusion</h2>
+    <div class="conclusion-box">
+      <p>
+        The study reveals a pronounced spatial imbalance in population settlement across Mizoram.
+        The concentration of population along transport corridors and around the two primary urban
+        centres of Aizawl and Lunglei reflects both the influence of road infrastructure and the
+        constraints imposed by the state's hilly terrain.
+      </p>
+      <p>
+        The eastern districts show a clear planning gap, with limited urban influence and sparse
+        population coverage pointing to a need for targeted infrastructure investment and more
+        equitable development planning across the state.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>
+      Data: <a href="https://censusindia.gov.in" target="_blank">Census of India 2011</a>
+      &bull; Software: <a href="https://qgis.org" target="_blank">QGIS</a>
+      &bull; Suman Bhowmick &bull; 2024
+    </p>
+  </div>
+</footer>
 
 </body>
 </html>
