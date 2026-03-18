@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,14 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bfe2937805c616f1626527cf1746a37f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-7f95171b419337f3cd201cbe6d92ddaf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,6 +67,135 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    margin-top: 1rem;
+  }
+  .edu-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .edu-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
+    cursor: pointer;
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--deg-color);
+    border-radius: 4px 0 0 4px;
+    transition: width 0.2s;
+  }
+  .edu-card:hover, .edu-card.active {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37,99,235,0.13);
+    border-color: var(--deg-color);
+  }
+  .edu-card.active::before { width: 6px; }
+  .edu-card[data-id="phd"] { --deg-color: #7c3aed; }
+  .edu-card[data-id="ma"]  { --deg-color: #0369a1; }
+  .edu-card[data-id="bsc"] { --deg-color: #047857; }
+  .deg-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.65rem;
+    border-radius: 99px;
+    margin-bottom: 0.45rem;
+    color: #fff;
+    background: var(--deg-color);
+  }
+  .edu-card h4 {
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0 0 0.1rem 0;
+  }
+  .edu-card .inst { font-size: 0.84rem; color: #4a4a6a; margin: 0; }
+  .edu-meta { display: flex; justify-content: space-between; margin-top: 0.5rem; }
+  .edu-meta .year { font-size: 0.78rem; color: #4a4a6a; font-style: italic; }
+  .edu-meta .cgpa { font-size: 0.78rem; font-weight: 600; color: var(--deg-color); }
+  .map-hint {
+    font-size: 0.73rem; color: #2563eb;
+    margin-top: 0.45rem; opacity: 0; transition: opacity 0.2s;
+  }
+  .edu-card:hover .map-hint, .edu-card.active .map-hint { opacity: 1; }
+
+  .map-panel {
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 4rem;
+    height: 440px;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.07);
+  }
+  .map-header {
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: linear-gradient(135deg, #f8faff, #eef2ff);
+    flex-shrink: 0;
+  }
+  .map-pulse {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #94a3b8; flex-shrink: 0; transition: background 0.3s;
+  }
+  .map-pulse.live { background: #22c55e; animation: blink 1.5s infinite; }
+  @keyframes blink {
+    0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,.4); }
+    50%      { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+  }
+  .map-header-label { font-size: 0.84rem; font-weight: 500; color: #1a1a2e; }
+  .map-header-sub { font-size: 0.73rem; color: #4a4a6a; margin-left: auto; font-style: italic; }
+  .map-placeholder {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0.7rem; color: #4a4a6a;
+    background: linear-gradient(135deg, #f8faff, #f0f4ff); padding: 2rem;
+  }
+  .map-placeholder svg { opacity: 0.28; }
+  .map-placeholder p { font-size: 0.88rem; text-align: center; line-height: 1.6; margin: 0; }
+  #leaflet-map { flex: 1; display: none; }
+  .map-infobar {
+    padding: 0.65rem 1.2rem; border-top: 1px solid #e2e8f0;
+    display: none; align-items: center; gap: 0.55rem;
+    background: #f8faff; flex-shrink: 0;
+  }
+  .info-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .info-name { font-size: 0.8rem; font-weight: 600; color: #1a1a2e; }
+  .info-addr { font-size: 0.71rem; color: #4a4a6a; }
+  .open-maps-btn {
+    margin-left: auto; font-size: 0.73rem; font-weight: 500;
+    text-decoration: none; white-space: nowrap;
+    border: 1px solid #2563eb; color: #2563eb;
+    padding: 0.25rem 0.65rem; border-radius: 99px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .open-maps-btn:hover { background: #2563eb; color: #fff; }
+
+  @media (max-width: 700px) {
+    .edu-grid { grid-template-columns: 1fr; }
+    .map-panel { position: static; height: 380px; }
+  }
+</style>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -168,12 +298,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">👨‍🎓 About Me</a>
   <ul class="collapse">
-  <li><a href="#academic-qualifications" id="toc-academic-qualifications" class="nav-link" data-scroll-target="#academic-qualifications">🎓 Academic Qualifications</a>
-  <ul class="collapse">
-  <li><a href="#ph.d." id="toc-ph.d." class="nav-link" data-scroll-target="#ph.d.">Ph.D.&nbsp;</a></li>
-  <li><a href="#m.a.m.sc-in-geography" id="toc-m.a.m.sc-in-geography" class="nav-link" data-scroll-target="#m.a.m.sc-in-geography">M.A./M.Sc in Geography</a></li>
-  <li><a href="#b.sc-in-geography" id="toc-b.sc-in-geography" class="nav-link" data-scroll-target="#b.sc-in-geography">B.Sc in Geography</a></li>
-  </ul></li>
+  <li><a href="#academic-qualifications" id="toc-academic-qualifications" class="nav-link" data-scroll-target="#academic-qualifications">🎓 Academic Qualifications</a></li>
   <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">📬 Contact</a></li>
   </ul></li>
   </ul>
@@ -207,24 +332,66 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="academic-qualifications" class="level2">
 <h2 class="anchored" data-anchor-id="academic-qualifications">🎓 Academic Qualifications</h2>
-<section id="ph.d." class="level3">
-<h3 class="anchored" data-anchor-id="ph.d.">Ph.D.&nbsp;</h3>
-<p><strong>Presidency University, Kolkata</strong><br>
-<em>2026–Present</em></p>
+<div class="edu-grid">
+<div class="edu-cards">
+<div class="edu-card" data-id="phd" data-name="Presidency University, Kolkata" data-addr="86/1 College Street, Kolkata, WB 700073" data-lat="22.5763528" data-lng="88.3630913" data-color="#7c3aed" data-maps="https://www.google.com/maps/search/?api=1&amp;query=Presidency+University+Kolkata" onclick="showMap(this)">
+<p><span class="deg-badge">Ph.D.</span></p>
+<section id="presidency-university-kolkata" class="level4">
+<h4 class="anchored" data-anchor-id="presidency-university-kolkata">Presidency University, Kolkata</h4>
+<p><span class="inst">Department of Geography</span></p>
+<div class="edu-meta">
+<p><span class="year">2026 - Present</span></p>
+</div>
+<p><span class="map-hint">📍 Click to view location on map</span></p>
 </section>
-<section id="m.a.m.sc-in-geography" class="level3">
-<h3 class="anchored" data-anchor-id="m.a.m.sc-in-geography">M.A./M.Sc in Geography</h3>
-<p><strong>North-Eastern Hill University (NEHU), Shillong</strong><br>
-<em>2022–2024</em><br>
-<strong>CGPA:</strong> 8.00</p>
+</div>
+<div class="edu-card" data-id="ma" data-name="North-Eastern Hill University (NEHU), Shillong" data-addr="Umshing-Mawkynroh, Shillong, Meghalaya 793022" data-lat="25.6086022" data-lng="91.897554" data-color="#0369a1" data-maps="https://www.google.com/maps/search/?api=1&amp;query=North+Eastern+Hill+University+Shillong" onclick="showMap(this)">
+<p><span class="deg-badge">M.A.&nbsp;/ M.Sc.</span></p>
+<section id="north-eastern-hill-university-shillong" class="level4">
+<h4 class="anchored" data-anchor-id="north-eastern-hill-university-shillong">North-Eastern Hill University, Shillong</h4>
+<p><span class="inst">Geography</span></p>
+<div class="edu-meta">
+<p><span class="year">2022 - 2024</span> <span class="cgpa">8.00 / 10</span></p>
+</div>
+<p><span class="map-hint">📍 Click to view location on map</span></p>
 </section>
-<section id="b.sc-in-geography" class="level3">
-<h3 class="anchored" data-anchor-id="b.sc-in-geography">B.Sc in Geography</h3>
-<p><strong>Acharya Prafulla Chandra College, New Barrackpur</strong><br>
-<em>2019–2022</em><br>
-<strong>CGPA:</strong> 8.46</p>
+</div>
+<div class="edu-card" data-id="bsc" data-name="Acharya Prafulla Chandra College, New Barrackpur" data-addr="Baghajati Road, New Barrackpur, Kolkata 700131" data-lat="22.6975196" data-lng="88.4384188" data-color="#047857" data-maps="https://www.google.com/maps/search/?api=1&amp;query=Acharya+Prafulla+Chandra+College+New+Barrackpur" onclick="showMap(this)">
+<p><span class="deg-badge">B.Sc.</span></p>
+<section id="acharya-prafulla-chandra-college-new-barrackpur" class="level4">
+<h4 class="anchored" data-anchor-id="acharya-prafulla-chandra-college-new-barrackpur">Acharya Prafulla Chandra College, New Barrackpur</h4>
+<p><span class="inst">Geography</span></p>
+<div class="edu-meta">
+<p><span class="year">2019 - 2022</span> <span class="cgpa">8.46 / 10</span></p>
+</div>
+<p><span class="map-hint">📍 Click to view location on map</span></p>
+</section>
+</div>
+</div>
+<div class="map-panel">
+<div class="map-header">
+<p><span id="mapPulse" class="map-pulse"></span> <span id="mapTitle" class="map-header-label">Institution Location</span> <span id="mapSublabel" class="map-header-sub">Select a degree card</span></p>
+</div>
+<div id="mapPlaceholder" class="map-placeholder">
+<svg width="60" height="60" viewbox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M32 6C21.5 6 13 14.5 13 25C13 39 32 58 32 58C32 58 51 39 51 25C51 14.5 42.5 6 32 6Z" stroke="#94a3b8" stroke-width="3" fill="none"></path>
+  <circle cx="32" cy="25" r="6" fill="#94a3b8"></circle>
+</svg>
+<p>Click on any degree card<br>
+to see the institution on the map</p>
+</div>
+<div id="leaflet-map"></div>
+<div id="mapInfoBar" class="map-infobar">
+<div class="info-dot" id="infoDot"></div>
+<div>
+  <div class="info-name" id="infoName"></div>
+  <div class="info-addr" id="infoAddr"></div>
+</div>
+<a class="open-maps-btn" id="openBtn" href="#" target="_blank" rel="noopener">Open in Maps</a>
+</div>
+</div>
+</div>
 <hr>
-</section>
 </section>
 <section id="contact" class="level2">
 <h2 class="anchored" data-anchor-id="contact">📬 Contact</h2>
@@ -233,7 +400,72 @@ ul.task-list li input[type="checkbox"] {
 🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/suman-bhowmick">linkedin.com/in/suman-bhowmick</a><br>
 🐱 <strong>GitHub:</strong> <a href="https://github.com/Suman1801">github.com/Suman1801</a><br>
 📊 <strong>Kaggle:</strong> <a href="https://www.kaggle.com/suman1801">kaggle.com/suman1801</a></p>
-<hr>
+<script>
+  let leafletMap = null;
+  let marker = null;
+
+  function showMap(card) {
+    document.querySelectorAll('.edu-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    const lat   = parseFloat(card.dataset.lat);
+    const lng   = parseFloat(card.dataset.lng);
+    const name  = card.dataset.name;
+    const addr  = card.dataset.addr;
+    const color = card.dataset.color;
+    const maps  = card.dataset.maps;
+
+    document.getElementById('mapPlaceholder').style.display = 'none';
+    document.getElementById('leaflet-map').style.display = 'block';
+    document.getElementById('mapInfoBar').style.display = 'flex';
+
+    document.getElementById('mapTitle').textContent = name;
+    document.getElementById('mapSublabel').textContent = '';
+
+    const pulse = document.getElementById('mapPulse');
+    pulse.classList.add('live');
+    pulse.style.background = color;
+
+    document.getElementById('infoDot').style.background = color;
+    document.getElementById('infoName').textContent = name;
+    document.getElementById('infoAddr').textContent = addr;
+
+    const btn = document.getElementById('openBtn');
+    btn.href = maps;
+    btn.style.color = color;
+    btn.style.borderColor = color;
+
+    if (!leafletMap) {
+      leafletMap = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 19
+      }).addTo(leafletMap);
+    }
+
+    const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40">
+      <path d="M15 0C6.72 0 0 6.72 0 15C0 26.25 15 40 15 40C15 40 30 26.25 30 15C30 6.72 23.28 0 15 0Z" fill="${color}"/>
+      <circle cx="15" cy="15" r="6" fill="white"/>
+    </svg>`;
+
+    const icon = L.divIcon({
+      html: svgIcon,
+      iconSize: [30, 40],
+      iconAnchor: [15, 40],
+      popupAnchor: [0, -42],
+      className: ''
+    });
+
+    if (marker) marker.remove();
+    marker = L.marker([lat, lng], { icon }).addTo(leafletMap);
+    marker.bindPopup(
+      `<strong style="font-size:13px">${name}</strong><br><span style="font-size:11px;color:#555">${addr}</span>`,
+      { maxWidth: 230 }
+    ).openPopup();
+    leafletMap.setView([lat, lng], 15);
+    setTimeout(() => leafletMap.invalidateSize(), 60);
+  }
+</script>
 
 
 </section>
@@ -291,13 +523,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
