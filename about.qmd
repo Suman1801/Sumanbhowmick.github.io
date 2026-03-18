@@ -4,6 +4,137 @@ format:
   html:
     toc: true
     number-sections: false
+    include-in-header:
+      text: |
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+        <style>
+          .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            margin-top: 1rem;
+          }
+          .edu-cards { display: flex; flex-direction: column; gap: 1rem; }
+          .edu-card {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.1rem 1.3rem;
+            cursor: pointer;
+            transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+            position: relative;
+            overflow: hidden;
+          }
+          .edu-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 4px;
+            background: var(--deg-color);
+            border-radius: 4px 0 0 4px;
+            transition: width 0.2s;
+          }
+          .edu-card:hover, .edu-card.active {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37,99,235,0.13);
+            border-color: var(--deg-color);
+          }
+          .edu-card.active::before { width: 6px; }
+          .edu-card[data-id="phd"] { --deg-color: #7c3aed; }
+          .edu-card[data-id="ma"]  { --deg-color: #0369a1; }
+          .edu-card[data-id="bsc"] { --deg-color: #047857; }
+          .deg-badge {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.18rem 0.65rem;
+            border-radius: 99px;
+            margin-bottom: 0.45rem;
+            color: #fff;
+            background: var(--deg-color);
+          }
+          .edu-card h4 {
+            font-size: 0.97rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin: 0 0 0.1rem 0;
+          }
+          .edu-card .inst { font-size: 0.84rem; color: #4a4a6a; margin: 0; }
+          .edu-meta { display: flex; justify-content: space-between; margin-top: 0.5rem; }
+          .edu-meta .year { font-size: 0.78rem; color: #4a4a6a; font-style: italic; }
+          .edu-meta .cgpa { font-size: 0.78rem; font-weight: 600; color: var(--deg-color); }
+          .map-hint {
+            font-size: 0.73rem; color: #2563eb;
+            margin-top: 0.45rem; opacity: 0; transition: opacity 0.2s;
+          }
+          .edu-card:hover .map-hint, .edu-card.active .map-hint { opacity: 1; }
+
+          .map-panel {
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 4rem;
+            height: 440px;
+            box-shadow: 0 4px 20px rgba(37,99,235,0.07);
+          }
+          .map-header {
+            padding: 0.8rem 1.2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: linear-gradient(135deg, #f8faff, #eef2ff);
+            flex-shrink: 0;
+          }
+          .map-pulse {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: #94a3b8; flex-shrink: 0; transition: background 0.3s;
+          }
+          .map-pulse.live { background: #22c55e; animation: blink 1.5s infinite; }
+          @keyframes blink {
+            0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,.4); }
+            50%      { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+          }
+          .map-header-label { font-size: 0.84rem; font-weight: 500; color: #1a1a2e; }
+          .map-header-sub { font-size: 0.73rem; color: #4a4a6a; margin-left: auto; font-style: italic; }
+          .map-placeholder {
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 0.7rem; color: #4a4a6a;
+            background: linear-gradient(135deg, #f8faff, #f0f4ff); padding: 2rem;
+          }
+          .map-placeholder svg { opacity: 0.28; }
+          .map-placeholder p { font-size: 0.88rem; text-align: center; line-height: 1.6; margin: 0; }
+          #leaflet-map { flex: 1; display: none; }
+          .map-infobar {
+            padding: 0.65rem 1.2rem; border-top: 1px solid #e2e8f0;
+            display: none; align-items: center; gap: 0.55rem;
+            background: #f8faff; flex-shrink: 0;
+          }
+          .info-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+          .info-name { font-size: 0.8rem; font-weight: 600; color: #1a1a2e; }
+          .info-addr { font-size: 0.71rem; color: #4a4a6a; }
+          .open-maps-btn {
+            margin-left: auto; font-size: 0.73rem; font-weight: 500;
+            text-decoration: none; white-space: nowrap;
+            border: 1px solid #2563eb; color: #2563eb;
+            padding: 0.25rem 0.65rem; border-radius: 99px;
+            transition: background 0.15s, color 0.15s;
+          }
+          .open-maps-btn:hover { background: #2563eb; color: #fff; }
+
+          @media (max-width: 700px) {
+            .edu-grid { grid-template-columns: 1fr; }
+            .map-panel { position: static; height: 380px; }
+          }
+        </style>
 ---
 
 # 👨‍🎓 About Me
@@ -14,23 +145,95 @@ Hi, I'm **Suman Bhowmick**, a researcher in Geography with a strong interest in 
 
 ## 🎓 Academic Qualifications
 
+::: {.edu-grid}
 
-### Ph.D.   
-**Presidency University, Kolkata**  
-_2026–Present_ 
+::: {.edu-cards}
 
-### M.A./M.Sc in Geography  
-**North-Eastern Hill University (NEHU), Shillong**  
-_2022–2024_  
-**CGPA:** 8.00  
+::: {.edu-card data-id="phd" data-name="Presidency University, Kolkata" data-addr="86/1 College Street, Kolkata, WB 700073" data-lat="22.5763528" data-lng="88.3630913" data-color="#7c3aed" data-maps="https://www.google.com/maps/search/?api=1&query=Presidency+University+Kolkata" onclick="showMap(this)"}
+[Ph.D.]{.deg-badge}
 
-### B.Sc in Geography  
-**Acharya Prafulla Chandra College, New Barrackpur**  
-_2019–2022_  
-**CGPA:** 8.46  
+#### Presidency University, Kolkata
+
+[Department of Geography]{.inst}
+
+::: {.edu-meta}
+[2026 - Present]{.year}
+:::
+
+[📍 Click to view location on map]{.map-hint}
+:::
+
+::: {.edu-card data-id="ma" data-name="North-Eastern Hill University (NEHU), Shillong" data-addr="Umshing-Mawkynroh, Shillong, Meghalaya 793022" data-lat="25.6086022" data-lng="91.897554" data-color="#0369a1" data-maps="https://www.google.com/maps/search/?api=1&query=North+Eastern+Hill+University+Shillong" onclick="showMap(this)"}
+[M.A. / M.Sc.]{.deg-badge}
+
+#### North-Eastern Hill University, Shillong
+
+[Geography]{.inst}
+
+::: {.edu-meta}
+[2022 - 2024]{.year}
+[8.00 / 10]{.cgpa}
+:::
+
+[📍 Click to view location on map]{.map-hint}
+:::
+
+::: {.edu-card data-id="bsc" data-name="Acharya Prafulla Chandra College, New Barrackpur" data-addr="Baghajati Road, New Barrackpur, Kolkata 700131" data-lat="22.6975196" data-lng="88.4384188" data-color="#047857" data-maps="https://www.google.com/maps/search/?api=1&query=Acharya+Prafulla+Chandra+College+New+Barrackpur" onclick="showMap(this)"}
+[B.Sc.]{.deg-badge}
+
+#### Acharya Prafulla Chandra College, New Barrackpur
+
+[Geography]{.inst}
+
+::: {.edu-meta}
+[2019 - 2022]{.year}
+[8.46 / 10]{.cgpa}
+:::
+
+[📍 Click to view location on map]{.map-hint}
+:::
+
+:::
+
+::: {.map-panel}
+
+::: {.map-header}
+[]{.map-pulse #mapPulse}
+[Institution Location]{.map-header-label #mapTitle}
+[Select a degree card]{.map-header-sub #mapSublabel}
+:::
+
+::: {.map-placeholder #mapPlaceholder}
+```{=html}
+<svg width="60" height="60" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M32 6C21.5 6 13 14.5 13 25C13 39 32 58 32 58C32 58 51 39 51 25C51 14.5 42.5 6 32 6Z" stroke="#94a3b8" stroke-width="3" fill="none"/>
+  <circle cx="32" cy="25" r="6" fill="#94a3b8"/>
+</svg>
+```
+Click on any degree card  
+to see the institution on the map
+:::
+
+```{=html}
+<div id="leaflet-map"></div>
+```
+
+::: {.map-infobar #mapInfoBar}
+```{=html}
+<div class="info-dot" id="infoDot"></div>
+<div>
+  <div class="info-name" id="infoName"></div>
+  <div class="info-addr" id="infoAddr"></div>
+</div>
+<a class="open-maps-btn" id="openBtn" href="#" target="_blank" rel="noopener">Open in Maps</a>
+```
+:::
+
+:::
+
+:::
 
 ---
-
 
 ## 📬 Contact
 
@@ -40,4 +243,71 @@ _2019–2022_
 🐱 **GitHub:** [github.com/Suman1801](https://github.com/Suman1801)  
 📊 **Kaggle:** [kaggle.com/suman1801](https://www.kaggle.com/suman1801)
 
----
+```{=html}
+<script>
+  let leafletMap = null;
+  let marker = null;
+
+  function showMap(card) {
+    document.querySelectorAll('.edu-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    const lat   = parseFloat(card.dataset.lat);
+    const lng   = parseFloat(card.dataset.lng);
+    const name  = card.dataset.name;
+    const addr  = card.dataset.addr;
+    const color = card.dataset.color;
+    const maps  = card.dataset.maps;
+
+    document.getElementById('mapPlaceholder').style.display = 'none';
+    document.getElementById('leaflet-map').style.display = 'block';
+    document.getElementById('mapInfoBar').style.display = 'flex';
+
+    document.getElementById('mapTitle').textContent = name;
+    document.getElementById('mapSublabel').textContent = '';
+
+    const pulse = document.getElementById('mapPulse');
+    pulse.classList.add('live');
+    pulse.style.background = color;
+
+    document.getElementById('infoDot').style.background = color;
+    document.getElementById('infoName').textContent = name;
+    document.getElementById('infoAddr').textContent = addr;
+
+    const btn = document.getElementById('openBtn');
+    btn.href = maps;
+    btn.style.color = color;
+    btn.style.borderColor = color;
+
+    if (!leafletMap) {
+      leafletMap = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        maxZoom: 19
+      }).addTo(leafletMap);
+    }
+
+    const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40">
+      <path d="M15 0C6.72 0 0 6.72 0 15C0 26.25 15 40 15 40C15 40 30 26.25 30 15C30 6.72 23.28 0 15 0Z" fill="${color}"/>
+      <circle cx="15" cy="15" r="6" fill="white"/>
+    </svg>`;
+
+    const icon = L.divIcon({
+      html: svgIcon,
+      iconSize: [30, 40],
+      iconAnchor: [15, 40],
+      popupAnchor: [0, -42],
+      className: ''
+    });
+
+    if (marker) marker.remove();
+    marker = L.marker([lat, lng], { icon }).addTo(leafletMap);
+    marker.bindPopup(
+      `<strong style="font-size:13px">${name}</strong><br><span style="font-size:11px;color:#555">${addr}</span>`,
+      { maxWidth: 230 }
+    ).openPopup();
+    leafletMap.setView([lat, lng], 15);
+    setTimeout(() => leafletMap.invalidateSize(), 60);
+  }
+</script>
+```
