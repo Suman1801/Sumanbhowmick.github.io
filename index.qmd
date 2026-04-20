@@ -24,15 +24,12 @@ Hi! I'm **Suman Bhowmick**, a geographer with a keen interest in:
 - ML/DL with Google Earth Engine, Python, and R  
 - Agricultural geospatial modelling and climate-soil interactions  
 
-### Current Research
-
-*Remote Sensing Application for Flood Hazard Assessment: A Study in the Lower Gangetic Plain of West Bengal*
 
 ### Location
 
 **Duttapukur, West Bengal, India**
 
-> *"Geography is the stage on which the drama of humanity unfolds — I decode it with data."*
+> *"What flows beneath the surface shapes everything above it."*
 
 :::
 
