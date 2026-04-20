@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>About Me – Suman Bhowmick</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -37,10 +40,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bfe2937805c616f1626527cf1746a37f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c6c03465306253255e0218e987675763.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -307,19 +310,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 <!-- Google Analytics -->
-
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-K9LBMZW1L0"></script>
-
 <script>
-
   window.dataLayer = window.dataLayer || [];
-
   function gtag(){dataLayer.push(arguments);}
-
   gtag('js', new Date());
-
   gtag('config', 'G-K9LBMZW1L0');
-
 </script>
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -410,7 +406,7 @@ to see the institution on the map</p>
 </section>
 <section id="contact" class="level2">
 <h2 class="anchored" data-anchor-id="contact">📬 Contact</h2>
-<p>📧 <strong>Email:</strong> <a href="mailto:sumanbhowmick768@gmail.com">sumanbhowmick768@gmail.com</a><br>
+<p>📧 <strong>Email:</strong> <a href="mailto:sumanbhowmick1801@gmail.com">sumanbhowmick1801@gmail.com</a><br>
 📱 <strong>Phone:</strong> +91-8509647380<br>
 🔗 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/suman-bhowmick">linkedin.com/in/suman-bhowmick</a><br>
 🐱 <strong>GitHub:</strong> <a href="https://github.com/Suman1801">github.com/Suman1801</a><br>
@@ -538,13 +534,14 @@ to see the institution on the map</p>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
