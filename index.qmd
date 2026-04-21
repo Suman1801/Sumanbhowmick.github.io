@@ -1,36 +1,43 @@
 ---
-title: "Suman Bhowmick"
+title: ""
 format:
   html:
     page-layout: full
     toc: false
+    css: styles.css
 ---
 
-:::{.container .d-flex .flex-wrap .align-items-start .gap-4 .mt-4}
+:::{.d-flex .flex-wrap .gap-5 .align-items-start style="max-width: 1100px; margin: 3rem auto; padding: 0 2rem;"}
 
-::: {.flex-fill style="max-width: 320px;"}
-![](files/images/Suman_.jpg){style="width: 100%; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); object-fit: cover;"}
+::: {style="flex: 0 0 280px;"}
+![](files/images/Suman_.jpg){style="width: 280px; height: 360px; object-fit: cover; border-radius: 16px; border: 0.5px solid rgba(0,0,0,0.1);"}
+
+::: {style="margin-top: 1rem; background: #f5f5f3; border-radius: 12px; padding: 16px 18px;"}
+[LOCATION]{style="font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: #999; display: block; margin-bottom: 8px;"}
+[Duttapukur]{style="font-size: 15px; font-weight: 600; display: block; margin-bottom: 3px;"}
+[West Bengal, India]{style="font-size: 13px; color: #666; display: block;"}
+:::
 :::
 
-::: {.flex-fill}
+::: {style="flex: 1; min-width: 300px; padding-top: 0.5rem;"}
+[Geographer & Researcher]{style="font-size: 13px; color: #999; display: block; margin-bottom: 6px;"}
+[Suman Bhowmick]{style="font-size: 36px; font-weight: 600; display: block; margin-bottom: 2rem; line-height: 1.2;"}
 
-### Welcome
+[INTERESTS]{style="font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: #999; display: block; margin-bottom: 12px;"}
 
-Hi! I'm **Suman Bhowmick**, a geographer with a keen interest in:
-
-- Hydrology and groundwater  
-- Watershed and hydrological modelling  
-- River course changes and sediment transport  
-- ML/DL with Google Earth Engine, Python, and R  
-- Agricultural geospatial modelling and climate-soil interactions  
-
-
-### Location
-
-**Duttapukur, West Bengal, India**
-
-> *"What flows beneath the surface shapes everything above it."*
-
+::: {style="margin-bottom: 2rem; line-height: 2.4;"}
+[Hydrology & groundwater]{.tag}
+[Watershed modelling]{.tag}
+[Sediment transport]{.tag}
+[Google Earth Engine]{.tag}
+[ML with Python & R]{.tag}
+[Geospatial modelling]{.tag}
+[Climate-soil interactions]{.tag}
 :::
 
+::: {style="border-top: 0.5px solid #e0e0e0; padding-top: 1.5rem;"}
+[*"What flows beneath the surface shapes everything above it."*]{style="font-size: 16px; color: #555; font-style: italic; line-height: 1.8;"}
+:::
+
+:::
 :::
