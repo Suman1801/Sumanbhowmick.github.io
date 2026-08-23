@@ -31,6 +31,23 @@ sidebar: false
 </div>
 :::
 
+::: {.project-card}
+### West Bengal Electoral Map
+![](files/electoral-map-screenshot.JPG)
+<p class="card-description">
+  An interactive geospatial web application for exploring <strong>West Bengal's electoral constituencies</strong>, 
+  built for visualizing boundary data and constituency-level information.
+</p>
+<ul>
+  <li> Browse interactive constituency boundaries across West Bengal with live hover tooltips.</li>
+  <li> Compare historical 2021 and 2026 election results, including winning margins and party vote shares.</li>
+  <li> View enriched candidate profiles (Age, Education) powered by smart historical data cross-referencing.</li>
+</ul>
+<div class="card-footer">
+  [🚀 Launch App](https://west-bengal-electoral-map.vercel.app){.view-button target="_blank"}
+</div>
+:::
+
 :::
 
 <style>

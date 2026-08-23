@@ -6,109 +6,119 @@
   <title>Hospital Accessibility - India 12 Cities - Suman Portfolio</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#fdfdfd;color:#222;line-height:1.6;}
-    a{color:#007acc;text-decoration:none;}
+
+    :root{
+      --ink:#1c3330;
+      --ink-soft:#4d6663;
+      --base:#f7f5f0;
+      --panel:#ffffff;
+      --line:#dde1dc;
+      --accent:#1c6e5e;
+      --accent-soft:#4d9484;
+      --good:#3f8f6f;
+      --good-bg:#e7f3ee;
+      --good-ink:#245c47;
+      --mid:#c08a3e;
+      --mid-bg:#faf1e2;
+      --mid-ink:#8a5f22;
+      --bad:#b4543f;
+      --bad-bg:#f8ece9;
+      --bad-ink:#8a3d2c;
+    }
+    body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--base);color:var(--ink);line-height:1.6;}
+    a{color:var(--accent);text-decoration:none;}
     img{max-width:100%;height:auto;border-radius:10px;}
     .container{max-width:1000px;margin:auto;padding:1.5rem;}
 
-    .hero{background:linear-gradient(to top,#d6ede8,#ffffff);padding:3rem 1.5rem 2rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.05);}
-    .hero h1{font-size:3.2rem;margin-bottom:0.5rem;color:#0d3b2e;}
-    .hero p{font-size:1.15rem;color:#333;margin-bottom:1.2rem;}
+    .hero{background:var(--panel);border-bottom:2px solid var(--accent);padding:3rem 1.5rem 2rem;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.05);}
+    .hero h1{font-size:3.2rem;margin-bottom:0.5rem;color:var(--ink);}
+    .hero p{font-size:1.15rem;color:var(--ink-soft);font-style:italic;margin-bottom:1.2rem;}
     nav ul{list-style:none;padding:0;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;}
-    nav ul li a{color:#0d3b2e;font-weight:600;padding:0.3rem 0.6rem;}
+    nav ul li a{color:var(--accent);font-weight:600;padding:0.3rem 0.6rem;}
     nav ul li a:hover{text-decoration:underline;}
 
-    .overview-section{padding:2rem 1.5rem;background:linear-gradient(to top,#f0faf6,#ffffff);text-align:center;}
-    .overview-section h2{font-size:2.2rem;font-weight:800;color:#2c3e50;margin-bottom:1rem;}
-    .overview-section p{font-size:1.1rem;font-weight:500;color:#333;max-width:800px;margin:0 auto;line-height:1.8;}
+    .overview-section{padding:2rem 1.5rem;background:var(--base);text-align:center;}
+    .overview-section h2{font-size:2.2rem;font-weight:700;color:var(--ink);margin-bottom:1rem;}
+    .overview-section p{font-size:1.1rem;font-weight:400;color:var(--ink-soft);max-width:800px;margin:0 auto;line-height:1.8;}
 
-    section.content-section{padding:1.5rem 1rem;margin:0 auto;border-bottom:1px solid #e0e0e0;}
-    .content-section h2{font-size:1.8rem;color:#0d3b2e;margin-bottom:1rem;margin-top:0.5rem;}
-    .content-section h3{color:#0d3b2e;margin-top:1.2rem;}
+    section.content-section{padding:1.5rem 1rem;margin:0 auto;border-bottom:1px solid var(--line);}
+    .content-section h2{font-size:1.8rem;color:var(--ink);margin-bottom:1rem;margin-top:0.5rem;}
+    .content-section h3{color:var(--ink);margin-top:1.2rem;}
 
     .project-details{padding-left:1rem;margin-bottom:1.5rem;}
     .project-details li{margin-bottom:0.5rem;}
 
     /* BADGES */
     .score-badge{display:inline-block;padding:0.22rem 0.65rem;border-radius:6px;font-weight:700;font-size:0.92rem;margin-left:0.3rem;}
-    .badge-green {background:#d1fae5;color:#065f46;}
-    .badge-orange{background:#fef3c7;color:#92400e;}
-    .badge-red   {background:#fee2e2;color:#991b1b;}
+    .badge-green {background:var(--good-bg);color:var(--good-ink);}
+    .badge-orange{background:var(--mid-bg);color:var(--mid-ink);}
+    .badge-red   {background:var(--bad-bg);color:var(--bad-ink);}
 
     /* RANKING STRIP */
     .rank-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
-    .rank-card{border-radius:10px;padding:1rem;text-align:center;border:2px solid #e0e0e0;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.05);transition:transform 0.2s;}
+    .rank-card{border-radius:8px;padding:1rem;text-align:center;border:1px solid var(--line);background:var(--panel);transition:transform 0.2s;}
     .rank-card:hover{transform:translateY(-3px);}
     .rank-medal{font-size:1.8rem;line-height:1;}
-    .rank-city {font-size:0.95rem;font-weight:700;margin:0.3rem 0 0.2rem;color:#0d3b2e;}
+    .rank-city {font-size:0.95rem;font-weight:700;margin:0.3rem 0 0.2rem;color:var(--ink);}
     .rank-score{font-size:1.6rem;font-weight:800;}
-    .rank-count{font-size:0.72rem;color:#888;margin-top:0.1rem;}
-    .rank-card.green {border-color:#6ee7b7;}
-    .rank-card.orange{border-color:#fcd34d;}
-    .rank-card.red   {border-color:#fca5a5;}
+    .rank-count{font-size:0.72rem;color:var(--ink-soft);margin-top:0.1rem;}
+    .rank-card.green {border-top:3px solid var(--good);}
+    .rank-card.orange{border-top:3px solid var(--mid);}
+    .rank-card.red   {border-top:3px solid var(--bad);}
 
     /* IMAGE GRID */
     .image-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:1.5rem;}
-    .image-block{background:#fff;border:1px solid #e0e0e0;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);transition:box-shadow 0.2s,transform 0.2s;cursor:pointer;}
-    .image-block:hover{box-shadow:0 8px 28px rgba(13,59,46,0.15);transform:translateY(-4px);}
+    .image-block{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:box-shadow 0.2s,transform 0.2s;cursor:pointer;}
+    .image-block:hover{box-shadow:0 6px 20px rgba(28,51,48,0.12);transform:translateY(-3px);}
     .image-block img{width:100%;display:block;border-radius:10px 10px 0 0;transition:transform 0.3s;}
     .image-block:hover img{transform:scale(1.02);}
-    .image-caption{font-size:0.92rem;color:#444;text-align:center;padding:0.6rem 0.5rem 0;font-weight:600;}
+    .image-caption{font-size:0.92rem;color:var(--ink);text-align:center;padding:0.6rem 0.5rem 0;font-weight:600;}
     .card-footer{display:flex;gap:0.5rem;padding:0.75rem;justify-content:center;flex-wrap:wrap;}
 
-    .download-button{display:inline-block;padding:0.6rem 1.1rem;background:#007acc;color:white;font-weight:600;border-radius:8px;text-decoration:none;transition:background 0.3s;font-size:0.85rem;}
-    .download-button:hover{background:#005f99;}
-    .view-button{display:inline-block;padding:0.6rem 1.1rem;background:#0d3b2e;color:white;border-radius:8px;font-weight:600;font-size:0.85rem;transition:background 0.3s;cursor:pointer;border:none;}
-    .view-button:hover{background:#1a5c47;}
+    .download-button{display:inline-block;padding:0.6rem 1.1rem;background:var(--panel);color:var(--accent);border:1px solid var(--accent-soft);font-weight:600;border-radius:6px;text-decoration:none;transition:background 0.3s;font-size:0.85rem;}
+    .download-button:hover{background:var(--accent);color:white;}
+    .view-button{display:inline-block;padding:0.6rem 1.1rem;background:var(--accent);color:white;border-radius:6px;font-weight:600;font-size:0.85rem;transition:background 0.3s;cursor:pointer;border:none;}
+    .view-button:hover{background:var(--ink);}
 
     /* SCORE TABLE */
     .score-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:0.88rem;}
-    .score-table th{background:#0d3b2e;color:white;padding:0.7rem 0.8rem;text-align:left;}
-    .score-table td{padding:0.6rem 0.8rem;border-bottom:1px solid #e0e0e0;vertical-align:middle;}
-    .score-table tr:nth-child(even){background:#f0faf6;}
-    .score-table tr:hover{background:#d6ede8;}
-    .bar-wrap{background:#e0e0e0;border-radius:4px;height:10px;width:110px;display:inline-block;vertical-align:middle;margin-left:0.4rem;}
+    .score-table th{background:var(--ink);color:white;padding:0.7rem 0.8rem;text-align:left;}
+    .score-table td{padding:0.6rem 0.8rem;border-bottom:1px solid var(--line);vertical-align:middle;}
+    .score-table tr:nth-child(even){background:var(--base);}
+    .score-table tr:hover{background:var(--good-bg);}
+    .bar-wrap{background:var(--line);border-radius:4px;height:10px;width:110px;display:inline-block;vertical-align:middle;margin-left:0.4rem;}
     .bar-fill{height:100%;border-radius:4px;}
 
     /* PIPELINE */
     .pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
-    .pipeline-step{background:#f0faf6;border:1px solid #a7d9c8;border-radius:10px;padding:1rem;text-align:center;}
-    .step-num  {font-size:1.5rem;font-weight:800;color:#0d3b2e;}
-    .step-title{font-weight:700;color:#0d3b2e;margin:0.3rem 0 0.2rem;font-size:0.92rem;}
-    .step-desc {font-size:0.8rem;color:#555;line-height:1.5;}
+    .pipeline-step{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1rem;text-align:center;}
+    .step-num  {font-size:1.5rem;font-weight:700;color:var(--accent);}
+    .step-title{font-weight:700;color:var(--ink);margin:0.3rem 0 0.2rem;font-size:0.92rem;}
+    .step-desc {font-size:0.8rem;color:var(--ink-soft);line-height:1.5;}
 
     /* TECH TAGS */
     .tech-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
-    .tech-tag{background:#d1fae5;color:#065f46;border:1px solid #6ee7b7;border-radius:20px;padding:0.22rem 0.7rem;font-size:0.8rem;font-weight:600;}
+    .tech-tag{background:transparent;color:var(--accent);border:1px solid var(--accent-soft);border-radius:4px;padding:0.22rem 0.7rem;font-size:0.78rem;font-weight:600;}
 
     /* INSIGHT CARDS */
     .insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
     .insight-card{border-radius:8px;padding:1rem 1.2rem;}
     .insight-card h4{margin:0 0 0.4rem;font-size:1rem;}
-    .insight-card p {font-size:0.87rem;color:#444;margin:0;line-height:1.65;}
-    .card-green {background:#f0fdf4;border-left:4px solid #16a34a;}
-    .card-orange{background:#fffbeb;border-left:4px solid #d97706;}
-    .card-red   {background:#fff5f5;border-left:4px solid #dc2626;}
+    .insight-card p {font-size:0.87rem;color:var(--ink-soft);margin:0;line-height:1.65;}
+    .card-green {background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--good);}
+    .card-orange{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--mid);}
+    .card-red   {background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--bad);}
 
     /* ALL CITIES TABLE */
     .cities-table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:0.87rem;}
-    .cities-table th{background:#0d3b2e;color:white;padding:0.65rem 0.8rem;text-align:left;}
-    .cities-table td{padding:0.55rem 0.8rem;border-bottom:1px solid #e0e0e0;vertical-align:middle;}
-    .cities-table tr:nth-child(even){background:#f0faf6;}
-    .cities-table tr:hover{background:#d6ede8;}
-
-    /* CODE */
-    .code-window{background:#1e2d2a;border-radius:10px;overflow:hidden;margin-top:1rem;box-shadow:0 4px 16px rgba(0,0,0,0.12);}
-    .code-toolbar{background:#2a3d39;padding:0.6rem 1rem;display:flex;align-items:center;gap:0.4rem;}
-    .dot{width:10px;height:10px;border-radius:50%;}
-    .dot-r{background:#FF5F57;}.dot-y{background:#FEBC2E;}.dot-g{background:#28C840;}
-    .code-filename{margin-left:auto;color:#7fb3a5;font-family:monospace;font-size:0.72rem;}
-    pre{padding:1.2rem 1.5rem;margin:0;font-family:'Consolas','Courier New',monospace;font-size:0.78rem;line-height:1.75;color:#b2d8c8;overflow-x:auto;}
-    .kw{color:#f38ba8;}.fn{color:#7fb3a5;}.st{color:#a6e3a1;}.cm{color:#4a6b5e;font-style:italic;}.nm{color:#fab387;}
+    .cities-table th{background:var(--ink);color:white;padding:0.65rem 0.8rem;text-align:left;}
+    .cities-table td{padding:0.55rem 0.8rem;border-bottom:1px solid var(--line);vertical-align:middle;}
+    .cities-table tr:nth-child(even){background:var(--base);}
+    .cities-table tr:hover{background:var(--good-bg);}
 
     /* NOTE BOX */
-    .note-box{background:#f0fdf4;border-left:4px solid #16a34a;border-radius:6px;padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.88rem;color:#555;line-height:1.7;}
-    .note-box strong{color:#333;}
+    .note-box{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--mid);border-radius:4px;padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.88rem;color:var(--ink-soft);line-height:1.7;}
+    .note-box strong{color:var(--ink);}
 
     /* LIGHTBOX */
     .lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.88);align-items:center;justify-content:center;}
@@ -119,7 +129,7 @@
     .lightbox-close:hover{background:rgba(255,255,255,0.28);}
     .lightbox-caption{color:#bbb;font-size:0.82rem;font-family:monospace;letter-spacing:0.04em;}
 
-    footer{background:#f4f4f4;text-align:center;padding:2rem 1rem;font-size:0.9rem;color:#555;border-top:1px solid #e0e0e0;}
+    footer{background:var(--panel);text-align:center;padding:2rem 1rem;font-size:0.85rem;color:var(--ink-soft);border-top:1px solid var(--line);}
 
     @media(max-width:700px){
       .hero h1{font-size:2.1rem;}
@@ -141,7 +151,6 @@
       <li><a href="#visuals">Maps</a></li>
       <li><a href="#scores">Scores</a></li>
       <li><a href="#insights">Insights</a></li>
-      <li><a href="#code">Code</a></li>
     </ul></nav>
   </div>
 </section>
@@ -165,7 +174,7 @@
 <!-- DETAILS -->
 <section id="details" class="content-section">
   <div class="container">
-    <h2>&#129150; Project Details</h2>
+    <h2>Project Details</h2>
     <ul class="project-details">
       <li><strong>Organization:</strong> Personal Research</li>
       <li><strong>Tools Used:</strong> OSMnx, GeoPandas, Matplotlib, Shapely</li>
@@ -200,8 +209,8 @@
 <!-- VISUALS -->
 <section id="visuals" class="content-section">
   <div class="container">
-    <h2>&#128506; City Maps</h2>
-    <p style="color:#555;margin-bottom:0.5rem;">
+    <h2>City Maps</h2>
+    <p style="color:var(--ink-soft);margin-bottom:0.5rem;">
       Light road network with red dots marking every hospital and clinic within 5&thinsp;km.
       Road hierarchy shown in 3 tones: trunk roads darkest, streets lightest.
       Click any map to view full size.
@@ -311,31 +320,31 @@
 <!-- SCORES -->
 <section id="scores" class="content-section">
   <div class="container">
-    <h2>&#128200; Accessibility Scores</h2>
+    <h2>Accessibility Scores</h2>
 
     <div class="rank-strip">
       <div class="rank-card green">
         <div class="rank-medal">&#127947;</div>
         <div class="rank-city">Bengaluru</div>
-        <div class="rank-score" style="color:#065f46">100.0</div>
+        <div class="rank-score" style="color:var(--good-ink)">100.0</div>
         <div class="rank-count">1138 facilities</div>
       </div>
       <div class="rank-card green">
         <div class="rank-medal">&#129352;</div>
         <div class="rank-city">Hyderabad</div>
-        <div class="rank-score" style="color:#065f46">85.5</div>
+        <div class="rank-score" style="color:var(--good-ink)">85.5</div>
         <div class="rank-count">684 facilities</div>
       </div>
       <div class="rank-card green">
         <div class="rank-medal">&#129353;</div>
         <div class="rank-city">Mumbai</div>
-        <div class="rank-score" style="color:#065f46">76.0</div>
+        <div class="rank-score" style="color:var(--good-ink)">76.0</div>
         <div class="rank-count">608 facilities</div>
       </div>
       <div class="rank-card green">
         <div class="rank-medal">&#129354;</div>
         <div class="rank-city">Ahmedabad</div>
-        <div class="rank-score" style="color:#065f46">75.1</div>
+        <div class="rank-score" style="color:var(--good-ink)">75.1</div>
         <div class="rank-count">601 facilities</div>
       </div>
     </div>
@@ -349,7 +358,7 @@
           <td><strong>#1</strong></td>
           <td><strong>Bengaluru</strong></td>
           <td><span class="score-badge badge-green">100.0</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:100.0%;background:#2A9D8F"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:100.0%;background:var(--good)"></div></div></td>
           <td>1,138</td>
           <td>Excellent</td>
         </tr>
@@ -357,7 +366,7 @@
           <td><strong>#2</strong></td>
           <td><strong>Hyderabad</strong></td>
           <td><span class="score-badge badge-green">85.5</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:85.5%;background:#2A9D8F"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:85.5%;background:var(--good)"></div></div></td>
           <td>684</td>
           <td>Excellent</td>
         </tr>
@@ -365,7 +374,7 @@
           <td><strong>#3</strong></td>
           <td><strong>Mumbai</strong></td>
           <td><span class="score-badge badge-green">76.0</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:76.0%;background:#2A9D8F"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:76.0%;background:var(--good)"></div></div></td>
           <td>608</td>
           <td>Excellent</td>
         </tr>
@@ -373,7 +382,7 @@
           <td><strong>#4</strong></td>
           <td><strong>Ahmedabad</strong></td>
           <td><span class="score-badge badge-green">75.1</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:75.1%;background:#2A9D8F"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:75.1%;background:var(--good)"></div></div></td>
           <td>601</td>
           <td>Excellent</td>
         </tr>
@@ -381,7 +390,7 @@
           <td><strong>#5</strong></td>
           <td><strong>Pune</strong></td>
           <td><span class="score-badge badge-orange">73.0</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:73.0%;background:#E9C46A"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:73.0%;background:var(--mid)"></div></div></td>
           <td>584</td>
           <td>Moderate</td>
         </tr>
@@ -389,7 +398,7 @@
           <td><strong>#6</strong></td>
           <td><strong>Chennai</strong></td>
           <td><span class="score-badge badge-orange">65.1</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:65.1%;background:#E9C46A"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:65.1%;background:var(--mid)"></div></div></td>
           <td>521</td>
           <td>Moderate</td>
         </tr>
@@ -397,7 +406,7 @@
           <td><strong>#7</strong></td>
           <td><strong>Jaipur</strong></td>
           <td><span class="score-badge badge-orange">64.1</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:64.1%;background:#E9C46A"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:64.1%;background:var(--mid)"></div></div></td>
           <td>513</td>
           <td>Moderate</td>
         </tr>
@@ -405,7 +414,7 @@
           <td><strong>#8</strong></td>
           <td><strong>Kolkata</strong></td>
           <td><span class="score-badge badge-red">34.1</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:34.1%;background:#E76F51"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:34.1%;background:var(--bad)"></div></div></td>
           <td>273</td>
           <td>Low</td>
         </tr>
@@ -413,7 +422,7 @@
           <td><strong>#9</strong></td>
           <td><strong>Patna</strong></td>
           <td><span class="score-badge badge-red">33.0</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:33.0%;background:#E76F51"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:33.0%;background:var(--bad)"></div></div></td>
           <td>264</td>
           <td>Low</td>
         </tr>
@@ -421,7 +430,7 @@
           <td><strong>#10</strong></td>
           <td><strong>Lucknow</strong></td>
           <td><span class="score-badge badge-red">26.8</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:26.8%;background:#E76F51"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:26.8%;background:var(--bad)"></div></div></td>
           <td>214</td>
           <td>Low</td>
         </tr>
@@ -429,7 +438,7 @@
           <td><strong>#11</strong></td>
           <td><strong>Delhi</strong></td>
           <td><span class="score-badge badge-red">22.9</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:22.9%;background:#E76F51"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:22.9%;background:var(--bad)"></div></div></td>
           <td>183</td>
           <td>Low</td>
         </tr>
@@ -437,7 +446,7 @@
           <td><strong>#12</strong></td>
           <td><strong>Bhopal</strong></td>
           <td><span class="score-badge badge-red">20.4</span></td>
-          <td><div class="bar-wrap"><div class="bar-fill" style="width:20.4%;background:#E76F51"></div></div></td>
+          <td><div class="bar-wrap"><div class="bar-fill" style="width:20.4%;background:var(--bad)"></div></div></td>
           <td>163</td>
           <td>Low</td>
         </tr>
@@ -446,7 +455,7 @@
 
     <div class="note-box">
       <strong>Note on scores:</strong>
-      Saturation target is set at <strong>800 facilities</strong> — a city needs 800+
+      Saturation target is set at <strong>800 facilities</strong>, a city needs 800+
       hospitals, clinics and pharmacies within 5&thinsp;km to score 100.
       Low scores for Delhi, Lucknow and Bhopal likely reflect both
       <strong>thinner OSM data coverage</strong> and genuinely lower facility density.
@@ -459,71 +468,41 @@
 <!-- INSIGHTS -->
 <section id="insights" class="content-section">
   <div class="container">
-    <h2>&#128161; Insights</h2>
+    <h2>Insights</h2>
     <div class="insight-grid">
       <div class="insight-card card-green">
-        <h4>Bengaluru &mdash; 100.0 &mdash; Excellent</h4>
-        <p>India's tech capital — exceptionally dense healthcare network with 1138 facilities, the highest of all cities analysed. MG Road area saturates every healthcare metric.</p>
+        <h4>Bengaluru: 100.0 (Excellent)</h4>
+        <p>India's tech capital, exceptionally dense healthcare network with 1138 facilities, the highest of all cities analysed. MG Road area saturates every healthcare metric.</p>
       </div>
       <div class="insight-card card-green">
-        <h4>Hyderabad &mdash; 85.5 &mdash; Excellent</h4>
+        <h4>Hyderabad: 85.5 (Excellent)</h4>
         <p>Strong healthcare infrastructure driven by HITEC City's growth. 684 facilities reflect a well-distributed mix of corporate hospitals and local clinics across the city.</p>
       </div>
       <div class="insight-card card-green">
-        <h4>Mumbai &mdash; 76.0 &mdash; Excellent</h4>
+        <h4>Mumbai: 76.0 (Excellent)</h4>
         <p>India's financial capital shows robust healthcare coverage with 608 facilities. The linear coastal geography concentrates services in accessible corridors.</p>
       </div>
       <div class="insight-card card-green">
-        <h4>Ahmedabad &mdash; 75.1 &mdash; Excellent</h4>
+        <h4>Ahmedabad: 75.1 (Excellent)</h4>
         <p>Well-served city with 601 facilities reflecting Gujarat's investment in urban healthcare. Even distribution across old city and new western sectors.</p>
       </div>
       <div class="insight-card card-orange">
-        <h4>Pune &mdash; 73.0 &mdash; Moderate</h4>
+        <h4>Pune: 73.0 (Moderate)</h4>
         <p>Pune's rapidly growing healthcare sector shows 584 facilities. The university town character brings strong clinic and specialist density near the city centre.</p>
       </div>
       <div class="insight-card card-orange">
-        <h4>Chennai &mdash; 65.1 &mdash; Moderate</h4>
+        <h4>Chennai: 65.1 (Moderate)</h4>
         <p>Established medical tourism hub with 521 facilities. Anna Salai corridor is dotted with specialist hospitals serving both local and international patients.</p>
       </div>
       <div class="insight-card card-orange">
-        <h4>Jaipur &mdash; 64.1 &mdash; Moderate</h4>
-        <p>Pink City shows surprisingly strong healthcare coverage — 513 facilities reflecting investment in medical infrastructure alongside its tourism economy.</p>
+        <h4>Jaipur: 64.1 (Moderate)</h4>
+        <p>Pink City shows surprisingly strong healthcare coverage, 513 facilities reflecting investment in medical infrastructure alongside its tourism economy.</p>
       </div>
       <div class="insight-card card-red">
-        <h4>Kolkata &mdash; 34.1 &mdash; Low</h4>
+        <h4>Kolkata: 34.1 (Low)</h4>
         <p>Historic city shows moderate coverage with 273 facilities. The older urban fabric and OSM data gaps likely understate the real density in tightly-packed central neighbourhoods.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CODE -->
-<section id="code" class="content-section">
-  <div class="container">
-    <h2>&#128230; Code</h2>
-    <p>Core fetch and scoring logic:</p>
-    <div class="code-window">
-      <div class="code-toolbar">
-        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
-        <div class="code-filename">hospital_accessibility_v2.py</div>
-      </div>
-      <pre><span class="cm"># Fetch all healthcare facilities within 5km</span>
-<span class="kw">def</span> <span class="fn">fetch_hospitals</span>(lat, lon, radius):
-    gdf = ox.<span class="fn">features_from_point</span>(
-        (lat, lon),
-        tags={<span class="st">"amenity"</span>: [<span class="st">"hospital"</span>, <span class="st">"clinic"</span>, <span class="st">"pharmacy"</span>, <span class="st">"doctors"</span>],
-              <span class="st">"healthcare"</span>: <span class="nm">True</span>},
-        dist=radius
-    )
-    gdf[<span class="st">"geometry"</span>] = gdf.geometry.centroid
-    <span class="kw">return</span> gdf[[<span class="st">"geometry"</span>]]
-
-<span class="cm"># Linear accessibility score — saturates at 800 facilities</span>
-<span class="kw">def</span> <span class="fn">accessibility_score</span>(count, saturation=<span class="nm">800</span>):
-    <span class="kw">return</span> <span class="fn">round</span>(<span class="fn">min</span>(count / saturation, <span class="nm">1.0</span>) * <span class="nm">100</span>, <span class="nm">1</span>)</pre>
-    </div>
-    <br>
-    <a href="hospital_accessibility_v2.py" class="download-button" download>&#8659; Download Python Script (.py)</a>
   </div>
 </section>
 
@@ -544,18 +523,18 @@
 
 <script>
   const MAPS = {
-    bengaluru: { src:"hospital_bengaluru.png", cap:"Bengaluru — Hospital Accessibility · Score: 100.0 / 100  ·  1138 facilities within 5km" },
-    hyderabad: { src:"hospital_hyderabad.png", cap:"Hyderabad — Hospital Accessibility · Score: 85.5 / 100  ·  684 facilities within 5km" },
-    mumbai: { src:"hospital_mumbai.png", cap:"Mumbai — Hospital Accessibility · Score: 76.0 / 100  ·  608 facilities within 5km" },
-    ahmedabad: { src:"hospital_ahmedabad.png", cap:"Ahmedabad — Hospital Accessibility · Score: 75.1 / 100  ·  601 facilities within 5km" },
-    pune: { src:"hospital_pune.png", cap:"Pune — Hospital Accessibility · Score: 73.0 / 100  ·  584 facilities within 5km" },
-    chennai: { src:"hospital_chennai.png", cap:"Chennai — Hospital Accessibility · Score: 65.1 / 100  ·  521 facilities within 5km" },
-    jaipur: { src:"hospital_jaipur.png", cap:"Jaipur — Hospital Accessibility · Score: 64.1 / 100  ·  513 facilities within 5km" },
-    kolkata: { src:"hospital_kolkata.png", cap:"Kolkata — Hospital Accessibility · Score: 34.1 / 100  ·  273 facilities within 5km" },
-    patna: { src:"hospital_patna.png", cap:"Patna — Hospital Accessibility · Score: 33.0 / 100  ·  264 facilities within 5km" },
-    lucknow: { src:"hospital_lucknow.png", cap:"Lucknow — Hospital Accessibility · Score: 26.8 / 100  ·  214 facilities within 5km" },
-    delhi: { src:"hospital_delhi.png", cap:"Delhi — Hospital Accessibility · Score: 22.9 / 100  ·  183 facilities within 5km" },
-    bhopal: { src:"hospital_bhopal.png", cap:"Bhopal — Hospital Accessibility · Score: 20.4 / 100  ·  163 facilities within 5km" },
+    bengaluru: { src:"hospital_bengaluru.png", cap:"Bengaluru, Hospital Accessibility · Score: 100.0 / 100  ·  1138 facilities within 5km" },
+    hyderabad: { src:"hospital_hyderabad.png", cap:"Hyderabad, Hospital Accessibility · Score: 85.5 / 100  ·  684 facilities within 5km" },
+    mumbai: { src:"hospital_mumbai.png", cap:"Mumbai, Hospital Accessibility · Score: 76.0 / 100  ·  608 facilities within 5km" },
+    ahmedabad: { src:"hospital_ahmedabad.png", cap:"Ahmedabad, Hospital Accessibility · Score: 75.1 / 100  ·  601 facilities within 5km" },
+    pune: { src:"hospital_pune.png", cap:"Pune, Hospital Accessibility · Score: 73.0 / 100  ·  584 facilities within 5km" },
+    chennai: { src:"hospital_chennai.png", cap:"Chennai, Hospital Accessibility · Score: 65.1 / 100  ·  521 facilities within 5km" },
+    jaipur: { src:"hospital_jaipur.png", cap:"Jaipur, Hospital Accessibility · Score: 64.1 / 100  ·  513 facilities within 5km" },
+    kolkata: { src:"hospital_kolkata.png", cap:"Kolkata, Hospital Accessibility · Score: 34.1 / 100  ·  273 facilities within 5km" },
+    patna: { src:"hospital_patna.png", cap:"Patna, Hospital Accessibility · Score: 33.0 / 100  ·  264 facilities within 5km" },
+    lucknow: { src:"hospital_lucknow.png", cap:"Lucknow, Hospital Accessibility · Score: 26.8 / 100  ·  214 facilities within 5km" },
+    delhi: { src:"hospital_delhi.png", cap:"Delhi, Hospital Accessibility · Score: 22.9 / 100  ·  183 facilities within 5km" },
+    bhopal: { src:"hospital_bhopal.png", cap:"Bhopal, Hospital Accessibility · Score: 20.4 / 100  ·  163 facilities within 5km" },
   };
   function openLightbox(c) {
     document.getElementById("lb-img").src = MAPS[c].src;
