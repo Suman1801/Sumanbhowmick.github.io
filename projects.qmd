@@ -33,7 +33,7 @@ sidebar: false
 
 ::: {.project-card}
 ### West Bengal Electoral Map
-![](files/electoral_map_screenshot.JPG)
+![](files/electoral_map_screenshot.png)
 <p class="card-description">
   An interactive geospatial web application for exploring <strong>West Bengal's electoral constituencies</strong>, 
   built for visualizing boundary data and constituency-level information.
