@@ -13,7 +13,7 @@ sidebar: false
 ::: {.project-card}
 ### Global Forest Monitoring App
 
-![](files/Screenshot.png)
+![](files/electoral.png)
 
 <p class="card-description">
   An interactive web application built with <strong>Google Earth Engine</strong> that allows users 
@@ -33,7 +33,7 @@ sidebar: false
 
 ::: {.project-card}
 ### West Bengal Electoral Map
-![](files/electoral_map_screenshot.png)
+![](files/electoral.png)
 <p class="card-description">
   An interactive geospatial web application for exploring <strong>West Bengal's electoral constituencies</strong>, 
   built for visualizing boundary data and constituency-level information.
