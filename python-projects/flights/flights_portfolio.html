@@ -7,131 +7,114 @@
  <link rel="stylesheet" href="style.css"/>
  <style>
  *{box-sizing:border-box;margin:0;padding:0;}
- body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#02000A;color:#E0EEFF;line-height:1.6;}
- a{color:#00E5FF;text-decoration:none;}
+ :root{
+   --ink:#1e2a33;
+   --ink-soft:#526375;
+   --base:#f2f5f7;
+   --panel:#ffffff;
+   --line:#d7e0e6;
+   --accent:#3b6e8f;
+   --accent-soft:#6a95ad;
+   --amber:#c2762f;
+   --green:#4a7c68;
+   --violet:#6b6690;
+ }
+ body{font-family:'Helvetica Neue',Arial,sans-serif;background:var(--base);color:var(--ink);line-height:1.6;}
+ a{color:var(--accent);text-decoration:none;}
  a:hover{text-decoration:underline;}
- img{max-width:100%;height:auto;border-radius:10px;}
+ img{max-width:100%;height:auto;border-radius:6px;}
  .container{max-width:1000px;margin:auto;padding:1.5rem;}
+ h1,h2,h3,h4{font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;letter-spacing:-0.01em;}
 
  /* HERO */
- .hero{background:linear-gradient(135deg,#02000A 0%,#06001F 50%,#02000A 100%);
- padding:3rem 1.5rem 2rem;text-align:center;
- border-bottom:1px solid #1A004A;
- box-shadow:0 4px 40px rgba(0,229,255,0.08);}
- .hero h1{font-size:3.2rem;margin-bottom:0.5rem;color:#00E5FF;letter-spacing:-0.02em;
- text-shadow:0 0 30px rgba(0,229,255,0.4);}
- .hero p{font-size:1.15rem;color:#5080A0;margin-bottom:1.2rem;}
- nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;}
- nav ul li a{color:#00CCFF;font-weight:600;padding:0.3rem 0.6rem;
- border-bottom:1px solid transparent;transition:all 0.2s;}
- nav ul li a:hover{border-color:#FF2079;color:#FF2079;}
+ .hero{background:var(--panel);padding:3rem 1.5rem 2rem;text-align:center;border-bottom:2px solid var(--accent);}
+ .hero h1{font-size:2.6rem;margin-bottom:0.5rem;color:var(--ink);letter-spacing:-0.01em;}
+ .hero p{font-size:1.05rem;color:var(--ink-soft);margin-bottom:1.2rem;font-style:italic;}
+ nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;font-family:'Segoe UI',Tahoma,sans-serif;}
+ nav ul li a{color:var(--accent);font-weight:600;font-size:0.88rem;padding:0.3rem 0.1rem;
+ border-bottom:1px solid transparent;transition:border-color 0.2s;}
+ nav ul li a:hover{border-color:var(--accent);text-decoration:none;}
 
  /* OVERVIEW */
- .overview-section{padding:2rem 1.5rem;background:#04000F;text-align:center;border-bottom:1px solid #1A004A;}
- .overview-section h2{font-size:2.2rem;font-weight:800;color:#00E5FF;margin-bottom:1rem;}
- .overview-section p{font-size:1.1rem;color:#8090B0;max-width:800px;margin:0 auto;line-height:1.8;}
+ .overview-section{padding:2rem 1.5rem;background:var(--base);text-align:center;}
+ .overview-section h2{font-size:1.9rem;color:var(--ink);margin-bottom:1rem;}
+ .overview-section p{font-size:1.05rem;font-family:'Segoe UI',Tahoma,sans-serif;color:var(--ink-soft);max-width:800px;margin:0 auto;line-height:1.85;}
 
  /* SECTIONS */
- section.content-section{padding:1.5rem 1rem;border-bottom:1px solid #0D0030;background:#02000A;}
- .content-section h2{font-size:1.8rem;color:#00E5FF;margin-bottom:1rem;margin-top:0.5rem;}
- .content-section h3{color:#00CCFF;margin-top:1.2rem;margin-bottom:0.6rem;}
+ section.content-section{padding:1.5rem 1rem;border-bottom:1px solid var(--line);background:var(--base);font-family:'Segoe UI',Tahoma,sans-serif;}
+ .content-section h2{font-size:1.6rem;color:var(--ink);margin-bottom:1rem;margin-top:0.5rem;font-family:'Helvetica Neue',Arial,sans-serif;}
+ .content-section h3{color:var(--ink);margin-top:1.2rem;margin-bottom:0.6rem;font-size:1.05rem;font-family:'Helvetica Neue',Arial,sans-serif;}
  .project-details{padding-left:1rem;margin-bottom:1.5rem;}
- .project-details li{margin-bottom:0.5rem;color:#8090B0;}
- .project-details li strong{color:#C0D8F0;}
+ .project-details li{margin-bottom:0.5rem;color:var(--ink-soft);}
+ .project-details li strong{color:var(--ink);}
 
  /* STAT CARDS */
  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
- .stat-card{background:#06001F;border:1px solid #1A004A;border-radius:10px;
- padding:1.2rem;text-align:center;
- box-shadow:0 0 20px rgba(0,229,255,0.05);}
- .stat-num{font-size:2rem;font-weight:800;color:#00E5FF;line-height:1;}
- .stat-label{font-size:0.72rem;color:#3A5A7A;margin-top:0.3rem;
- letter-spacing:0.1em;text-transform:uppercase;}
+ .stat-card{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);
+ border-radius:6px;padding:1.2rem;text-align:center;}
+ .stat-num{font-size:1.9rem;font-weight:700;color:var(--accent);line-height:1;font-family:'Consolas','Courier New',monospace;}
+ .stat-label{font-size:0.7rem;color:var(--ink-soft);margin-top:0.4rem;
+ letter-spacing:0.08em;text-transform:uppercase;}
 
  /* GIF */
- .gif-wrap{background:#000000;border-radius:14px;padding:1.2rem;
- border:1px solid #1A004A;margin-top:1.2rem;text-align:center;
- box-shadow:0 0 40px rgba(0,204,255,0.12);}
- .gif-wrap img{border-radius:8px;max-width:100%;
- box-shadow:0 0 30px rgba(0,204,255,0.2);}
- .gif-caption{font-size:0.82rem;color:#3A5A7A;margin-top:0.7rem;font-style:italic;}
+ .gif-wrap{background:var(--ink);border-radius:8px;padding:1.2rem;margin-top:1.2rem;text-align:center;}
+ .gif-wrap img{border-radius:4px;max-width:100%;box-shadow:0 2px 10px rgba(0,0,0,0.3);}
+ .gif-caption{font-size:0.82rem;color:#b8b0a3;margin-top:0.7rem;font-style:italic;}
 
  /* AIRLINE COLOUR KEY */
  .airline-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;margin-top:1rem;}
  .airline-item{display:flex;align-items:center;gap:0.7rem;
- background:#06001F;border:1px solid #1A004A;border-radius:8px;
+ background:var(--panel);border:1px solid var(--line);border-radius:6px;
  padding:0.6rem 0.9rem;}
- .airline-dot{width:14px;height:14px;border-radius:3px;flex-shrink:0;}
- .airline-name{font-size:0.85rem;color:#C0D8F0;font-weight:600;}
+ .airline-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+ .airline-name{font-size:0.85rem;color:var(--ink);font-weight:600;}
 
  /* PIPELINE */
  .pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.2rem;}
- .pipeline-step{background:#06001F;border:1px solid #1A004A;
- border-radius:10px;padding:1rem;text-align:center;}
- .step-num{font-size:1.5rem;font-weight:800;color:#00E5FF;}
- .step-title{font-weight:700;color:#80C0FF;margin:0.3rem 0 0.2rem;font-size:0.92rem;}
- .step-desc{font-size:0.8rem;color:#3A5A7A;line-height:1.5;}
+ .pipeline-step{background:var(--panel);border:1px solid var(--line);
+ border-radius:6px;padding:1rem;text-align:center;}
+ .step-num{font-size:1.3rem;font-weight:700;color:var(--accent-soft);font-family:'Helvetica Neue',Arial,sans-serif;}
+ .step-title{font-weight:700;color:var(--ink);margin:0.3rem 0 0.2rem;font-size:0.9rem;}
+ .step-desc{font-size:0.8rem;color:var(--ink-soft);line-height:1.5;}
 
  /* TECH TAGS */
  .tech-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem;}
- .tech-tag{background:#06001F;color:#00E5FF;border:1px solid #1A004A;
- border-radius:20px;padding:0.22rem 0.7rem;font-size:0.8rem;font-weight:600;}
+ .tech-tag{background:transparent;color:var(--accent);border:1px solid var(--accent-soft);
+ border-radius:3px;padding:0.22rem 0.7rem;font-size:0.78rem;font-weight:600;}
 
- /* TIMELINE peak hours */
+ /* PEAK CARDS */
  .peak-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
- .peak-card{background:#06001F;border-radius:8px;padding:1rem 1.2rem;}
- .peak-card.hot{border-left:4px solid #FF2079;}
- .peak-card.cool{border-left:4px solid #00E5FF;}
- .peak-card.dim{border-left:4px solid #1A004A;}
- .peak-card h4{margin:0 0 0.4rem;font-size:1rem;color:#E0EEFF;}
- .peak-card p{font-size:0.87rem;color:#6080A0;margin:0;line-height:1.65;}
- .peak-time{font-family:monospace;font-size:0.9rem;color:#FF2079;font-weight:700;}
+ .peak-card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1rem 1.2rem;}
+ .peak-card.hot{border-left:3px solid var(--accent);}
+ .peak-card.cool{border-left:3px solid var(--green);}
+ .peak-card.dim{border-left:3px solid var(--line);}
+ .peak-card h4{margin:0 0 0.4rem;font-size:1rem;color:var(--ink);font-family:'Helvetica Neue',Arial,sans-serif;}
+ .peak-card p{font-size:0.87rem;color:var(--ink-soft);margin:0;line-height:1.65;}
+ .peak-time{font-family:'Consolas','Courier New',monospace;font-size:0.9rem;color:var(--amber);font-weight:700;letter-spacing:0.02em;}
 
  /* INSIGHT CARDS */
  .insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem;}
- .insight-card{background:#06001F;border-left:4px solid #1A004A;
- border-radius:8px;padding:1rem 1.2rem;}
- .insight-card.cyan{border-color:#00E5FF;}
- .insight-card.pink{border-color:#FF2079;}
- .insight-card.purple{border-color:#7B2FFF;}
- .insight-card.gold{border-color:#FFD600;}
- .insight-card h4{margin:0 0 0.4rem;font-size:1rem;color:#80C0FF;}
- .insight-card p{font-size:0.87rem;color:#6080A0;margin:0;line-height:1.65;}
-
- /* CODE */
- .code-window{background:#000000;border-radius:10px;overflow:hidden;
- margin-top:1rem;border:1px solid #1A004A;
- box-shadow:0 0 20px rgba(0,229,255,0.05);}
- .code-toolbar{background:#06001F;padding:0.6rem 1rem;
- display:flex;align-items:center;gap:0.4rem;border-bottom:1px solid #1A004A;}
- .dot{width:10px;height:10px;border-radius:50%;}
- .dot-r{background:#FF5F57;}.dot-y{background:#FEBC2E;}.dot-g{background:#28C840;}
- .code-filename{margin-left:auto;color:#00E5FF;font-family:monospace;font-size:0.72rem;}
- pre{padding:1.2rem 1.5rem;margin:0;
- font-family:'Consolas','Courier New',monospace;
- font-size:0.78rem;line-height:1.75;color:#80C0FF;overflow-x:auto;}
- .kw{color:#FF2079;}.fn{color:#00E5FF;}.st{color:#00FF9F;}
- .cm{color:#1A3A5A;font-style:italic;}.nm{color:#FFD600;}
+ .insight-card{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--line);
+ border-radius:4px;padding:1rem 1.2rem;}
+ .insight-card.cyan{border-left-color:var(--green);}
+ .insight-card.pink{border-left-color:var(--accent);}
+ .insight-card.purple{border-left-color:var(--violet);}
+ .insight-card.gold{border-left-color:var(--amber);}
+ .insight-card h4{margin:0 0 0.4rem;font-size:0.98rem;color:var(--ink);font-family:'Helvetica Neue',Arial,sans-serif;}
+ .insight-card p{font-size:0.87rem;color:var(--ink-soft);margin:0;line-height:1.65;}
 
  /* NOTE */
- .note-box{background:#06001F;border-left:4px solid #00E5FF;border-radius:6px;
- padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.88rem;
- color:#6080A0;line-height:1.7;}
- .note-box strong{color:#C0D8F0;}
+ .note-box{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--amber);
+ border-radius:4px;padding:0.9rem 1.2rem;margin-top:1.2rem;font-size:0.88rem;
+ color:var(--ink-soft);line-height:1.7;}
+ .note-box strong{color:var(--ink);}
 
- /* DOWNLOAD */
- .download-button{display:inline-block;padding:0.7rem 1.4rem;
- background:#06001F;color:#00E5FF;font-weight:600;border-radius:8px;
- text-decoration:none;transition:all 0.3s;font-size:0.88rem;
- border:1px solid #00E5FF;}
- .download-button:hover{background:#1A004A;color:#FFFFFF;}
-
- footer{background:#04000F;text-align:center;padding:2rem 1rem;
- font-size:0.9rem;color:#3A5A7A;border-top:1px solid #1A004A;}
- footer a{color:#00E5FF;}
+ footer{background:var(--panel);text-align:center;padding:2rem 1rem;
+ font-size:0.85rem;color:var(--ink-soft);border-top:1px solid var(--line);font-family:'Segoe UI',Tahoma,sans-serif;}
+ footer a{color:var(--accent);}
 
  @media(max-width:700px){
- .hero h1{font-size:2.1rem;}
+ .hero h1{font-size:2rem;}
  .pipeline,.insight-grid,.stat-strip,.peak-grid,.airline-grid{grid-template-columns:1fr 1fr;}
  }
  </style>
@@ -149,7 +132,6 @@
  <li><a href="#details">Details</a></li>
  <li><a href="#animation">Animation</a></li>
  <li><a href="#insights">Insights</a></li>
- <li><a href="#code">Code</a></li>
  </ul></nav>
  </div>
 </section>
@@ -159,8 +141,8 @@
  <div class="container">
  <h2>Overview</h2>
  <p>
- This project animates every scheduled domestic flight in India on <strong style="color:#00E5FF;">Friday 01 March 2019</strong> the busiest Friday in the IATA Winter 2018/19 schedule.
- Each aircraft is represented as a coloured <strong style="color:#00E5FF;">✈</strong> symbol
+ This project animates every scheduled domestic flight in India on <strong style="color:var(--accent);">Friday 01 March 2019</strong> the busiest Friday in the IATA Winter 2018/19 schedule.
+ Each aircraft is represented as a coloured <strong style="color:var(--accent);">✈</strong> symbol
  flying along a curved Bezier arc between its origin and destination airport.
  Colour encodes the airline. The clock ticks in real time and the progress bar
  highlights the two daily peak windows when Indian skies are most crowded.
@@ -171,7 +153,7 @@
 <!-- DETAILS -->
 <section id="details" class="content-section">
  <div class="container">
- <h2>&#129150; Project Details</h2>
+ <h2>Project Details</h2>
  <div class="stat-strip">
  <div class="stat-card"><div class="stat-num">2,100</div><div class="stat-label">Flights</div></div>
  <div class="stat-card"><div class="stat-num">74</div><div class="stat-label">Airports</div></div>
@@ -230,8 +212,8 @@
 <!-- ANIMATION -->
 <section id="animation" class="content-section">
  <div class="container">
- <h2>&#127916; Animation</h2>
- <p style="color:#6080A0;margin-bottom:0.4rem;">
+ <h2>Animation</h2>
+ <p style="color:var(--ink-soft);margin-bottom:0.4rem;">
  Each ✈ symbol is coloured by airline and rotated to match its heading.
  The pink clock shows IST. The progress bar at the bottom highlights
  morning (07:00 10:00) and evening (17:00 21:00) peak windows in pink.
@@ -262,26 +244,26 @@
 <!-- INSIGHTS -->
 <section id="insights" class="content-section">
  <div class="container">
- <h2>&#128161; Insights</h2>
+ <h2>Insights</h2>
 
  <div class="peak-grid">
  <div class="peak-card hot">
- <h4>&#9992; Morning Peak</h4>
+ <h4>Morning Peak</h4>
  <p class="peak-time">07:00 to 10:00 IST</p>
  <p>The busiest window of the day. Delhi, Mumbai and Bengaluru hubs explode with activity. The map transforms from near-empty to densely packed within 90 minutes as the first wave of departures fans out across India.</p>
  </div>
  <div class="peak-card hot">
- <h4>&#9992; Evening Peak</h4>
+ <h4>Evening Peak</h4>
  <p class="peak-time">17:00 to 21:00 IST</p>
  <p>The second surge, almost as busy as the morning. Return flights converge back on metros. The Delhi Mumbai and Bengaluru Chennai corridors are at their most congested during this window.</p>
  </div>
  <div class="peak-card cool">
- <h4>&#128564; Night Silence</h4>
+ <h4>Night Silence</h4>
  <p class="peak-time">23:00 to 05:30 IST</p>
  <p>India's domestic network almost completely shuts down overnight. Only a handful of red-eye flights remain airborne. The map returns to the same empty state it started from, ready for the next morning wave.</p>
  </div>
  <div class="peak-card dim">
- <h4>&#128205; Hub Dominance</h4>
+ <h4>Hub Dominance</h4>
  <p class="peak-time">All day</p>
  <p>Delhi, Mumbai and Bengaluru act as the three primary hubs throughout the day. Nearly every route either originates or terminates at one of these three cities, creating a clear hub-and-spoke topology visible in the arc lines.</p>
  </div>
@@ -309,39 +291,6 @@
  <div class="note-box">
  <strong>Data note:</strong> Flights are from <strong>Friday 01 March 2019</strong>, filtered from the Kaggle Indian Flight Schedules dataset (IATA Winter 2018/19). Animated using scheduled departure and arrival times. Some carriers (notably Jet Airways) have since ceased operations.
  </div>
- </div>
-</section>
-
-<!-- CODE -->
-<section id="code" class="content-section">
- <div class="container">
- <h2>&#128230; Code</h2>
- <p style="color:#6080A0;margin-bottom:0.5rem;">Bezier interpolation and aircraft heading calculation:</p>
- <div class="code-window">
- <div class="code-toolbar">
- <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
- <div class="code-filename">india_flights_24hr_v2.py</div>
- </div>
- <pre><span class="cm"># Quadratic Bezier position + heading angle at progress t</span>
-<span class="kw">def</span> <span class="fn">bezier_pos</span>(lon0, lat0, lon1, lat1, t):
- p0 = np.<span class="fn">array</span>([lon0, lat0])
- p1 = np.<span class="fn">array</span>([lon1, lat1])
- mid = (p0 + p1) / <span class="nm">2</span>
- dx, dy = p1 - p0
- L = np.<span class="fn">hypot</span>(dx, dy)
- ctrl = mid + np.<span class="fn">array</span>([-dy, dx]) / (L + <span class="nm">1e-9</span>) * L * <span class="nm">0.22</span>
- pos = (<span class="nm">1</span>-t)**<span class="nm">2</span>*p0 + <span class="nm">2</span>*(<span class="nm">1</span>-t)*t*ctrl + t**<span class="nm">2</span>*p1
- deriv = <span class="nm">2</span>*(<span class="nm">1</span>-t)*(ctrl-p0) + <span class="nm">2</span>*t*(p1-ctrl)
- angle = np.<span class="fn">degrees</span>(np.<span class="fn">arctan2</span>(deriv[<span class="nm">1</span>], deriv[<span class="nm">0</span>]))
- <span class="kw">return</span> pos[<span class="nm">0</span>], pos[<span class="nm">1</span>], angle
-
-<span class="cm"># Parallel frame rendering 4 workers, one frame per worker</span>
-<span class="kw">with</span> mp.<span class="fn">Pool</span>(processes=<span class="nm">4</span>) <span class="kw">as</span> pool:
- <span class="kw">for</span> done <span class="kw">in</span> pool.<span class="fn">imap_unordered</span>(render_one, tasks):
- completed += <span class="nm">1</span></pre>
- </div>
- <br>
- <a href="india_flights_24hr_v2.py" class="download-button" download>&#8659; Download Python Script (.py)</a>
  </div>
 </section>
 
