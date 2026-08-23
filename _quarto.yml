@@ -14,6 +14,7 @@ project:
    - Blog/Field-to-the-Map/**
    - Blog/**
    - gee-projects/MODIS_NDVI_Animation/**
+   - files/**
   output-dir: _site/
 
 website:
