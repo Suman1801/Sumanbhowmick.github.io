@@ -13,7 +13,7 @@ sidebar: false
 ::: {.project-card}
 ### Global Forest Monitoring App
 
-![](files/electoral.png)
+![](files/Screenshot.png)
 
 <p class="card-description">
   An interactive web application built with <strong>Google Earth Engine</strong> that allows users 
