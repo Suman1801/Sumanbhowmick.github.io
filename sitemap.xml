@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://Suman1801.github.io/suman-portfolio/r-codes.html</loc>
-    <lastmod>2026-08-23T21:37:14.096Z</lastmod>
-  </url>
-  <url>
     <loc>https://Suman1801.github.io/suman-portfolio/python-projects/road-network/Visualizing Road Networks.html</loc>
-    <lastmod>2026-08-23T21:37:14.044Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Suman1801.github.io/suman-portfolio/index.html</loc>
-    <lastmod>2026-08-23T21:37:13.824Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Suman1801.github.io/suman-portfolio/gee.html</loc>
-    <lastmod>2026-08-23T21:37:13.819Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Suman1801.github.io/suman-portfolio/about.html</loc>
-    <lastmod>2026-08-23T21:37:13.613Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Suman1801.github.io/suman-portfolio/projects.html</loc>
-    <lastmod>2026-08-23T21:37:13.824Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Suman1801.github.io/suman-portfolio/gis-projects.html</loc>
-    <lastmod>2026-08-23T21:37:13.819Z</lastmod>
+    <lastmod>2026-10-05T14:03:52.096Z</lastmod>
   </url>
   <url>
     <loc>https://Suman1801.github.io/suman-portfolio/python-scripts.html</loc>
-    <lastmod>2026-08-23T21:37:14.096Z</lastmod>
+    <lastmod>2026-10-05T14:03:52.157Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Suman1801.github.io/suman-portfolio/gis-projects.html</loc>
+    <lastmod>2026-10-05T14:03:51.836Z</lastmod>
   </url>
   <url>
     <loc>https://Suman1801.github.io/suman-portfolio/posts.html</loc>
-    <lastmod>2026-08-23T21:37:13.824Z</lastmod>
+    <lastmod>2026-10-05T14:03:51.842Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Suman1801.github.io/suman-portfolio/index.html</loc>
+    <lastmod>2026-10-05T14:03:51.841Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Suman1801.github.io/suman-portfolio/projects.html</loc>
+    <lastmod>2026-10-05T14:03:51.842Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Suman1801.github.io/suman-portfolio/r-codes.html</loc>
+    <lastmod>2026-10-05T14:03:52.157Z</lastmod>
   </url>
   <url>
     <loc>https://Suman1801.github.io/suman-portfolio/publications.html</loc>
-    <lastmod>2026-08-23T21:37:13.824Z</lastmod>
+    <lastmod>2026-10-05T14:03:51.842Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Suman1801.github.io/suman-portfolio/gee.html</loc>
+    <lastmod>2026-10-05T14:03:51.836Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Suman1801.github.io/suman-portfolio/about.html</loc>
+    <lastmod>2026-10-05T14:03:51.594Z</lastmod>
   </url>
 </urlset>
