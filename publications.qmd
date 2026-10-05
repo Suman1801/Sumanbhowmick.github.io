@@ -1,8 +1,46 @@
 ---
 title: "Publications"
+subtitle: "Conference presentations, papers and research outputs"
+title-block-banner: "#1e3a8a"
+title-block-banner-color: "white"
 format:
   html:
     toc: false
+    css: publications.css
 ---
 
-Coming soon.
+::: {.pub-legend}
+[C]{.chip .t-c} Conference
+[J]{.chip .t-j} Journal
+[P]{.chip .t-p} Patent
+[S]{.chip .t-s} In submission
+[T]{.chip .t-t} Thesis
+:::
+
+## 2026
+
+:::: {.pub .t-c}
+::: {.pub-badge}
+C.1
+:::
+::: {.pub-body}
+[Bhowmick, S.]{.me} and Ghosh, K. G.
+
+[Changing Intra-Monsoonal Rainfall Event Characteristics and Growth Stage Crop Disaster Risks across Different Agro-Climatic Regions of India]{.pub-title}
+
+[National Conference on Climate Resilient WASH 2026 (CRWASH2026), Jadavpur University, Kolkata, India]{.pub-venue}
+
+[Conference]{.tag .t-c} [Poster presentation]{.tag .tag-soft}
+:::
+::::
+
+<!--
+To add buttons to an entry, put these inside .pub-body after the tags:
+
+[PDF](files/your-file.pdf){.btn-pub}
+[Poster](files/poster.pdf){.btn-pub}
+[DOI](https://doi.org/xxxx){.btn-pub}
+
+For a journal paper, use class t-j on the card (":::: {.pub .t-j}") and the tag
+[Journal]{.tag .t-j}. Likewise t-p, t-s, t-t for the other types.
+-->
